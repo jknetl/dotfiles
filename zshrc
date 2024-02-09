@@ -78,7 +78,6 @@ zstyle ':notify:*' success-title "Command finished (in #{time_elapsed} seconds)"
 # completion to work: https://github.com/ohmyzsh/ohmyzsh/issues/6323
 
 source <(kubectl completion zsh)
-source $HOME/.jfrog/jfrog_zsh_completion
 source $HOME/.zsh-completion/az.completion
 
 
