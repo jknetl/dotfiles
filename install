@@ -43,7 +43,6 @@ CONFIGS=(config/tmux/tmux.conf
     		 gitconfig
          gitattributes
          tigrc
-	    	 tmuxinator
          Xresources
          gitignore_global
          modules/base16-shell
