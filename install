@@ -15,6 +15,11 @@ FONT_PATH="$REPO_PATH/fonts/"
 dotfile_prefix="$HOME/."
 scripts_prefix="$HOME/bin/"
 
+MODULES=(
+  "base16-shell:modules/base16-shell"
+  "tpm:tmux/plugins/tpm"
+  "nvchad:config/nvim"
+)
 #config files with omited ~/. prefix
 CONFIGS=(config/tmux/tmux.conf
 	       config/nvim
@@ -45,8 +50,6 @@ CONFIGS=(config/tmux/tmux.conf
          tigrc
          Xresources
          gitignore_global
-         modules/base16-shell
-         tmux/plugins/tpm
          ctags
          antigen.zsh
          zshrc
@@ -101,6 +104,11 @@ function create_links {
       fi
 
       ln -s "$REPO_PATH$file" "$dotfile_prefix$file"
+  done
+
+  for module in "${MODULES[@]}"; do
+      IFS=':' read -r -a split_module <<< "$module"
+      ln -s "${REPO_PATH}modules/${split_module[0]}" "$dotfile_prefix${split_module[1]}"
   done
 
 

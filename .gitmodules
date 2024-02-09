@@ -4,3 +4,9 @@
 [submodule "tmux/plugins/tpm"]
 	path = tmux/plugins/tpm
 	url = git@github.com:tmux-plugins/tpm
+[submodule "modules/tpm"]
+	path = modules/tpm
+	url = https://github.com/tmux-plugins/tpm
+[submodule "modules/nvchad"]
+	path = modules/nvchad
+	url = https://github.com/NvChad/NvChad
