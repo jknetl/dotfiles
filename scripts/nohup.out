@@ -1,0 +1,4 @@
+
+(nm-applet:143385): Gdk-CRITICAL **: 20:58:15.746: gdk_window_thaw_toplevel_updates: assertion 'window->update_and_descendants_freeze_count > 0' failed
+Gdk-Message: 20:59:51.019: nm-applet: Fatal IO error 104 (Connection reset by peer) on X server :0.
+

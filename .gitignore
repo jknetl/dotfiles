@@ -1,0 +1,31 @@
+config/xfce4/panel/whiskermenu-16.rc
+config/xfce4/panel/whiskermenu-16.rc
+config/xfce4/xfconf/xfce-perchannel-xml/displays.xml
+config/xfce4/xfconf/xfce-perchannel-xml/parole.xml
+config/xfce4/xfconf/xfce-perchannel-xml/ristretto.xml
+
+# Created by https://www.gitignore.io/api/vim
+# Edit at https://www.gitignore.io/?templates=vim
+
+### Vim ###
+# Swap
+[._]*.s[a-v][a-z]
+[._]*.sw[a-p]
+[._]s[a-rt-v][a-z]
+[._]ss[a-gi-z]
+[._]sw[a-p]
+
+# Session
+Session.vim
+
+# Temporary
+.netrwhist
+*~
+# Auto-generated tag files
+tags
+# Persistent undo
+[._]*.un~
+
+.idea
+
+# End of https://www.gitignore.io/api/vim

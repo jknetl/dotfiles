@@ -1,0 +1,43 @@
+[merge]
+	tool = meld
+[core]
+	excludesfile = ~/.gitignore_global
+	pager = less -x4
+	editor = nvim
+	autocrlf = input
+[push]
+	default = simple
+[alias]
+  ci = commit
+  co = checkout
+  cob = checkout -b
+  st = status
+  br = branch
+  lod = log --oneline --graph --decorate
+  permission-reset = !git diff -p -R --no-color | grep -E \"^(diff|(old|new) mode)\" --color=never | git apply
+  hidden = !git ls-files -v | grep \"^[a-z]\"
+[user]
+	name = Jakub Knetl
+	email = knetl.j@gmail.com
+
+[include]
+    path = ~/.work.gitconfig
+[pull]
+	ff = only
+[pager]
+	branch = false
+	log = false
+	tag = false
+[rerere]
+	enabled = true
+[http]
+	cookiefile = ~/.gitcookies
+[cola]
+	spellcheck = false
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+[init]
+	defaultBranch = main

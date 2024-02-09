@@ -1,0 +1,49 @@
+#!/bin/bash
+#
+# pactl-default-sink
+# ------------------
+# This scripts obtains id of the most preferred sink in pulseaudio. The most
+# preferfed sink determined by static list, which should contain a sinks names,
+# starting from the most preferred one.
+
+function get_sink_id {
+	pactl list short sinks | grep $1 | awk '{print $1}'
+}
+
+preferred=( alsa_output.usb-ESI_U24XL-01.analog-stereo
+            alsa_output.pci-0000_00_1b.0.analog-stereo
+            alsa_output.pci-0000_00_03.0.hdmi-stereo )
+
+actual=$(pactl list short sinks | awk '{print $2}')
+
+sink_id=""
+
+for p in ${preferred[@]}; do
+	for sink in ${actual[@]} ; do
+		if [ "$p" == "$sink" ]; then
+			sink_id=$(get_sink_id $p)
+			break 2
+		fi
+   done
+done
+
+# if script reached here, no preferred sink was found
+# we should try default one
+
+if [ -z "$sink_id" ]; then
+	prefix="Default Sink: "
+	pulse_default_sink=$(pactl info | grep "$prefix")
+	pulse_default_sink=${pulse_default_sink#$prefix}
+	if [ -n "$pulse_default_sink" ]; then
+		sink_id=$(get_sink_id $pulse_default_sink )
+	fi
+fi
+
+
+if [ -z "$sink_id" ]; then
+	echo "Error: no matching sink found" >2
+	exit 1
+else
+	echo $sink_id
+	exit 0
+fi

@@ -1,0 +1,80 @@
+# create git repository with initial commit and gitignore
+# create git repository with initial commit and gitignore
+function create_git() {
+    if [ $# -lt 1 ]; then
+        echo "usage: create_git DIR_NAME [ignored,apps,separted,by,comma]"
+    fi
+
+    REPO_DIR=$1
+    mkdir -p $REPO_DIR
+    cd $REPO_DIR
+    git init
+
+    if [ $# -ge 2 ]; then
+        gi "$2" > .gitignore # create gitignore by calling CURL to gitignore.io
+    else
+        touch .gitignore
+    fi
+
+    git add .gitignore
+    git commit -m "Initial commit"
+}
+
+
+# general
+function x {
+  nohup "$@" > /dev/null &
+}
+
+function scale_monitor {
+  xrandr --output $1 --scale $2
+}
+
+function ol {
+  address=http://localhost
+  if [ $# -ge 1 ]; then
+    address="${address}:${1}"
+  else
+    address="${address}:8000"
+  fi
+  o $address
+}
+
+function mount_encrypted() {
+  encfs $1 $2
+  cd $2
+}
+
+
+function mount_windows_vm {
+  mkdir -p $HOME/shares/vms/$1
+  sudo mount -t cifs -o credentials=/root/.admin.credentials,_netdev,uid=1000,gid=1000  //$1/c$ $HOME/shares/vms/$1
+}
+
+function wget_download_website() {
+  if [ $# -lt 2 ]; then
+    echo "usage: wget_download_website DOMAIN_RESTRICTION START_URL"
+    echo "DOMAIN_RESTRICTION: comma separated list of allowed domains (see man wget --domans)"
+  fi
+  wget --recursive --no-clobber --page-requisites --html-extension --convert-links --restrict-file-names=windows --no-parent --domains $1 $2
+}
+
+function umount_encrypted() {
+ if [[ $PWD = $1 ]]; then
+   cd ..
+ fi
+ fusermount -u $1
+}
+
+# Execute a command until it is successfull
+function execute_until() {
+  until $@
+  do
+    echo "Try again"
+    sleep 5
+  done
+}
+
+if [ -f "$HOME/.work.functions" ]; then
+   source "$HOME/.work.functions"
+fi

@@ -1,0 +1,26 @@
+#!/bin/bash
+
+
+battery="/sys/class/power_supply/BAT0"
+
+full=$(cat /sys/class/power_supply/BAT0/energy_full)
+now=$(cat /sys/class/power_supply/BAT0/energy_now)
+
+percent=$(bc <<< "scale=2; ($now/$full) * 100")
+# trim to integer
+percent=$(bc <<< "$percent / 1")
+
+
+if (( $percent > 90 )) ; then
+  icon=
+elif (( $percent > 75)) ; then
+  icon=
+elif (( $percent > 35)) ; then
+  icon=
+elif (( $percent > 10)) ; then
+  icon=
+else
+  icon=
+fi
+
+echo "$icon  $percent %"

@@ -1,0 +1,68 @@
+GIT_AUTHOR_NAME="Jakub Knetl"
+
+# JAVA_HOME=/usr/lib/jvm/latest
+
+export BROWSER='firefox'
+export EDITOR='nvim'
+# export _JAVA_OPTIONS="-Dawt.useSystemAAFontSettings=lcd -Dsun.java2d.xrender=true"
+# directories
+export storage="$HOME/storage"
+export projects="$HOME/projects"
+export tmp="$HOME/tmp"
+
+# solarized skin
+export MC_SKIN="$HOME/.config/mc_solarized.ini"
+
+export DOTNET_ROOT="$HOME/.dotnet"
+
+export GOPATH="${HOME}/go"
+export GOBIN="${HOME}/go/bin"
+
+# ============================ PATH ===============================
+
+export PATH="${PATH}:${HOME}/bin"
+export PATH="${PATH}:${HOME}/.local/bin" # PIP3 locally installed packages go there on ubuntu
+export PATH="${PATH}:$JAVA_HOME/bin"
+export PATH="${PATH}:/opt/bin"
+export PATH="${PATH}:${HOME}/.dotnet/"
+export PATH="${PATH}:${KREW_ROOT:-$HOME/.krew}/bin"
+export PATH="${PATH}:/usr/local/go/bin"
+export PATH="${PATH}:$GOBIN"
+export PATH="${PATH}:${HOME}/.local/share/coursier/bin"
+export PATH="${PATH}:/opt/android-platform-tools"
+
+
+# Use rbenv insteod of rvm
+# export PATH="${PATH}:${HOME}/.rbenv/bin"
+
+#ANDROID_HOME=$HOME/Android/Sdk
+#export PATH="$ANDROID_HOME/tools:${PATH}" # Android SDK
+#export PATH="$ANDROID_HOME/tools/bin:${PATH}" # Android SDK
+#export PATH="$ANDROID_HOME/platform_tools:${PATH}" # Android SDK
+
+export dockerized="$HOME/projects/dockerized-tools"
+
+export vms="$shares/vms"
+export local_share="$shares/local_share"
+
+# Use dolphin/kde file chooser
+# make sure you have xdg-desktop-portal and xdg-desktop-portal-kde packages
+#export GTK_USE_PORTAL=1
+
+#SSH Key kde password storage
+#export SSH_ASKPASS='/usr/bin/ksshaskpass'
+
+export SSH_AUTH_SOCK=/run/user/1000/keyring/ssh
+
+# The work related stuff is not part of the source code
+if [ -f "$HOME/.work.env" ]; then
+  source "$HOME/.work.env"
+fi
+
+export AZ_SUBSCRIPTION_PERSONAL="84ee6c5a-4b19-4b15-a32e-19f23b8dde58"
+
+export FORGIT_COPY_CMD='xclip -selection clipboard'
+
+export USE_GKE_GCLOUD_AUTH_PLUGIN=True
+
+export ANSIBLE_CALLBACKS_ENABLED=profile_tasks

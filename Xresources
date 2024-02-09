@@ -1,0 +1,58 @@
+!Xft.lcdfilter: lcddefault
+URxvt*font: xft:Cascadia Code:size=11
+!URxvt*font: xft:Source Code Pro:size=12
+!URxvt.letterSpace: -1
+URxvt*scrollBar: false
+!URxvt*font:     xft:mono:medium:size=10
+!xterm*faceName: xft:mono:medium:size=10
+
+! special
+*.foreground:   #e6e1dc
+*.background:   #2b2b2b
+*.cursorColor:  #e6e1dc
+
+! black
+*.color0:       #2b2b2b
+*.color8:       #5a647e
+
+! red
+*.color1:       #da4939
+*.color9:       #da4939
+
+! green
+*.color2:       #a5c261
+*.color10:      #a5c261
+
+! yellow
+*.color3:       #ffc66d
+*.color11:      #ffc66d
+
+! blue
+*.color4:       #6d9cbe
+*.color12:      #6d9cbe
+
+! magenta
+*.color5:       #b6b3eb
+*.color13:      #b6b3eb
+
+! cyan
+*.color6:       #519f50
+*.color14:      #519f50
+
+! white
+*.color7:       #e6e1dc
+*.color15:      #f9f7f3
+
+Xcursor.theme: Breeze_Snow
+Xcursor.size: 16
+
+
+Xft.dpi: 96
+!Xft.dpi: 112
+URxvt.font: xft:FiraMono-Regular:size=10
+Xft.autohint: 0
+Xft.lcdfilter:  lcddefault
+Xft.hintstyle:  hintfull
+Xft.hinting: 1
+Xft.antialias: 1
+Xft.rgba: rgb

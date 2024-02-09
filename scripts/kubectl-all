@@ -1,0 +1,31 @@
+#!/bin/bash
+
+ADDITIONAL_ARGS=$@
+ALL_CLUSTERS=$(kubectl config get-contexts -o=name)
+
+#echo $ALL_CLUSTERS
+
+CLUSTERS=${CLUSTERS:=$ALL_CLUSTERS}
+
+REDIRECT=${REDIRECT:=}
+
+if [ ! -z "$REDIRECT"    -a  ! -d "$REDIRECT"  ]; then
+  echo "error REDIRECT=$REDIRECT : directory deosn't exist"
+  exit 1
+fi
+
+
+echo "Will execute command in clusters:"
+echo "$CLUSTERS"
+
+sleep 2
+
+for context in $CLUSTERS; do
+  echo "executing command: kubectl $ADDITIONAL_ARGS  -- in context ($context):"
+  if [ -z $REDIRECT ]; then
+    kubectl --context $context $ADDITIONAL_ARGS
+    printf "\n\n"
+  else
+    kubectl --context $context $ADDITIONAL_ARGS > $REDIRECT/output-$context.yaml
+  fi
+done

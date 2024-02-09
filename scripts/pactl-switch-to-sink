@@ -1,0 +1,13 @@
+#!/bin/bash
+#
+# This scripts switches all playback streams to the sink id passed as first
+# argument to the script
+
+streams=$(pactl list short sink-inputs | awk '{print $1}')
+
+sink_id="$1"
+
+for stream in $streams ; do
+	pactl move-sink-input "$stream" "$sink_id"
+done
+

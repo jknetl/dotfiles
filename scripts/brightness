@@ -1,0 +1,87 @@
+#!/bin/bash
+#
+# brightness
+# ===========
+# This scripts sets brightness using a sysfs.
+
+BACKLIGHT_PREFIX="/sys/class/backlight"
+BRIGHTNESS=brightness
+MAX_BRIGHTNESS=max_brightness
+
+function print_usage() {
+    echo "usage: brightness N/+N/-N"
+}
+
+function last_char() {
+    len=$((${#1}-1))
+    echo ${1:$len:1}
+}
+
+function without_last_char() {
+    len=$((${#1}-1))
+    echo ${1:0:$len}
+}
+
+function detect_device() {
+
+    for d in $(ls $BACKLIGHT_PREFIX ); do
+        if [ -f "$BACKLIGHT_PREFIX/$d/$BRIGHTNESS" -a -f "$BACKLIGHT_PREFIX/$d/$MAX_BRIGHTNESS" ]; then
+            device=$d
+        fi
+    done
+
+    echo $d
+}
+
+
+function get_current_percentage() {
+    current_level=$(cat $BACKLIGHT_PREFIX/$1/$BRIGHTNESS)
+    max=$(cat $BACKLIGHT_PREFIX/$1/$MAX_BRIGHTNESS)
+    current=$(((100*$current_level)/$max))
+
+    echo $current
+}
+
+
+if [ "$#" != "1" -o -z "$1" ]; then
+    >&2 print_usage
+    exit 1
+fi
+
+device=$(detect_device)
+
+if [ -z "$device" ]; then
+    echo "No device with brightness support has been found."
+    exit 2
+fi
+
+if [ "-" == "${1:0:1}" -o "+" == "${1:0:1}"  ]; then
+    #set relative value
+    current=$(get_current_percentage $device)
+    percentage=$(($current + $1))
+else
+    # set absolute value
+    percentage="$1"
+fi
+
+if [ $percentage -lt 0 ]; then
+    percentage=0
+fi
+
+if [ $percentage -gt 100 ]; then
+    percentage=100
+fi
+
+echo "setting brightenss to ${percentage}%"
+
+
+
+# set percentage for all devices
+for device in $(ls $BACKLIGHT_PREFIX ); do
+    if [ -f "$BACKLIGHT_PREFIX/$device/$BRIGHTNESS" -a -f "$BACKLIGHT_PREFIX/$device/$MAX_BRIGHTNESS" ]; then
+        max=$(cat "$BACKLIGHT_PREFIX/$device/$MAX_BRIGHTNESS")
+        value=$((($max*$percentage)/100))
+        echo $value > $BACKLIGHT_PREFIX/$device/$BRIGHTNESS
+    fi
+done
+

@@ -1,0 +1,22 @@
+#!/bin/bash
+
+# tmux-default
+# ============
+# usage: tmux-default [session]
+
+
+# Check whether default session is configured
+if [ -z $DEFAULT_TMUX_SESSION ]
+then
+    DEFAULT_TMUX_SESSION=prezto
+fi
+
+# Check if there is session parameter
+if [ $# -ge 1 ]
+then
+    session="$1"
+else
+    session=$DEFAULT_TMUX_SESSION
+fi
+
+tmux attach -t $session || tmux new -s $session

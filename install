@@ -1,0 +1,166 @@
+#!/bin/bash
+
+# Script for installation and configuration user environment.
+
+# Prerequisities (fedora package names):
+# ===============
+# git, zsh, freetype-freeworld, levien-inconsolata-fonts
+#
+
+DIRNAME=$(dirname $0)
+REPO_PATH=$(cd $DIRNAME && pwd)/
+
+FONT_PATH="$REPO_PATH/fonts/"
+
+dotfile_prefix="$HOME/."
+scripts_prefix="$HOME/bin/"
+
+#config files with omited ~/. prefix
+CONFIGS=(config/tmux/tmux.conf
+	 config/nvim
+         vimrc
+         gvimrc
+         profile
+         env
+         functions
+         aliases
+         kubectl_aliases
+         h.sh
+         config/tilda/config_0
+         config/gtk-3.0/settings.ini
+         config/gtk-4.0/settings.ini
+         config/mc_solarized.ini
+         config/redshift.conf
+         gtkrc-2.0
+         config/i3/config
+         config/i3/conkyrc
+         config/dunst/dunstrc
+         config/awesome/rc.lua
+         config/awesome/themes/default/theme.lua
+         config/autorandr/postswitch
+         config/picom/picom.conf
+         tern-config
+    		 gitconfig
+         gitattributes
+         tigrc
+	    	 tmuxinator
+         Xresources
+         gitignore_global
+         modules/base16-shell
+         tmux/plugins/tpm
+         ctags
+         antigen.zsh
+         zshrc
+         zshenv
+         zsh-completion
+         )
+
+SCRIPTS=(tmux-default
+         i3exit
+         brightness
+         battery
+         pactl-default-sink
+         i3status.sh
+         xkbmap-layout.sh
+         nm-i3.sh
+         monitor-select.sh
+         kubectl-all
+         docked.sh
+         rofi-pulse-sink.sh
+         rofi-pulse-source.sh
+)
+
+function backup {
+    for file in "${CONFIGS[@]}"
+    do
+        if [ -e "$dotfile_prefix$file" ]
+        then
+            cp "$dotfile_prefix$file" "$dotfile_prefix${file}.bck"
+        fi
+    done
+    for file in "${SCRIPTS[@]}"
+    do
+        if [ -e "$scripts_prefix$file" ]
+        then
+            cp "$scripts_prefix$file" "$dotfile_prefix${file}.bck"
+        fi
+    done
+}
+
+function create_links {
+  for file in "${CONFIGS[@]}"
+  do
+      #Create config file directory
+      if [ "." != $(dirname $file) ]
+      then
+          mkdir -p $dotfile_prefix$(dirname $file)
+      fi
+
+      if [ -e "$dotfile_prefix$file" ]
+      then
+          rm -rf "$dotfile_prefix$file"
+      fi
+
+      ln -s "$REPO_PATH$file" "$dotfile_prefix$file"
+  done
+
+
+  for file in "${SCRIPTS[@]}"
+  do
+      if [ ! -d $scripts_prefix ] ; then
+          mkdir -p $scripts_prefix ;
+      fi
+
+      # remove script if exists
+      if [ -e "$scripts_prefix$file" ] ; then
+          rm -rf "$scripts_prefix$file"
+      fi
+
+      ln -s "$REPO_PATH/scripts/$file" "$scripts_prefix$file"
+  done
+
+  ########## Copy fonts
+  if [ ! -d $HOME/.fonts ] ; then
+      mkdir $HOME/.fonts
+  fi
+
+  cp $FONT_PATH/$font/* "$HOME/.fonts/"
+
+}
+
+function print_usage {
+    echo "./install [opts]"
+    echo " -b backup configs"
+    echo " -l links - use links as configs"
+}
+
+if [ $# -lt 1 ]
+then
+    echo "No parameters specified. Usage:"
+    print_usage
+fi
+
+while getopts "lbi" opt; do
+    case $opt in
+        i)
+            echo "Installing needed packages and configuring environment"
+            install
+            ;;
+#        t)  echo "Installing gnome-terminal colorschemes"
+#            install_gt_colorschemes
+#            ;;
+#        u)
+#            echo "Update configuration by copying configuration files"
+#            copy
+#            ;;
+        b) echo "Creating backup of config files"
+            backup
+            ;;
+        l) echo "Replacing config files with links to the repository"
+            create_links
+            ;;
+        \?)
+            print_usage
+            ;;
+    esac
+done
