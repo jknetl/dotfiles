@@ -107,6 +107,7 @@ function create_links {
 
   for module in "${MODULES[@]}"; do
       IFS=':' read -r -a split_module <<< "$module"
+      mkdir -p "$(dirname "$dotfile_prefix${split_module[1]}")"
       ln -s "${REPO_PATH}modules/${split_module[0]}" "$dotfile_prefix${split_module[1]}"
   done
 
