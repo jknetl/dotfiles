@@ -22,7 +22,6 @@ MODULES=(
 )
 #config files with omited ~/. prefix
 CONFIGS=(config/tmux/tmux.conf
-	       config/nvim
          vimrc
          gvimrc
          profile
