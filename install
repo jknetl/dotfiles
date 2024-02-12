@@ -54,6 +54,7 @@ CONFIGS=(config/tmux/tmux.conf
          zshrc
          zshenv
          zsh-completion
+         config/nvim/lua/custom
          )
 
 SCRIPTS=(tmux-default
