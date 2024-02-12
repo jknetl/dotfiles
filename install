@@ -79,6 +79,20 @@ function backup {
             cp "$dotfile_prefix$file" "$dotfile_prefix${file}.bck"
         fi
     done
+
+    for module in "${MODULES[@]}"; do
+        IFS=':' read -r -a split_module <<< "$module"
+
+        destination_dir="$dotfile_prefix${split_module[1]}"
+
+        if  [ -e "$destination_dir" ] && [ ! -L "$destination_dir" ]; then
+          mv $destination_dir "${destination_dir}.bck"
+        fi
+
+        mkdir -p "$(dirname "$destination_dir")"
+        ln -s "${REPO_PATH}modules/${split_module[0]}" "$destination_dir"
+    done
+
     for file in "${SCRIPTS[@]}"
     do
         if [ -e "$scripts_prefix$file" ]
@@ -107,8 +121,15 @@ function create_links {
 
   for module in "${MODULES[@]}"; do
       IFS=':' read -r -a split_module <<< "$module"
-      mkdir -p "$(dirname "$dotfile_prefix${split_module[1]}")"
-      ln -s "${REPO_PATH}modules/${split_module[0]}" "$dotfile_prefix${split_module[1]}"
+
+      destination_dir="$dotfile_prefix${split_module[1]}"
+
+      if [ -L "$destination_dir" ]; then
+        continue # skip if already is a link
+      fi
+
+      mkdir -p "$(dirname "$destination_dir")"
+      ln -s "${REPO_PATH}modules/${split_module[0]}" "$destination_dir"
   done
 
 
