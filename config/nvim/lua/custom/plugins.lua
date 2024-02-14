@@ -8,6 +8,14 @@ local plugins = {
   {
     "christoomey/vim-tmux-navigator",
     lazy = false
+  },
+  {
+    "f-person/git-blame.nvim",
+    lazy = false
+  },
+  {
+    "tpope/vim-fugitive",
+    lazy = false
   }
 
   -- To make a plugin not be loaded
