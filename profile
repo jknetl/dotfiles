@@ -61,7 +61,7 @@ export PATH="$HOME/bin:$PATH"
 # >>> coursier install directory >>>
 export PATH="$PATH:$HOME/.local/share/coursier/bin"
 
-export SSH_AUTH_SOCK=/run/user/1000/keyring/ssh
+export SSH_AUTH_SOCK="/run/user/$UID/keyring/ssh"
 
 # <<< coursier install directory <<<
 #
