@@ -120,7 +120,7 @@ timezsh() {
     #source "$XDG_RUNTIME_DIR/ssh-agent.env" >/dev/null
 #fi
 
-export SSH_AUTH_SOCK="/run/user/$UID/keyring/ssh"
+export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/gcr/ssh"
 
 # add Pulumi to the PATH
 export PATH=$PATH:$HOME/.pulumi/bin

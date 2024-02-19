@@ -52,7 +52,7 @@ export local_share="$shares/local_share"
 #SSH Key kde password storage
 #export SSH_ASKPASS='/usr/bin/ksshaskpass'
 
-export SSH_AUTH_SOCK="/run/user/$UID/keyring/ssh"
+export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/gcr/ssh"
 
 # The work related stuff is not part of the source code
 if [ -f "$HOME/.work.env" ]; then
