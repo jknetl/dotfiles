@@ -52,7 +52,16 @@ export local_share="$shares/local_share"
 #SSH Key kde password storage
 #export SSH_ASKPASS='/usr/bin/ksshaskpass'
 
-export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/gcr/ssh"
+if [ -e "$XDG_RUNTIME_DIR/gcr/ssh" ];
+  then
+    # GCR is new replacement of gnome-keyring agent - see https://wiki.archlinux.org/title/GNOME/Keyring#SSH_keys 
+    export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/gcr/ssh"
+  elif [ -e "/run/user/$UID/keyring/ssh"] 
+    # use old gnome keyring agent if exists
+    export SSH_AUTH_SOCK="/run/user/$UID/keyring/ssh"
+  else
+    echo "ERROR: No keyring agent found. Is it running?"
+fi
 
 # The work related stuff is not part of the source code
 if [ -f "$HOME/.work.env" ]; then

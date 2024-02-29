@@ -120,7 +120,16 @@ timezsh() {
     #source "$XDG_RUNTIME_DIR/ssh-agent.env" >/dev/null
 #fi
 
-export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/gcr/ssh"
+if [ -e "$XDG_RUNTIME_DIR/gcr/ssh" ];
+  then
+    # GCR is new replacement of gnome-keyring agent - see https://wiki.archlinux.org/title/GNOME/Keyring#SSH_keys 
+    export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/gcr/ssh"
+  elif [ -e "/run/user/$UID/keyring/ssh"] 
+    # use old gnome keyring agent if exists
+    export SSH_AUTH_SOCK="/run/user/$UID/keyring/ssh"
+  else
+    echo "ERROR: No keyring agent found. Is it running?"
+fi
 
 # add Pulumi to the PATH
 export PATH=$PATH:$HOME/.pulumi/bin
