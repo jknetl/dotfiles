@@ -65,7 +65,8 @@ if [ -e "$XDG_RUNTIME_DIR/gcr/ssh" ];
   then
     # GCR is new replacement of gnome-keyring agent - see https://wiki.archlinux.org/title/GNOME/Keyring#SSH_keys 
     export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/gcr/ssh"
-  elif [ -e "/run/user/$UID/keyring/ssh"] 
+elif [ -e "/run/user/$UID/keyring/ssh" ];
+   then
     # use old gnome keyring agent if exists
     export SSH_AUTH_SOCK="/run/user/$UID/keyring/ssh"
   else
