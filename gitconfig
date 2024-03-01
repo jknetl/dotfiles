@@ -16,6 +16,11 @@
   lod = log --oneline --graph --decorate
   permission-reset = !git diff -p -R --no-color | grep -E \"^(diff|(old|new) mode)\" --color=never | git apply
   hidden = !git ls-files -v | grep \"^[a-z]\"
+	blamew = blame -w
+	blamewc = blame -w -C
+	blamewccc = blame -w -C -C -C
+	diffw = diff --word-diff
+	fpush = push --force-with-lease
 [user]
 	name = Jakub Knetl
 	email = knetl.j@gmail.com
@@ -30,6 +35,7 @@
 	tag = false
 [rerere]
 	enabled = true
+  autoUpdate = true
 [http]
 	cookiefile = ~/.gitcookies
 [cola]
@@ -41,3 +47,7 @@
 	required = true
 [init]
 	defaultBranch = main
+[branch]
+	sort = -committerdate
+[column]
+	ui = auto
