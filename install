@@ -70,6 +70,7 @@ SCRIPTS=(tmux-default
          docked.sh
          rofi-pulse-sink.sh
          rofi-pulse-source.sh
+         rm-older-than.sh
 )
 
 function backup {
