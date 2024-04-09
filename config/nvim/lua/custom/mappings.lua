@@ -9,6 +9,10 @@ M.general = {
     ["<C-j>"] = { "<cmd> TmuxNavigateDown<CR>", "window down" },
     ["<C-k>"] = { "<cmd> TmuxNavigateUp<CR>", "window up" },
 
+    ["<A-s>"] = {"<cmd> Gwrite <CR>"},
+    ["<A-k>"] = {"<cmd> G commit <CR>"},
+    ["<A-p>"] = {"<cmd> G push <CR>"},
+
     --  format with conform
   --   ["<leader>fm"] = {
   --     function()
@@ -17,9 +21,11 @@ M.general = {
   --     "formatting",
   --   }
   --
-  -- },
-  -- v = {
-  --   [">"] = { ">gv", "indent"},
+  },
+  i = {
+    ["<A-s>"] = {"<ESC> <cmd> Gwrite <CR>"},
+    ["<A-k>"] = {"<ESC> <cmd> G commit <CR>"},
+    ["<A-p>"] = {"<ESC> <cmd> G push <CR>"},
   },
 }
 
