@@ -190,7 +190,7 @@ assign [class="NetBeans IDE 8.1"] $ws3
 #assign [class="Code"] $ws3
 assign [class="jetbrains-pycharm-ce"] $ws3
 assign [class="jetbrains-pycharm"] $ws3
-assign [class="Gimp"] $ws3
+# assign [class="Gimp"] $ws3
 
 # workspace 4
 #assign [class="Gvim"] $ws4
