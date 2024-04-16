@@ -297,8 +297,8 @@
 
     ## Shortcuts:
     # Context menu.
-    history = ctrl+grave
-    close = ctrl+Escape
+    history = ctrl+shift+grave
+    close = ctrl+shift+Escape
     #close_all = ctrl+shift+grave
     context = ctrl+shift+period
 
