@@ -71,6 +71,7 @@ SCRIPTS=(tmux-default
          rofi-pulse-sink.sh
          rofi-pulse-source.sh
          rm-older-than.sh
+         kubeconfig-merge.sh
 )
 
 function backup {
