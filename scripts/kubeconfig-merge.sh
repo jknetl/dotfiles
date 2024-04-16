@@ -51,4 +51,5 @@ kubectl config view --flatten > /tmp/kubeconfig_merged
 
 # Move the merged configuration back to the original kubeconfig path
 mv /tmp/kubeconfig_merged $KUBECONFIG_PATH
+chmod 600 $KUBECONFIG_PATH
 echo "Merged config saved to $KUBECONFIG_PATH"
