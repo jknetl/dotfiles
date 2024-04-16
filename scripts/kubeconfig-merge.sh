@@ -18,7 +18,7 @@ echo "Backup of current kubeconfig created at $BACKUP_PATH"
 KUBECONFIG="$KUBECONFIG_PATH"
 for config in "$@"; do
     ABS_PATH=$(realpath "$config")  # Convert to absolute path
-    KUBECONFIG="$KUBECONFIG:$ABS_PATH"
+    KUBECONFIG="$ABS_PATH:$KUBECONFIG"
 done
 
 export KUBECONFIG
