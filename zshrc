@@ -139,7 +139,7 @@ fi
 # add Pulumi to the PATH
 export PATH=$PATH:$HOME/.pulumi/bin
 
-source /opt/bash-my-gcp/loader.zsh
+# source /opt/bash-my-gcp/loader.zsh
 
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f '/opt/google-cloud-sdk/path.zsh.inc' ]; then . '/opt/google-cloud-sdk/path.zsh.inc'; fi
