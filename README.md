@@ -28,6 +28,9 @@ git clone --recurse-submodules https://github.com/jknetl/dotfiles.git && cd dotf
 
 # Replace configs with the links to this repository
 ./install -l
+
+# install custom extensions to nvchad
+ln -s $(pwd)/config/nvim/lua/custom  /Users/jakub.knetl/dotfiles/modules/nvchad/lua/custom
 ```
 
 
