@@ -1,5 +1,28 @@
 #!/bin/bash
 
+# Initialize variables
+FORCE=0
+
+# Function to show usage information
+usage() {
+    echo "Usage: $0 [-f] <path_to_config1> [path_to_config2] ..."
+    exit 1
+}
+
+# Parse options
+while getopts ":f" opt; do
+  case ${opt} in
+    f )
+      FORCE=1
+      ;;
+    \? )
+      echo "Invalid Option: -$OPTARG" 1>&2
+      usage
+      ;;
+  esac
+done
+shift $((OPTIND -1))
+
 # Minimum one configuration file must be provided as a parameter
 if [ $# -lt 1 ]; then
     echo "Usage: $0 <path_to_config1> [path_to_config2] ..."
@@ -23,12 +46,13 @@ done
 
 export KUBECONFIG
 
-echo "Do you want to see the output and confirm the change before overwriting the current config?"
-echo "WARNING: it would show whole content of kubeconfig file INCLUDING SECRETS!"
-read -p "Do you want check output (secrets included)? (y/n) " -n 1 -r
-echo    # move to a new line
+if [[ $FORCE != 1 ]]; then
+  echo "Do you want to see the output and confirm the change before overwriting the current config?"
+  echo "WARNING: it would show whole content of kubeconfig file INCLUDING SECRETS!"
+  read -p "Do you want check output (secrets included)? (y/n) " -n 1 -r
+  echo    # move to a new line
 
-if [[ $REPLY =~ ^[Yy]$ ]]; then
+  if [[ $REPLY =~ ^[Yy]$ ]]; then
     echo "KUBECONFIG path: $KUBECONFIG"
     echo '==============================='
     kubectl config view --flatten
@@ -40,10 +64,11 @@ if [[ $REPLY =~ ^[Yy]$ ]]; then
     echo    # move to a new line
 
     if [[ ! $REPLY =~ ^[Yy]$ ]]; then
-        echo "Operation cancelled."
-        exit 1
+      echo "Operation cancelled."
+      exit 1
     fi
 
+  fi
 fi
 
 # Merge the configuration files with the current kubeconfig
