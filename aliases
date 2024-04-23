@@ -4,10 +4,10 @@ alias cat='bat --plain'
 alias catp='bat'
 alias catt='/usr/bin/cat'
 alias vim='nvim'
-alias ls='exa'
-alias ll='exa -l --icons --git'
-alias lt='exa --tree --icons'
-alias llt='exa -l --tree --icons --git'
+# alias ls='exa'
+# alias ll='exa -l --icons --git'
+# alias lt='exa --tree --icons'
+# alias llt='exa -l --tree --icons --git'
 
 # my pomodoro app
 alias pomodoro='pomodoro -g'
@@ -61,6 +61,10 @@ alias xcc='xclip -selection clipboard'
 alias xc='xclip -selection clipboard'
 alias xp='xclip -o -selection clipboard'
 alias xcp='xclip -selection clipboard ; xp'
+
+# pbcopy (MacOs xclip alternative)
+
+alias pb='pbcopy'
 
 # camera import
 alias import-camera='import-camera.sh $HOME/storage/fotky-import/tmp-$(date +%Y%m%d%H%M)'

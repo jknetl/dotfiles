@@ -38,9 +38,11 @@ antigen bundle zsh-users/zsh-autosuggestions
 # Last command exit status
 antigen bundle zpm-zsh/pr-return
 
-# Load the theme.
-antigen theme muse
-# Other themes I like: lambda, mikeh, minimal, muse, simple, sorin, superjarin
+# Load the theme
+# antigen theme https://github.com/denysdovhan/spaceship-zsh-theme spaceship
+
+antigen theme spaceship-prompt/spaceship-prompt
+# Other themes I like: avit, lambda, mikeh, minimal, muse, simple, sorin, superjarin
 
 #notification on long running command (default 30s)
 antigen bundle marzocchi/zsh-notify
@@ -138,6 +140,12 @@ fi
 
 # add Pulumi to the PATH
 export PATH=$PATH:$HOME/.pulumi/bin
+
+
+# Configure spaceship-prompt theme
+spaceship remove kubectl # removes kubectl from left prompt
+export SPACESHIP_KUBECTL_SHOW=true # shows kubectl info
+export SPACESHIP_RPROMPT_ORDER=( kubectl )
 
 # source /opt/bash-my-gcp/loader.zsh
 

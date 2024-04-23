@@ -18,7 +18,7 @@ scripts_prefix="$HOME/bin/"
 MODULES=(
   "base16-shell:modules/base16-shell"
   "tpm:tmux/plugins/tpm"
-  "nvchad:config/nvim"
+  "nvchad/:config/nvim"
 )
 #config files with omited ~/. prefix
 CONFIGS=(config/tmux/tmux.conf
@@ -72,6 +72,7 @@ SCRIPTS=(tmux-default
          rofi-pulse-source.sh
          rm-older-than.sh
          kubeconfig-merge.sh
+         rancher-get-kubeconfig.sh
 )
 
 function backup {
