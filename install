@@ -73,6 +73,7 @@ SCRIPTS=(tmux-default
          rm-older-than.sh
          kubeconfig-merge.sh
          rancher-get-kubeconfig.sh
+         aws-profile.sh
 )
 
 function backup {
