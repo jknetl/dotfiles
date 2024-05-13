@@ -79,3 +79,4 @@ export FORGIT_COPY_CMD='xclip -selection clipboard'
 export USE_GKE_GCLOUD_AUTH_PLUGIN=True
 
 export ANSIBLE_CALLBACKS_ENABLED=profile_tasks
+export AWS_PAGER=""

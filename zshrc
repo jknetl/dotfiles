@@ -27,6 +27,8 @@ antigen bundle sudo
 antigen bundle web-search
 antigen bundle dirhistory
 
+antigen bundle aws
+
 antigen bundle 'wfxr/forgit'
 
 # Syntax highlighting bundle.
