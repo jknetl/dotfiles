@@ -30,8 +30,9 @@ alias restart-plasma='kquitapp5 plasmashell ; kstart5 plasmashell'
 # alias git-revert-filemode-changes='git diff --summary | grep --color "mode change" | cut -d" " -f7- | xargs -e"\n" chmod ' # needs to specify mode
 # alias git-check-merge='git merge --no-ff --no-commit bugfix/TM-3613-smazani-vychozi-sablony; git merge --abort'
 alias g='git'
-alias githash='git rev-parse --short HEAD'
-alias githashfull='git rev-parse HEAD'
+alias gcb='git branch --show-current'
+alias ghash='git rev-parse --short HEAD'
+alias ghashfull='git rev-parse HEAD'
 
 # C programming
 alias gdbb="gdb --tui"
