@@ -157,7 +157,15 @@ if [ -f '/opt/google-cloud-sdk/path.zsh.inc' ]; then . '/opt/google-cloud-sdk/pa
 # The next line enables shell command completion for gcloud.
 if [ -f '/opt/google-cloud-sdk/completion.zsh.inc' ]; then . '/opt/google-cloud-sdk/completion.zsh.inc'; fi
 
+# Bash my aws
+export PATH="$PATH:${BMA_HOME:-$HOME/.bash-my-aws}/bin"
+source ${BMA_HOME:-$HOME/.bash-my-aws}/aliases
+
+autoload -U +X compinit && compinit
 autoload -U +X bashcompinit && bashcompinit
+
 complete -o nospace -C /usr/bin/terraform terraform
 
 complete -o nospace -C /opt/homebrew/bin/terraform terraform
+
+source ${BMA_HOME:-$HOME/.bash-my-aws}/bash_completion.sh
