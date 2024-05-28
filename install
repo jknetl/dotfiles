@@ -55,6 +55,8 @@ CONFIGS=(config/tmux/tmux.conf
          zshenv
          zsh-completion
          config/nvim/lua/custom
+         yabairc
+         skhdrc
          )
 
 SCRIPTS=(tmux-default
