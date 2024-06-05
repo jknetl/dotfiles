@@ -143,9 +143,12 @@ fi
 # add Pulumi to the PATH
 export PATH=$PATH:$HOME/.pulumi/bin
 
+fpath=($fpath $HOME/.zsh-completion)
+
 
 # Configure spaceship-prompt theme (see https://spaceship-prompt.sh/config/prompt)
 spaceship remove kubectl # removes kubectl from left prompt
+spaceship remove azure # removes kubectl from left prompt
 export SPACESHIP_KUBECTL_SHOW=true # shows kubectl info
 export SPACESHIP_RPROMPT_ORDER=( kubectl )
 
