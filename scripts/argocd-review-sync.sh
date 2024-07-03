@@ -1,9 +1,11 @@
 #!/bin/bash
 
+export KUBECTL_EXTERNAL_DIFF="diff --color"
+ARGOCD_OPTS="--grpc-web"
 # Function to list all apps matching the filter
 list_apps() {
     local filter=$1
-    argocd app list -l "$filter" --output=name
+    argocd $ARGOCD_OPTS app list -l "$filter" --output=name
 }
 
 print_apps() {
@@ -21,7 +23,7 @@ print_apps() {
 # Function to display diff for each app
 display_diff() {
     local app=$1
-    argocd app diff "$app"
+    argocd $ARGOCD_OPTS app diff "$app"
 }
 
 # Function to sync all apps matching the filter
@@ -29,7 +31,7 @@ sync_apps() {
     local filter=$1
     echo "Syncing apps matching filter: $filter"
     sleep 2 # Safety sleep to allow to interrupt
-    argocd app sync -l "$filter"
+    argocd $ARGOCD_OPTS app sync -l "$filter"
 }
 
 # Main script
