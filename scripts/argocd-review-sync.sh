@@ -1,6 +1,6 @@
 #!/bin/bash
 
-export KUBECTL_EXTERNAL_DIFF="diff --color"
+export KUBECTL_EXTERNAL_DIFF="git --no-pager diff -U0 --word-diff --word-diff-regex=."
 ARGOCD_OPTS="--grpc-web"
 # Function to list all apps matching the filter
 list_apps() {
