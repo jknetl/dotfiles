@@ -76,6 +76,7 @@ SCRIPTS=(tmux-default
          kubeconfig-merge.sh
          rancher-get-kubeconfig.sh
          aws-profile.sh
+         argocd-review-sync.sh
 )
 
 function backup {
