@@ -32,6 +32,8 @@ export PATH="${PATH}:${HOME}/.local/share/coursier/bin"
 export PATH="${PATH}:/opt/android-platform-tools"
 export PATH="${PATH}:${HOME}/Library/Python/3.11/bin"
 
+export PATH="${PATH}:/Applications/IntelliJ IDEA.app/Contents/MacOS"
+
 
 # Use rbenv insteod of rvm
 # export PATH="${PATH}:${HOME}/.rbenv/bin"

@@ -1,3 +1,11 @@
+### Intellij ###
+.idea
+*.iml
+
+# terraform
+.terraform
+**/.terraform
+
 ### Java ###
 *.class
 
