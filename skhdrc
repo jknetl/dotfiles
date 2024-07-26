@@ -86,8 +86,8 @@ alt - h : yabai -m window --focus west
 alt - l : yabai -m window --focus east
 
 #change focus between external displays (left and right)
-alt - s: yabai -m display --focus west
-alt - g: yabai -m display --focus east
+# alt - left: yabai -m display --focus west
+# alt - right: yabai -m display --focus east
 
 
 # rotate layout clockwise
@@ -116,9 +116,12 @@ ctrl + alt - k : yabai -m window --warp north
 ctrl + alt - h : yabai -m window --warp west
 ctrl + alt - l : yabai -m window --warp east
 
-# move window to display left and right
-shift + alt - s : yabai -m window --display west; yabai -m display --focus west;
-shift + alt - g : yabai -m window --display east; yabai -m display --focus east;
+# move window to display left or right and focus that display
+# shift + alt - left : yabai -m window --display west; yabai -m display --focus west;
+# shift + alt - right : yabai -m window --display east; yabai -m display --focus east;
+# move window to display left or right 
+shift + alt - left : yabai -m window --display west
+shift + alt - right : yabai -m window --display east
 
 # the focusing display in second part of the command requires scripting addition to be enabled
 shift + ctrl - right : yabai -m window --space next; yabai -m display --space next;
@@ -137,7 +140,8 @@ shift + alt - c : open -na /Applications/iTerm.app
 alt - b : open -a /Applications/Firefox.app
 shift + alt - b : open -na /Applications/Firefox.app
 
-alt - m : open -a /Applications/Slack.app
+alt - s : open -a /Applications/Slack.app
+alt - o : open -a "/Applications/Microsoft Outlook.app"
 alt - n : open -a /Applications/Obsidian.app
 alt - z : open -a /Applications/zoom.us.app
 
@@ -194,10 +198,10 @@ shift + alt - s : yabai -m window --resize bottom:0:50
 shift + alt - d : yabai -m window --resize right:50:0
 
 # decrease window size
-shift + cmd - w : yabai -m window --resize top:0:50
-shift + cmd - a : yabai -m window --resize left:50:00
-shift + cmd - s : yabai -m window --resize bottom:0:-50
-shift + cmd - d : yabai -m window --resize right:-50:00
+shift + ctrl - w : yabai -m window --resize top:0:50
+shift + ctrl - a : yabai -m window --resize left:50:00
+shift + ctrl - s : yabai -m window --resize bottom:0:-50
+shift + ctrl - d : yabai -m window --resize right:-50:00
 
 # set insertion point in focused container
 # ctrl + alt - h : yabai -m window --insert west
