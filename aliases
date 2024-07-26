@@ -123,6 +123,8 @@ alias _datetime2='datetime2-prefix'
 
 
 alias awsp='export AWS_PROFILE=$(aws-profile.sh )'
+alias awsr='export AWS_PROFILE=$(aws-role.sh )'
+alias awsl='aws sso login'
 
 alias sl='screen-layout'
 
