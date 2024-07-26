@@ -75,6 +75,31 @@ function execute_until() {
   done
 }
 
+# List eks clusters across all regions in aws account
+function aws-eks-list-clusters() {
+  for region in $(aws ec2 describe-regions --query "Regions[].RegionName" --output text); do
+    clusters=$(aws eks list-clusters --region $region --query "clusters[]" --output text)
+    echo "Fetching clusters for regions: $region"
+    if [ -n "$clusters" ]; then
+      echo "Region: $region"
+      echo "$clusters"
+    fi
+  done
+}
+
+# List ec2 instances across all regions in aws account
+function aws-ec2-list-instances() {
+  for region in $(aws ec2 describe-regions --query "Regions[].RegionName" --output text); do
+    instances=$(aws ec2 describe-instances --region $region --query  "Reservations[*].Instances[*].Tags[?Key=='Name'].Value" --output text)
+    echo "Fetching ec2 instances for regions: $region"
+    if [ -n "$instances" ]; then
+      echo "\nRegion: $region"
+      echo "==="
+      echo "$instances\n"
+    fi
+  done
+}
+
 if [ -f "$HOME/.work.functions" ]; then
    source "$HOME/.work.functions"
 fi
