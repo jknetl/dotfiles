@@ -1,14 +1,12 @@
 #!/bin/bash
 
+RANCHER_CONFIG_FILE="${RANCHER_CONFIG_FILE:-$HOME/.kube/rancher-clusters.yaml}"
+FETCHED_CONFIG_FILES=$(mktemp -t rancher-kubeconfig-list)
+PARALLELISM_LIMIT=20
+
 clusters=$(rancher cluster ls --format '{{.Cluster.Name}}/{{.Cluster.ID}}')
 
-RANCHER_KUBECONFIG_FILE="${RANCHER_KUBECONFIG_FILE:=~/.kube/rancher-clusters.yaml}"
-
-#echo "Clearing the currrent contnent of the kubeconfig file: $RANCHER_KUBECONFIG_FILE"
-#echo "" > $RANCHER_KUBECONFIG_FILE
-
-
-FETCHED_CONFIG_FILES=$(mktemp -t rancher-kubeconfig-list)
+touch $RANCHER_CONFIG_FILE
 
 
 function get_config_from_rancher() {
@@ -28,13 +26,11 @@ for cluster in $clusters; do
     } &
 
     ((counter++))
-    if [ $counter -ge 10 ]; then
+    if [ $counter -ge $PARALLELISM_LIMIT ]; then
       wait
       counter=0
     fi
-
 done
-
 wait
 
 while IFS= read -r line; do
@@ -44,5 +40,5 @@ rm $FETCHED_CONFIG_FILES
 
 echo "Merging to kubeconfig file..."
 for config_file in "${config_files[@]}"; do
-  kubeconfig-merge.sh -f $config_file > /dev/null
+  KUBE_MERGE_PATH="$RANCHER_CONFIG_FILE" kubeconfig-merge.sh -f $config_file > /dev/null
 done

@@ -75,6 +75,7 @@ SCRIPTS=(tmux-default
          rm-older-than.sh
          kubeconfig-merge.sh
          rancher-get-kubeconfig.sh
+         rancher-get-all-configs.sh
          aws-profile.sh
          aws-role.sh
          argocd-review-sync.sh

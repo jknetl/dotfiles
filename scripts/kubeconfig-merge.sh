@@ -30,15 +30,14 @@ if [ $# -lt 1 ]; then
 fi
 
 # Define the kubeconfig and backup paths
-KUBECONFIG_PATH="$HOME/.kube/config"
-BACKUP_PATH="${KUBECONFIG_PATH}.$(date +%Y-%m-%d_%H-%M-%S).bak"
+KUBE_MERGE_PATH="${KUBE_MERGE_PATH:-$HOME/.kube/config}"
 
 # Create a backup of the current kubeconfig
-cp $KUBECONFIG_PATH $BACKUP_PATH
+cp "$KUBE_MERGE_PATH" "$BACKUP_PATH"
 echo "Backup of current kubeconfig created at $BACKUP_PATH"
 
 # Build the KUBECONFIG variable with absolute paths
-KUBECONFIG="$KUBECONFIG_PATH"
+KUBECONFIG="$KUBE_MERGE_PATH"
 for config in "$@"; do
     ABS_PATH=$(realpath "$config")  # Convert to absolute path
     KUBECONFIG="$ABS_PATH:$KUBECONFIG"
@@ -75,6 +74,6 @@ fi
 kubectl config view --flatten > /tmp/kubeconfig_merged
 
 # Move the merged configuration back to the original kubeconfig path
-mv /tmp/kubeconfig_merged $KUBECONFIG_PATH
-chmod 600 $KUBECONFIG_PATH
-echo "Merged config saved to $KUBECONFIG_PATH"
+mv /tmp/kubeconfig_merged "$KUBE_MERGE_PATH"
+chmod 600 "$KUBE_MERGE_PATH"
+echo "Merged config saved to $KUBE_MERGE_PATH"
