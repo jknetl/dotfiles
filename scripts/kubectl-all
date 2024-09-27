@@ -2,10 +2,12 @@
 
 ADDITIONAL_ARGS=$@
 ALL_CLUSTERS=$(kubectl config get-contexts -o=name)
-
-#echo $ALL_CLUSTERS
-
+CLUSTER_FILTER=${CLUSTER_FILTER:-}
 CLUSTERS=${CLUSTERS:=$ALL_CLUSTERS}
+
+if [ ! -z "$CLUSTER_FILTER" ]; then
+  CLUSTERS=$(echo "$CLUSTERS" | grep "$CLUSTER_FILTER")
+fi
 
 REDIRECT=${REDIRECT:=}
 
@@ -13,7 +15,6 @@ if [ ! -z "$REDIRECT"    -a  ! -d "$REDIRECT"  ]; then
   echo "error REDIRECT=$REDIRECT : directory deosn't exist"
   exit 1
 fi
-
 
 echo "Will execute command in clusters:"
 echo "$CLUSTERS"
