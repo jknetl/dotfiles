@@ -22,7 +22,7 @@ echo "$CLUSTERS"
 sleep 2
 
 for context in $CLUSTERS; do
-  echo "executing command: kubectl $ADDITIONAL_ARGS  -- in context ($context):"
+  echo "executing command: kubectl --context $context $ADDITIONAL_ARGS"
   if [ -z $REDIRECT ]; then
     kubectl --context $context $ADDITIONAL_ARGS
     printf "\n\n"
