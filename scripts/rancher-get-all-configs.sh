@@ -2,7 +2,7 @@
 
 RANCHER_CONFIG_FILE="${RANCHER_CONFIG_FILE:-$HOME/.kube/rancher-clusters.yaml}"
 FETCHED_CONFIG_FILES=$(mktemp -t rancher-kubeconfig-list)
-PARALLELISM_LIMIT=20
+PARALLELISM_LIMIT=10
 
 clusters=$(rancher cluster ls --format '{{.Cluster.Name}}/{{.Cluster.ID}}')
 
