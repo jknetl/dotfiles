@@ -57,6 +57,7 @@ CONFIGS=(config/tmux/tmux.conf
          config/nvim/lua/custom
          yabairc
          skhdrc
+         aerospace.toml
          )
 
 SCRIPTS=(tmux-default
