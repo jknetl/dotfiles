@@ -5,3 +5,8 @@
 --   pattern = "*",
 --   command = "tabdo wincmd =",
 -- })
+
+
+-- Disable yanking to system clipboard by default
+local opt = vim.opt
+opt.clipboard = ""
