@@ -12,7 +12,8 @@ function move_app_to_workspace() {
 
 # Move all Firefox windows to workspace 1
 move_app_to_workspace firefox 1
-move_app_to_workspace slack 9
-move_app_to_workspace obsidian 8
 move_app_to_workspace iterm 2
 move_app_to_workspace intellij 3
+move_app_to_workspace obsidian 8
+move_app_to_workspace slack 9
+move_app_to_workspace outlook 10
