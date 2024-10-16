@@ -80,6 +80,8 @@ SCRIPTS=(tmux-default
          aws-profile.sh
          aws-role.sh
          argocd-review-sync.sh
+         aerospace-reposition-windows.sh
+         aerospace-remove-ghost-windows.sh
 )
 
 function backup {
