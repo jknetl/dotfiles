@@ -51,3 +51,5 @@
 	sort = -committerdate
 [column]
 	ui = auto
+[gpg]
+	program = gpg

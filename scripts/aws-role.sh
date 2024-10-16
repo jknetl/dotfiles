@@ -13,16 +13,14 @@ current_profile=$AWS_PROFILE
 
 if [ ! -z "$current_profile" ]; then
   # the current_profile starts has two parts separated by a '/' filter out options which have different first part
-  echo "$current_profile"
   current_account=$(echo $current_profile | cut -d'/' -f1)
-  echo $current_account
   options=($(printf "%s\n" "${options[@]}" | grep "$current_account"))
 fi
 
 
 # Check if options were found
 if [ ${#options[@]} -eq 0 ]; then
-  echo "No profiles found in the configuration file."
+  >&2 echo "No profiles found in the configuration file."
   exit 1
 fi
 
