@@ -195,6 +195,21 @@ alt-q = 'close --quit-if-last-window'
 alt-x = 'close'
 alt-g = 'exec-and-forget ~/bin/aerospace-remove-ghost-windows.sh'
 
+# Launchers
+alt-enter = 'exec-and-forget open -n /Applications/iTerm.app'
+alt-c = 'exec-and-forget open -n /Applications/iTerm.app'
+
+alt-b = 'exec-and-forget open -a /Applications/Firefox.app'
+alt-shift-b = 'exec-and-forget open -na /Applications/Firefox.app'
+alt-s = 'exec-and-forget open -a /Applications/Slack.app'
+alt-o = 'exec-and-forget open -a "/Applications/Microsoft Outlook.app"'
+alt-n = 'exec-and-forget open -a /Applications/Obsidian.app'
+alt-z = 'exec-and-forget open -a /Applications/zoom.us.app'
+alt-a = 'exec-and-forget open -a /Applications/ChatGPT.app'
+alt-m = 'exec-and-forget open -a /Applications/Miro.app'
+alt-e = 'exec-and-forget open -a /Applications/Visual Studio Code.app'
+alt-i = 'exec-and-forget open -a "/Applications/IntelliJ IDEA.app"'
+
 # 'service' binding mode declaration.
 # See: https://nikitabobko.github.io/AeroSpace/guide#binding-modes
 [mode.service.binding]
