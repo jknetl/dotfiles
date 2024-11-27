@@ -78,18 +78,18 @@
 
 # App launchers
 # Launch new window of iTerm
-# alt - c : open -a /Applications/iTerm.app
-# shift + alt - c : open -na /Applications/iTerm.app
-# alt - b : open -a /Applications/Firefox.app
-# shift + alt - b : open -na /Applications/Firefox.app
-# alt - s : open -a /Applications/Slack.app
-# alt - o : open -a "/Applications/Microsoft Outlook.app"
-# alt - n : open -a /Applications/Obsidian.app
-# alt - z : open -a /Applications/zoom.us.app
-# alt - a : open -a /Applications/ChatGPT.app
-# alt - m : open -a /Applications/Miro.app
-# alt - e : open -a /Applications/Visual Studio Code.app
-# alt - i : open -a "/Applications/IntelliJ IDEA.app"
+alt - c : open -na /Applications/Kitty.app
+shift + alt - c : open -a /Applications/iTerm.app
+alt - b : open -a /Applications/Firefox.app
+shift + alt - b : open -na /Applications/Firefox.app --args -P
+alt - s : open -a /Applications/Slack.app
+alt - o : open -a "/Applications/Microsoft Outlook.app"
+alt - n : open -a /Applications/Obsidian.app
+alt - z : open -a /Applications/zoom.us.app
+alt - a : open -a /Applications/ChatGPT.app
+alt - m : open -a /Applications/Miro.app
+alt - e : open -a "/Applications/Visual Studio Code.app"
+alt - i : open -a "/Applications/IntelliJ IDEA.app"
 
 # Reload skhd confi
 ctrl + alt - r : shkd --reload
