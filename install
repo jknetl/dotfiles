@@ -58,6 +58,8 @@ CONFIGS=(config/tmux/tmux.conf
          yabairc
          skhdrc
          aerospace.toml
+         config/borders/bordersrc
+         config/kitty/kitty.conf
          )
 
 SCRIPTS=(tmux-default
