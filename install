@@ -60,6 +60,7 @@ CONFIGS=(config/tmux/tmux.conf
          aerospace.toml
          config/borders/bordersrc
          config/kitty/kitty.conf
+         config/starship.toml
          )
 
 SCRIPTS=(tmux-default
