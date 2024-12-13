@@ -12,3 +12,6 @@ export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || pr
 alias assume=". assume"
 
 export TERM=xterm-256color
+export KUBECTL_EXTERNAL_DIFF="colordiff -N -u"
+
+export TERM=xterm-256color
