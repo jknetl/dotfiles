@@ -40,10 +40,7 @@ antigen bundle zsh-users/zsh-autosuggestions
 # Last command exit status
 antigen bundle zpm-zsh/pr-return
 
-# Load the theme
-# antigen theme https://github.com/denysdovhan/spaceship-zsh-theme spaceship
-
-antigen theme spaceship-prompt/spaceship-prompt
+#
 # Other themes I like: avit, lambda, mikeh, minimal, muse, simple, sorin, superjarin
 
 #notification on long running command (default 30s)
@@ -145,13 +142,6 @@ export PATH=$PATH:$HOME/.pulumi/bin
 
 fpath=($fpath $HOME/.zsh-completion)
 
-
-# Configure spaceship-prompt theme (see https://spaceship-prompt.sh/config/prompt)
-spaceship remove kubectl # removes kubectl from left prompt
-spaceship remove azure # removes kubectl from left prompt
-export SPACESHIP_KUBECTL_SHOW=true # shows kubectl info
-export SPACESHIP_RPROMPT_ORDER=( kubectl )
-
 # source /opt/bash-my-gcp/loader.zsh
 
 # The next line updates PATH for the Google Cloud SDK.
@@ -172,3 +162,8 @@ complete -o nospace -C /usr/bin/terraform terraform
 complete -o nospace -C /opt/homebrew/bin/terraform terraform
 
 source ${BMA_HOME:-$HOME/.bash-my-aws}/bash_completion.sh
+
+export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
+
+# enable starship prompt
+eval "$(starship init zsh)"
