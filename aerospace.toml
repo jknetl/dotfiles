@@ -104,8 +104,8 @@ alt-shift-k = 'move up'
 alt-shift-l = 'move right'
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#resize
-alt-shift-minus = 'resize smart -100'
-alt-shift-equal = 'resize smart +100'
+alt-shift-minus = 'resize smart -200'
+alt-shift-equal = 'resize smart +200'
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#workspace
 alt-1 = 'workspace 1'
@@ -181,10 +181,10 @@ alt-tab = 'workspace-back-and-forth'
 alt-shift-tab = 'move-workspace-to-monitor --wrap-around next'
 
 # Arrow keys for monitor switching / moving apps
-alt-left= 'focus-monitor --wrap-around next'
-alt-right= 'focus-monitor --wrap-around prev'
-alt-shift-right = 'move-workspace-to-monitor --wrap-around next'
-alt-shift-left = 'move-workspace-to-monitor --wrap-around prev'
+ctrl-alt-left= 'focus-monitor --wrap-around next'
+ctrl-alt-right= 'focus-monitor --wrap-around prev'
+ctrl-alt-shift-right = 'move-workspace-to-monitor --wrap-around next'
+ctrl-alt-shift-left = 'move-workspace-to-monitor --wrap-around prev'
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#mode
 alt-shift-semicolon = 'mode service'
@@ -207,7 +207,7 @@ alt-n = 'exec-and-forget open -a /Applications/Obsidian.app'
 alt-z = 'exec-and-forget open -a /Applications/zoom.us.app'
 alt-a = 'exec-and-forget open -a /Applications/ChatGPT.app'
 alt-m = 'exec-and-forget open -a /Applications/Miro.app'
-alt-e = 'exec-and-forget open -a /Applications/Visual Studio Code.app'
+alt-e = 'exec-and-forget open -a "/Applications/Visual Studio Code.app"'
 alt-i = 'exec-and-forget open -a "/Applications/IntelliJ IDEA.app"'
 
 # 'service' binding mode declaration.
