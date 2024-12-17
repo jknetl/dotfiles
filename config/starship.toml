@@ -101,5 +101,8 @@ $character"""
 # Enable kubernetes module (it's disabled by default)
 [kubernetes]
 disabled = false
+symbol = '☸'
 style = 'blue bold'
-format = '[$symbol$context( \($namespace\))]($style)'
+# format = '[\($symbol|$context:($namespace)\)]($style) ' # one color working
+format = '\([$symbol](blue)|[$context](red):[$namespace](cyan)\) '
+
