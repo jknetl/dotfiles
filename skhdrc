@@ -89,7 +89,7 @@ alt - z : open -a /Applications/zoom.us.app
 alt - a : open -a /Applications/ChatGPT.app
 alt - m : open -a /Applications/Miro.app
 alt - e : open -a "/Applications/Visual Studio Code.app"
-alt - i : open -a "/Applications/IntelliJ IDEA.app"
+# alt - i : open -a "/Applications/IntelliJ IDEA.app"
 
 # Reload skhd confi
 ctrl + alt - r : shkd --reload
