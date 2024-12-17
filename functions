@@ -103,3 +103,9 @@ function aws-ec2-list-instances() {
 if [ -f "$HOME/.work.functions" ]; then
    source "$HOME/.work.functions"
 fi
+
+
+# list ec2 instances
+function aws-ec2() {
+  aws ec2 describe-instances $@ | jq '[.Reservations[].Instances[] | {id: .InstanceId, name: (.Tags[] | select(.Key == "Name") | .Value), "PrivateIpAddress": .PrivateIpAddress}]'
+}
