@@ -21,7 +21,7 @@ antigen bundle helm
 antigen bundle kubectl
 antigen bundle kube-ps1
 antigen bundle nvm
-antigen bundle z
+# antigen bundle z
 antigen bundle command-not-found
 antigen bundle sudo
 antigen bundle web-search
@@ -63,6 +63,9 @@ if [ -f ~/.functions ]; then
     source ~/.functions
 fi
 
+
+# Zoxide
+eval "$(zoxide init zsh)"
 
 ### Plugin specific settings
 
