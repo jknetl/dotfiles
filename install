@@ -18,7 +18,7 @@ scripts_prefix="$HOME/bin/"
 MODULES=(
   "base16-shell:modules/base16-shell"
   "tpm:tmux/plugins/tpm"
-  "nvchad/:config/nvim"
+  # "nvchad/:config/nvim"  -- disabled
 )
 #config files with omited ~/. prefix
 CONFIGS=(config/tmux/tmux.conf
@@ -54,7 +54,7 @@ CONFIGS=(config/tmux/tmux.conf
          zshrc
          zshenv
          zsh-completion
-         config/nvim/lua/custom
+         # config/nvim/lua/custom
          yabairc
          skhdrc
          aerospace.toml
