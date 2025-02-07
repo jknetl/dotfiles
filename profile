@@ -33,6 +33,9 @@ echo $0 > "$HOME/tmp/profile.0.arg"
 ### Swap caps and esc
 #setxkbmap -option caps:swapescape
 
+# Set caps lock additional ESC
+setxkbmap -option caps:escape
+
 #my xmodmap swaps esc with caps
 #xmodmap ~/.Xmodmap
 
