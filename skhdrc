@@ -78,8 +78,8 @@
 
 # App launchers
 # Launch new window of iTerm
-# alt - c : open -a /Applications/Ghostty.app
-alt - c : open -a /Applications/kitty.app
+alt - c : open -a /Applications/Ghostty.app
+# alt - c : open -a /Applications/kitty.app
 shift + alt - c : open -a /Applications/iTerm.app
 alt - b : open -a /Applications/Firefox.app
 shift + alt - b : open -na /Applications/Firefox.app --args -P
