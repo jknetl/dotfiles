@@ -24,11 +24,12 @@ for cluster in $clusters; do
       config_file=$(get_config_from_rancher $cluster_name $cluster_id)
       echo $config_file >> $FETCHED_CONFIG_FILES
     } &
-
     ((counter++))
     if [ $counter -ge $PARALLELISM_LIMIT ]; then
       wait
       counter=0
+    else
+      sleep 0.2 # In order not to create whole batch almost at once
     fi
 done
 wait
