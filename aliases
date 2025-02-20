@@ -15,11 +15,11 @@ alias pomodoro='pomodoro -g'
 alias manw='man -Hfirefox'
 
 # tmux
+alias t='tmux'
 alias td='tmux-default'
 alias mux='tmuxinator start'
-alias tmux='tmux -2'
-alias ta='tmux attach-session -t '
-alias ts='tmux new-session -s '
+alias ta='tmux a'
+alias tn='tmux new-session'
 alias tcs='tmux choose-session'
 
 
@@ -106,7 +106,6 @@ alias gcl='gcloud'
 
 alias gl='glab'
 # terraform
-alias t='terraform'
 alias tf='terraform'
 
 alias p='pulumi'
