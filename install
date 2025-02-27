@@ -21,7 +21,7 @@ MODULES=(
   # "nvchad/:config/nvim"  -- disabled
 )
 #config files with omited ~/. prefix
-CONFIGS=(config/tmux/tmux.conf
+CONFIGS=(tmux.conf
          vimrc
          gvimrc
          profile
