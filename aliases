@@ -21,6 +21,7 @@ alias mux='tmuxinator start'
 alias ta='tmux a'
 alias tn='tmux new-session'
 alias tcs='tmux choose-session'
+alias trw='tmux rename-window $(shorten-path.sh $(pwd))'
 
 
 alias restart-plasma='kquitapp5 plasmashell ; kstart5 plasmashell'

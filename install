@@ -85,6 +85,7 @@ SCRIPTS=(tmux-default
          argocd-review-sync.sh
          aerospace-reposition-windows.sh
          aerospace-remove-ghost-windows.sh
+         shorten-path.sh
 )
 
 function backup {
