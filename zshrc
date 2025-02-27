@@ -43,9 +43,6 @@ antigen bundle zpm-zsh/pr-return
 #
 # Other themes I like: avit, lambda, mikeh, minimal, muse, simple, sorin, superjarin
 
-#notification on long running command (default 30s)
-antigen bundle marzocchi/zsh-notify
-
 # Tell Antigen that you're done.
 antigen apply
 
