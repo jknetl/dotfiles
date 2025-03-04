@@ -31,6 +31,8 @@ fi
 
 # Define the kubeconfig and backup paths
 KUBE_MERGE_PATH="${KUBE_MERGE_PATH:-$HOME/.kube/config}"
+BACKUP_PATH="${BACKUP_PATH:-$HOME/.kube/backup/merge-backup-config-$(date +%Y%m%d%H%M%S)}"
+mkdir -p "$(dirname "$BACKUP_PATH")"
 
 # Create a backup of the current kubeconfig
 cp "$KUBE_MERGE_PATH" "$BACKUP_PATH"
