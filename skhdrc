@@ -81,8 +81,10 @@
 alt - c : open -a /Applications/Ghostty.app
 # alt - c : open -a /Applications/kitty.app
 shift + alt - c : open -a /Applications/iTerm.app
-alt - b : open -a /Applications/Firefox.app
-shift + alt - b : open -na /Applications/Firefox.app --args -P
+# alt - b : open -a /Applications/Firefox.app
+alt - b : open -a /Applications/Zen.app
+# shift + alt - b : open -na /Applications/Firefox.app --args -P
+shift + alt - b : open -na /Applications/Zen.app --args -P
 alt - s : open -a /Applications/Slack.app
 alt - o : open -a "/Applications/Microsoft Outlook.app"
 alt - n : open -a /Applications/Obsidian.app
