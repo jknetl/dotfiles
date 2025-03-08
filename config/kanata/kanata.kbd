@@ -9,7 +9,7 @@
 )
 
 (defalias
-  cec (tap-hold 100 100 esc lctl)
+  cec (tap-hold 120 120 esc lctl)
 )
 
 
