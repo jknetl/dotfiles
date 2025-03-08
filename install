@@ -42,6 +42,7 @@ CONFIGS=(tmux.conf
          config/awesome/rc.lua
          config/awesome/themes/default/theme.lua
          config/autorandr/postswitch
+         config/kanata/kanata.kbd
          config/picom/picom.conf
          tern-config
     		 gitconfig
