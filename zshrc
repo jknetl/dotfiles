@@ -167,3 +167,5 @@ export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
 
 # enable starship prompt
 eval "$(starship init zsh)"
+
+source /Users/jakub.knetl/.config/broot/launcher/bash/br
