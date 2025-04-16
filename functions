@@ -109,3 +109,10 @@ fi
 function aws-ec2() {
   aws ec2 describe-instances $@ | jq '[.Reservations[].Instances[] | {id: .InstanceId, name: (.Tags[] | select(.Key == "Name") | .Value), "PrivateIpAddress": .PrivateIpAddress}]'
 }
+
+function klac() {
+  resource_type=$1
+  resource_name=$2
+  other_args="${@:2}"
+  k get $resource_type $resource_name  $other_args -oyaml | yq '.metadata.annotations."kubectl.kubernetes.io/last-applied-configuration"' | yq -P
+}

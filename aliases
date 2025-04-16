@@ -103,6 +103,8 @@ alias ksl='kubie ns'
 alias kon='kubeon'
 alias koff='kubeoff'
 
+alias knetshoot='kubectl run  jknetl-debug --rm -i --tty --image $DOCKER_IO_REGISTRY/nicolaka/netshoot'
+
 
 alias f='flux'
 

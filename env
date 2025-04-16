@@ -48,6 +48,11 @@ export dockerized="$HOME/projects/dockerized-tools"
 export vms="$shares/vms"
 export local_share="$shares/local_share"
 
+# kubernetes labels
+export klname="app.kubernetes.io/name"
+export klinstance="app.kubernetes.io/instance"
+export klcomponent="app.kubernetes.io/component"
+
 # Use dolphin/kde file chooser
 # make sure you have xdg-desktop-portal and xdg-desktop-portal-kde packages
 #export GTK_USE_PORTAL=1
