@@ -1,7 +1,7 @@
 options=(
-    width=8.0
-    active_color=0xfffa9b02 
-    inactive_color=0xff494d64 
+    width=10.0
+    active_color=0xfffa9b02
+    inactive_color=0xff494d64
 )
 
 borders "${options[@]}" 

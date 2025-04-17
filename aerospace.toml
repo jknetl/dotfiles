@@ -52,10 +52,10 @@ on-focused-monitor-changed = ['move-mouse monitor-lazy-center']
 [gaps]
 inner.horizontal = 12
 inner.vertical =   12
-outer.left =       5
-outer.bottom =     5
-outer.top =        5
-outer.right =      5
+outer.left =       8
+outer.bottom =     8
+outer.top =        8
+outer.right =      8
 
 # 'main' binding mode declaration
 # See: https://nikitabobko.github.io/AeroSpace/guide#binding-modes
@@ -171,18 +171,17 @@ alt-g = 'exec-and-forget ~/bin/aerospace-remove-ghost-windows.sh'
 
 # Launchers alt-enter = 'exec-and-forget open -n /Applications/iTerm.app'
 alt-c = 'exec-and-forget open -n /Applications/Ghostty.app'
-
-alt-b = 'exec-and-forget open -a /Applications/Firefox.app'
-alt-shift-b = 'exec-and-forget open -na /Applications/Firefox.app'
+alt-b = 'exec-and-forget open -n /Applications/Firefox.app'
 ctrl-alt-b = 'exec-and-forget open -na /Applications/Firefox.app --args -P'
+# alt-shift-b = 'exec-and-forget open -na /Applications/Firefox.app'
 # alt-s = 'exec-and-forget open -a /Applications/Slack.app'
-alt-o = 'exec-and-forget open -a "/Applications/Microsoft Outlook.app"'
-alt-n = 'exec-and-forget open -a /Applications/Obsidian.app'
-alt-z = 'exec-and-forget open -a /Applications/zoom.us.app'
-alt-a = 'exec-and-forget open -a /Applications/ChatGPT.app'
-alt-m = 'exec-and-forget open -a /Applications/Miro.app'
+# alt-o = 'exec-and-forget open -a "/Applications/Microsoft Outlook.app"'
+# alt-n = 'exec-and-forget open -a /Applications/Obsidian.app'
+# alt-z = 'exec-and-forget open -a /Applications/zoom.us.app'
+# alt-a = 'exec-and-forget open -a /Applications/ChatGPT.app'
+# alt-m = 'exec-and-forget open -a /Applications/Miro.app'
 # alt-e = 'exec-and-forget open -a "/Applications/Visual Studio Code.app"'
-alt-i = 'exec-and-forget open -a "/Applications/IntelliJ IDEA.app"'
+# alt-i = 'exec-and-forget open -a "/Applications/IntelliJ IDEA.app"'
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#mode
 alt-shift-semicolon = 'mode service'
