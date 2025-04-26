@@ -68,6 +68,16 @@ SCRIPTS=(tmux-default
          i3exit
          brightness
          battery
+         backup-photos.sh
+         check-shutdown.sh
+         encrypt-pdf.sh
+         prepend-file.sh
+         thumbnails.sh
+         battery-tester.sh
+         delete-raws.sh
+         import-camera.sh
+         sync.sh
+         timelapse.sh
          pactl-default-sink
          i3status.sh
          xkbmap-layout.sh
