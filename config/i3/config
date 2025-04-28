@@ -40,7 +40,7 @@ smart_gaps on
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec konsole
+bindsym $mod+Return exec kitty
 
 # Disable window decorations (if stacked or tabbed then it should stay enabled)
 # by using "new_window none" you disalbe also the edge borders, which is unwanted
@@ -353,7 +353,7 @@ bindsym $mod+Print exec gnome-screenshot -i
 # other launchers
 bindsym $mod+b exec __NV_PRIME_RENDER_OFFLOAD=1 __GLX_VENDOR_LIBRARY_NAME=nvidia firefox
 bindsym $mod+Shift+b exec __NV_PRIME_RENDER_OFFLOAD=1 __GLX_VENDOR_LIBRARY_NAME=nvidia firefox -P
-bindsym $mod+c exec konsole
+bindsym $mod+c exec kitty
 #bindsym $mod+p exec pomodoro
 bindsym $mod+t exec thunar
 # bindsym $mod+n exec joplin
