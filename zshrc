@@ -29,7 +29,7 @@ antigen bundle dirhistory
 
 antigen bundle aws
 
-antigen bundle 'wfxr/forgit'
+# antigen bundle 'wfxr/forgit'
 
 # Syntax highlighting bundle.
 antigen bundle zsh-users/zsh-syntax-highlighting
@@ -122,20 +122,20 @@ timezsh() {
 #fi
 
 # For linux make sure SSH_AUTH_SOCK is properly exported
-if [[ $OSTYPE != darwin* ]];
-then
-  if [ -e "$XDG_RUNTIME_DIR/gcr/ssh" ];
-  then
-    # GCR is new replacement of gnome-keyring agent - see https://wiki.archlinux.org/title/GNOME/Keyring#SSH_keys 
-    export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/gcr/ssh"
-  elif [ -e "/run/user/$UID/keyring/ssh" ];
-  then
-    # use old gnome keyring agent if exists
-    export SSH_AUTH_SOCK="/run/user/$UID/keyring/ssh"
-  else
-    echo "ERROR: No keyring agent found. Is it running?"
-  fi
-fi
+# if [[ $OSTYPE != darwin* ]];
+# then
+#   if [ -e "$XDG_RUNTIME_DIR/gcr/ssh" ];
+#   then
+#     # GCR is new replacement of gnome-keyring agent - see https://wiki.archlinux.org/title/GNOME/Keyring#SSH_keys 
+#     export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/gcr/ssh"
+#   elif [ -e "/run/user/$UID/keyring/ssh" ];
+#   then
+#     # use old gnome keyring agent if exists
+#     export SSH_AUTH_SOCK="/run/user/$UID/keyring/ssh"
+#   else
+#     echo "ERROR: No keyring agent found. Is it running?"
+#   fi
+# fi
 
 # add Pulumi to the PATH
 export PATH=$PATH:$HOME/.pulumi/bin
@@ -152,7 +152,11 @@ if [ -f '/opt/google-cloud-sdk/completion.zsh.inc' ]; then . '/opt/google-cloud-
 
 # Bash my aws
 export PATH="$PATH:${BMA_HOME:-$HOME/.bash-my-aws}/bin"
-source ${BMA_HOME:-$HOME/.bash-my-aws}/aliases
+if [ -f ${BMA_HOME:-$HOME/.bash-my-aws}/aliases ];
+then
+  source ${BMA_HOME:-$HOME/.bash-my-aws}/aliases
+  source ${BMA_HOME:-$HOME/.bash-my-aws}/bash_completion.sh
+fi
 
 autoload -U +X compinit && compinit
 autoload -U +X bashcompinit && bashcompinit
@@ -161,11 +165,10 @@ complete -o nospace -C /usr/bin/terraform terraform
 
 complete -o nospace -C /opt/homebrew/bin/terraform terraform
 
-source ${BMA_HOME:-$HOME/.bash-my-aws}/bash_completion.sh
 
 export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
 
 # enable starship prompt
 eval "$(starship init zsh)"
 
-source /Users/jakub.knetl/.config/broot/launcher/bash/br
+source $HOME/.config/broot/launcher/bash/br
