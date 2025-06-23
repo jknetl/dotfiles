@@ -1,4 +1,7 @@
+export XDG_CONFIG_HOME="$HOME/.config"
+
 # enable this for profiling (and then run zprof after zsh startup to see results)
+
 #zmodload zsh/zprof
 #
 autoload -Uz compinit
@@ -12,19 +15,19 @@ antigen use oh-my-zsh
 
 # Bundles from the default repo (robbyrussell's oh-my-zsh).
 #antigen bundle git
-antigen bundle pip
+# antigen bundle pip
 antigen bundle docker
-antigen bundle docker-compose
-antigen bundle fd
-antigen bundle fzf
-antigen bundle helm
+# antigen bundle docker-compose
+# antigen bundle fd
+# antigen bundle fzf
+# antigen bundle helm
 antigen bundle kubectl
-antigen bundle kube-ps1
-antigen bundle nvm
+# antigen bundle kube-ps1
+# antigen bundle nvm
 # antigen bundle z
 antigen bundle command-not-found
-antigen bundle sudo
-antigen bundle web-search
+# antigen bundle sudo
+# antigen bundle web-search
 antigen bundle dirhistory
 
 antigen bundle aws
