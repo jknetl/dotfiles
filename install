@@ -43,6 +43,10 @@ CONFIGS=(tmux.conf
          config/awesome/themes/default/theme.lua
          config/autorandr/postswitch
          config/kanata/kanata.kbd
+         config/nushell/aliases.nu
+         config/nushell/aliases_kubectl.nu
+         config/nushell/config.nu
+         config/nushell/env.nu
          config/picom/picom.conf
          tern-config
     		 gitconfig
