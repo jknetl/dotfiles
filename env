@@ -30,7 +30,7 @@ export PATH="${PATH}:/usr/local/go/bin"
 export PATH="${PATH}:$GOBIN"
 export PATH="${PATH}:${HOME}/.local/share/coursier/bin"
 export PATH="${PATH}:/opt/android-platform-tools"
-export PATH="${PATH}:${HOME}/Library/Python/3.11/bin"
+export PATH="${PATH}:${HOME}/Library/Python/3.12/bin"
 
 export PATH="${PATH}:/Applications/IntelliJ IDEA.app/Contents/MacOS"
 
@@ -80,11 +80,8 @@ if [ -f "$HOME/.work.env" ]; then
   source "$HOME/.work.env"
 fi
 
-export AZ_SUBSCRIPTION_PERSONAL="84ee6c5a-4b19-4b15-a32e-19f23b8dde58"
 
 export FORGIT_COPY_CMD='xclip -selection clipboard'
 
-export USE_GKE_GCLOUD_AUTH_PLUGIN=True
-
-export ANSIBLE_CALLBACKS_ENABLED=profile_tasks
 export AWS_PAGER=""
+export XDG_CONFIG_HOME="$HOME/.config"
