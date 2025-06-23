@@ -4,6 +4,8 @@ alias cat='bat --plain'
 alias catp='bat'
 alias catt='/usr/bin/cat'
 alias vim='nvim'
+alias nv='nvim'
+alias v='vim'
 # alias ls='exa'
 # alias ll='exa -l --icons --git'
 # alias lt='exa --tree --icons'
@@ -39,8 +41,8 @@ alias lg='lazygit'
 alias gcb='git branch --show-current'
 alias grr='git rev-parse --show-toplevel'
 alias cgr='cd $(git rev-parse --show-toplevel)'
-alias ghash='git rev-parse --short HEAD'
-alias ghashfull='git rev-parse HEAD'
+alias ghash='git rev-parse --short HEAD | tr -d "\n"'
+alias ghashfull='git rev-parse HEAD| tr -d "\n"'
 alias cdgroot='cd $(git rev-parse --show-toplevel)'
 alias groot='git rev-parse --show-toplevel'
 
@@ -147,4 +149,8 @@ alias evolution='GTK_THEME=Arc evolution '
 
 if [ -f "$HOME/.work.aliases" ]; then
    source "$HOME/.work.aliases"
+fi
+
+if [ -f "$HOME/.kubectl_aliases" ]; then
+   source "$HOME/.kubectl_aliases"
 fi
