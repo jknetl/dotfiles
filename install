@@ -47,9 +47,10 @@ CONFIGS=(tmux.conf
          config/nushell/aliases_kubectl.nu
          config/nushell/config.nu
          config/nushell/env.nu
+         config/nushell/catppuccin_mocha.nu
          config/picom/picom.conf
          tern-config
-    		 gitconfig
+         gitconfig
          gitattributes
          tigrc
          Xresources

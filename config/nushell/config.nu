@@ -18,13 +18,12 @@
 # them for future reference.
 
 
-
-
 mkdir ($nu.data-dir | path join "vendor/autoload")
 
 # Load aliases.nu if it exists from the same directory as config.nu
 source ($nu.home-path | path join '.config/nushell/aliases.nu')
 source ($nu.home-path | path join '.config/nushell/aliases_kubectl.nu')
+source ($nu.home-path | path join '.config/nushell/catppuccin_mocha.nu')
 source ~/.cache/carapace/init.nu
 source ~/.zoxide.nu
 
@@ -46,3 +45,16 @@ $env.config = {
 	]
 
 }
+
+$env.config.show_banner = false
+
+# Import work related stuff (not part of git repo) if the file exists
+# TODO: do this conditioanally if file iexists
+source '~/.config/nushell/work.env.nu'
+source '~/.config/nushell/work.aliases.nu'
+source '~/.config/nushell/work.commands.nu'
+
+
+
+
+

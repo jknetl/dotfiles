@@ -6,6 +6,7 @@ alias catt = /usr/bin/cat
 alias vim = nvim
 alias nv = nvim
 alias v = vim
+
 # alias ls = exa
 # alias ll = exa -l --icons --git
 # alias lt = exa --tree --icons
@@ -101,7 +102,13 @@ alias ksl = kubie ns
 alias kon = kubeon
 alias koff = kubeoff
 
-alias knetshoot = kubectl run jknetl-debug --rm -i --tty --image $env.DOCKER_IO_REGISTRY/nicolaka/netshoot
+def --wrapped knetshoot [...rest] {
+    # Define the full image string with interpolation
+    let image_name = $"($env.DOCKER_IO_REGISTRY)/nicolaka/netshoot"
+
+    # Call the command with the variable
+    kubectl run jknetl-debug --rm -i --tty --image $image_name ...$rest
+}
 
 alias f = flux
 
@@ -133,7 +140,8 @@ alias _datetime = datetime-prefix
 alias datetime2-prefix = ^date +%Y%m%d%H%M%S
 alias _datetime2 = datetime2-prefix
 
-def awsp [] { let profile = (aws-profile.sh | str trim); if $profile != "" { $env.AWS_PROFILE = $profile } }
+def --env awsp [] { $env.AWS_PROFILE = (aws-profile.sh | str trim )}
+
 def awsr [] { let output = (aws-role.sh | str trim); if $output != "" { $env.MY_NAME = $output } }
 alias awsl = aws sso login
 
