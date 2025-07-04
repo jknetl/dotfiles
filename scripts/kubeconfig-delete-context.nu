@@ -13,11 +13,14 @@
 def main [
     clustername: string,          # The name of the context, cluster, and user to remove
     --config (-c): string,        # Optional: Path to the kubeconfig file to modify
+    # TBD
+    # --cluster-name (-n): string, # Optional: Alternative name for the cluster (if it doesn't contain context name)
+    # --user-name (-n): string, # Optional: Alternative name for the user (if it doesn't contain context name)
 ] {
     let kubeconfig_path = if not ($config | is-empty) {
         $config
     } else if not ($env.KUBECONFIG | is-empty) {
-        $env.KUBECONFIG | split row (char path-sep) | first
+        $env.KUBECONFIG | split row : | first
     } else {
         $"($env.HOME)/.kube/config"
     }
@@ -27,7 +30,7 @@ def main [
     }
 
     # Open the YAML file. Nushell automatically parses it into a structured table.
-    let kubeconfig = open $kubeconfig_path
+    let kubeconfig = open $kubeconfig_path | from yaml
 
     # ---  Check for Existence of Entries ---
     # Verify that the context, cluster, and user we want to remove actually exist.
@@ -36,20 +39,25 @@ def main [
     if ($kubeconfig | get -i contexts | where name == $clustername | is-empty) {
         error make { msg: $"Error: context '($clustername)' not found in '($kubeconfig_path)'" }
     }
-    if ($kubeconfig | get -i clusters | where name == $clustername | is-empty) {
+    if ($kubeconfig | get -i clusters | where name =~ $clustername | is-empty) {
         error make { msg: $"Error: cluster '($clustername)' not found in '($kubeconfig_path)'" }
     }
-    if ($kubeconfig | get -i users | where name == $clustername | is-empty) {
+    if ($kubeconfig | get -i users | where name =~ $clustername | is-empty) {
         error make { msg: $"Error: user '($clustername)' not found in '($kubeconfig_path)'" }
     }
 
+
     # ---  Remove Entries from the Data Structure ---
-    # Use the `update` command to replace the `contexts`, `clusters`, and `users` lists
-    # with new versions that have the specified entries filtered out.
+    let new_contexts = $kubeconfig | get -i contexts | where name != $clustername
+    let new_clusters = $kubeconfig | get -i clusters | where {|row| not ($row.name | str contains $clustername) }
+    let new_users = $kubeconfig | get -i users  | where {|row| not ($row.name | str contains $clustername) }
+
+    # Now, build the new kubeconfig record by inserting the filtered lists.
+    # The `insert` command will overwrite the existing keys with the new values.
     let modified_kubeconfig = $kubeconfig
-        | update contexts {|contexts_table| $contexts_table | where name != $clustername }
-        | update clusters {|clusters_table| $clusters_table | where name != $clustername }
-        | update users   {|users_table|    $users_table    | where name != $clustername }
+        | update contexts $new_contexts
+        | update clusters $new_clusters
+        | update users $new_users
 
     # As a safety measure, if the context being removed was the active one,
     # clear the 'current-context' field to avoid an invalid configuration file.
@@ -61,6 +69,6 @@ def main [
 
     # --- Save Modified Kubeconfig ---
     # Save the modified data structure back to the original file path, overwriting it.
-    $modified_kubeconfig | save -f $kubeconfig_path
+    $modified_kubeconfig | to yaml | save -f $kubeconfig_path
 }
 
