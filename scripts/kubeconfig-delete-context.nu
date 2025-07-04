@@ -1,3 +1,4 @@
+#!/usr/bin/env nu
 # A Nushell script to remove a context, cluster, and user from a kubeconfig file.
 #
 # The script takes one required argument, which is the name of the entries to remove.
