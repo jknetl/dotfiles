@@ -173,7 +173,7 @@ alt-x = 'close'
 alt-g = 'exec-and-forget ~/bin/aerospace-remove-ghost-windows.sh'
 
 # Launchers alt-enter = 'exec-and-forget open -n /Applications/iTerm.app'
-alt-c = 'exec-and-forget open -n /Applications/Ghostty.app'
+alt-c = 'exec-and-forget open -n /Applications/Alacritty.app'
 alt-b = 'exec-and-forget open -n /Applications/Firefox.app'
 ctrl-alt-b = 'exec-and-forget open -na /Applications/Firefox.app --args -P'
 # alt-shift-b = 'exec-and-forget open -na /Applications/Firefox.app'
