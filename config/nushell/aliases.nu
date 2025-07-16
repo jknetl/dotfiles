@@ -11,7 +11,7 @@ alias v = vim
 # alias ll = exa -l --icons --git
 # alias lt = exa --tree --icons
 # alias llt = exa -l --tree --icons --git
-def ff [] { cd (fd --type d | fzf | str trim) }
+def --env ff [] { cd (fd --type d | fzf | str trim) }
 
 # my pomodoro app
 alias pomodoro = pomodoro -g
@@ -38,13 +38,13 @@ alias g = git
 alias lg = lazygit
 alias gcb = git branch --show-current
 alias grr = git rev-parse --show-toplevel
-def cgr [] { cd (git rev-parse --show-toplevel | str trim) }
+def --env cgr [] { cd (git rev-parse --show-toplevel | str trim) }
 def ghash [] { git rev-parse --short HEAD | str trim }
 def ghashfull [] { git rev-parse HEAD | str trim }
-def cdgroot [] { cd (git rev-parse --show-toplevel | str trim) }
+def --env cdgroot [] { cd (git rev-parse --show-toplevel | str trim) }
 alias groot = git rev-parse --show-toplevel
 
-def ffg [] { cdgroot; ff }
+def --env ffg [] { cdgroot; ff }
 
 # C programming
 alias gdbb = gdb --tui
