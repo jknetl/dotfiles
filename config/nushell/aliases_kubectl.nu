@@ -13,7 +13,7 @@
 # limitations under the License.
 
 alias kubectl = kubecolor
-alias k = kubecolor
+alias k = kubectl
 alias ksys = kubectl --namespace=kube-system
 alias ka = kubectl apply --recursive -f
 alias ksysa = kubectl --namespace=kube-system apply --recursive -f
