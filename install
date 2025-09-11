@@ -106,6 +106,7 @@ SCRIPTS=(tmux-default
          aerospace-reposition-windows.sh
          aerospace-remove-ghost-windows.sh
          shorten-path.sh
+         yamldef.sh
 )
 
 function backup {
