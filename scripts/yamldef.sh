@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/zsh
 # This script searches for a specific pattern definition in yaml files 
 # Usage example:
 # yamldef.sh <PATTERN>
