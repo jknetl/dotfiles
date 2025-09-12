@@ -12,5 +12,5 @@ if [ -z "$PATTERN" ]; then
   exit 1
 fi
 
-yq "select(.${PATTERN}) | .${PATTERN} | (filename + \":\" + (line | tostring))" **/*.yaml
+yq "select(.${PATTERN}) | (filename + \":\" + (line | tostring) + \": \" + (.${PATTERN} | @json))" **/*.yaml
 
