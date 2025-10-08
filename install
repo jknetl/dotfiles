@@ -99,7 +99,7 @@ SCRIPTS=(tmux-default
          kubeconfig-merge.sh
          kubeconfig-delete-context.nu
          rancher-get-kubeconfig.sh
-         rancher-get-all-configs.sh
+         rancher-get-all-configs.nu
          aws-profile.sh
          aws-role.sh
          argocd-review-sync.sh
