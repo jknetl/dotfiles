@@ -20,6 +20,7 @@ MODULES=(
   "tpm:tmux/plugins/tpm"
   # "nvchad/:config/nvim"  -- disabled
 )
+
 #config files with omited ~/. prefix
 CONFIGS=(tmux.conf
          vimrc
@@ -109,6 +110,13 @@ SCRIPTS=(tmux-default
          yamldef.sh
 )
 
+ENSURE_FILES=(
+  $HOME/.config/nushell/work.env.nu
+  $HOME/.config/nushell/work.aliases.nu
+  $HOME/.config/nushell/work.commands.nu
+)
+
+
 function backup {
     for file in "${CONFIGS[@]}"
     do
@@ -191,6 +199,17 @@ function create_links {
   fi
 
   cp $FONT_PATH/$font/* "$HOME/.fonts/"
+
+
+
+  for file in "${ENSURE_FILES[@]}"
+  do
+        if [ ! -e "$file" ]
+        then
+            mkdir -p "$(dirname "$file")"
+            touch "$file"
+        fi
+  done
 
 }
 
