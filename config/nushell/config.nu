@@ -48,12 +48,6 @@ $env.config = {
 
 $env.config.show_banner = false
 
-# Import work related stuff (not part of git repo) if the file exists
-# Make sure work files exists
-touch '~/.config/nushell/work.env.nu'
-touch '~/.config/nushell/work.aliases.nu'
-touch '~/.config/nushell/work.commands.nu'
-
 # Source work files
 source '~/.config/nushell/work.env.nu'
 source '~/.config/nushell/work.aliases.nu'
