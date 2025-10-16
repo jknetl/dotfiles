@@ -175,3 +175,5 @@ export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
 eval "$(starship init zsh)"
 
 source $HOME/.config/broot/launcher/bash/br
+
+eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
