@@ -49,21 +49,10 @@ $env.config = {
 $env.config.show_banner = false
 
 # Import work related stuff (not part of git repo) if the file exists
-const work_env = ($nu.home-path | path join '.config/nushell/work.env.nu')
-const work_aliases = ($nu.home-path | path join '.config/nushell/work.aliases.nu')
-const work_commands = ($nu.home-path | path join '.config/nushell/work.commands.nu')
-
-if ($work_env | path exists) {
-    source $work_env
-}
-
-if ($work_aliases | path exists) {
-    source $work_aliases
-}
-
-if ($work_commands | path exists) {
-    source $work_commands
-}
+# TODO: do this conditioanally if file iexists
+source '~/.config/nushell/work.env.nu'
+source '~/.config/nushell/work.aliases.nu'
+source '~/.config/nushell/work.commands.nu'
 
 
 
