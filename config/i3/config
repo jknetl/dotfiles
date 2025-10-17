@@ -60,7 +60,7 @@ bindsym $mod+q kill
 #bindsym $mod+d exec rofi -show run -lines 3 -eh 2 -width 100 -padding 800 -opacity "85" -bw 0 -bc "$bg-color" -bg "$bg-color" -fg "$text-color" -hlbg "$bg-color" -hlfg "#9575cd" -font "System San Francisco Display 18"
 #bindsym $mod+d exec rofi -show run
 #bindsym $mod+d exec "rofi -combi-modi run,drun -show combi"
-bindsym $mod+d exec "~/.config/rofi/launchers/type-4/launcher.sh"
+bindsym $mod+d exec "~/.config/rofi/launchers/type-5/launcher.sh"
 bindsym $mod+Shift+d exec "rofi -combi-modi run -show combi"
 bindsym $mod+p exec rofi -show window
 # There also is the (new) i3-dmenu-desktop which only displays applications
@@ -338,7 +338,7 @@ bindsym $mod+o exec rofi-pulse-sink.sh
 bindsym $mod+Shift+o exec rofi-pulse-source.sh
 
 
-bindsym $mod+Shift+p exec xset r rate 200 50
+bindsym $mod+Shift+p exec xset r rate 150 100
 bindsym $mod+Shift+s sticky toggle
 
 
