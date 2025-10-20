@@ -404,6 +404,9 @@ bindsym XF86Display exec autorandr -c
 # you need to use exec_always to start apps also on reload
  exec_always --no-startup-id dunst -config ~/.config/dunst/dunstrc
 
+# This is required if something sets WAYLAND_DISPALY - see https://github.com/phillipberndt/autorandr/issues/364#issuecomment-2490410070
+exec --no-startup-id set WAYLAND_DISPLAY
+
 #Startup application
 exec --no-startup-id /usr/lib/gnome-settings-daemon/gnome-settings-daemon
 #exec redshift-gtk
