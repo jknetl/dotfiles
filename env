@@ -85,3 +85,5 @@ export FORGIT_COPY_CMD='xclip -selection clipboard'
 
 export AWS_PAGER=""
 export XDG_CONFIG_HOME="$HOME/.config"
+
+export LIBVIRT_DEFAULT_URI="qemu:///system"
