@@ -34,6 +34,8 @@ CONFIGS=(tmux.conf
          config/alacritty/alacritty.toml
          config/alacritty/catppuccin-mocha.toml
          config/alacritty/catppuccin-latte.toml
+         config/alacritty/catppuccin-macchiato.toml
+         config/alacritty/catppuccin-fappe.toml
          config/tilda/config_0
          config/gtk-3.0/settings.ini
          config/gtk-4.0/settings.ini
