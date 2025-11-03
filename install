@@ -197,10 +197,12 @@ function create_links {
   if [ ! -d $HOME/.fonts ] ; then
       mkdir $HOME/.fonts
   fi
-
   cp $FONT_PATH/$font/* "$HOME/.fonts/"
 
-
+  ########## Copy host specific config (Don't overrite it if exists)
+  if [ ! -e "${dotfile_prefix}config/alacritty/host-specific.toml" ]; then
+    cp "$REPO_PATH/config/alacritty/host-specific.toml.template" "${dotfile_prefix}config/alacritty/host-specific.toml"
+  fi
 
   for file in "${ENSURE_FILES[@]}"
   do
