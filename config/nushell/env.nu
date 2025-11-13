@@ -54,6 +54,7 @@ $env.PATH ++= [$env.GOBIN]
 $env.PATH ++= [$"($nu.home-path)/.local/share/coursier/bin"]
 $env.PATH ++= ["/opt/android-platform-tools"]
 $env.PATH ++= [$"($nu.home-path)/Library/Python/3.12/bin"]
+$env.PATH ++= [$"($nu.home-path)/.cargo/bin"]
 
 # Use rbenv instead of rvm
 # $env.PATH = $"($nu.home-path)/.rbenv/bin"
