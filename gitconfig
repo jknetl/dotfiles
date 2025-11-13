@@ -1,19 +1,24 @@
 [merge]
 	tool = meld
+  conflictstyle = diff3
 [core]
 	excludesfile = ~/.gitignore_global
 	pager = less -x4
 	editor = nvim
 	autocrlf = input
 	fsmonitor = true
-	untrackedcache = true
 [push]
 	default = current
+  autoSetupRemote = true
+[fetch]
+  prune = true
+  pruneTags = true
+  all = true
 [alias]
   ci = commit
   co = checkout
   cob = checkout -b
-  st = status
+  st = status -s
   br = branch
   lod = log --oneline --graph --decorate
   permission-reset = !git diff -p -R --no-color | grep -E \"^(diff|(old|new) mode)\" --color=never | git apply
@@ -30,7 +35,8 @@
 [include]
     path = ~/.work.gitconfig
 [pull]
-	ff = only
+# ff = only
+  rebase = true
 [pager]
 	branch = false
 	log = false
@@ -51,7 +57,22 @@
 	defaultBranch = main
 [branch]
 	sort = -committerdate
+[tag]
+  sort = version:refname
+[diff]
+  algorithm = histogram
+  colorMoved = plain
+  mnemonicPrefix = true
+  renames = true
 [column]
 	ui = auto
 [gpg]
 	program = /opt/homebrew/bin/gpg
+[help]
+  autocorrect = prompt
+[commit]
+  verbose = true
+[rebase]
+  autoSquash = true
+  autoStash = true
+  updateRefs = true
