@@ -50,10 +50,10 @@ def --env ffg [] { cdgroot; ff }
 alias gdbb = gdb --tui
 
 # maven
-alias m = mvn
-alias mi = mvn install
-alias mci = mvn clean install
-alias magp = mvn archetype:generate -DarchetypeGroupId=org.apache.maven.archetypes -DarchetypeArtifactId=maven-archetype-quickstart -DarchetypeVersion=1.1
+# alias m = mvn
+# alias mi = mvn install
+# alias mci = mvn clean install
+# alias magp = mvn archetype:generate -DarchetypeGroupId=org.apache.maven.archetypes -DarchetypeArtifactId=maven-archetype-quickstart -DarchetypeVersion=1.1
 
 # gradle
 alias gw = ./gradlew
