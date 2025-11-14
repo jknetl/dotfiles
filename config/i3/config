@@ -168,32 +168,27 @@ bindsym $mod+z exec i3-msg [class="zoom"] focus
 #### RULES
 for_window [class="Evolution-alarm-notify"] floating enable
 for_window [class="Evolution-alarm-notify"] resize set 600 400
-for_window [class="yakuake"] floating enable
 for_window [class="Thunar"] floating enable
-for_window [class="Kazam"] floating enable
 for_window [class="org.gnome.Nautilus"] floating enable
 for_window [class="Gnome-calculator"] floating enable
 for_window [class="gnome-calculator"] floating enable
-for_window [class="lattedock"] floating enable
 for_window [class="Pavucontrol"] floating enable
 
 
 # workspace 1
 #assign [class="google-chrome"] $ws1
-#assign [class="Google-chrome"] $ws1
+assign [class="Google-chrome"] $ws1
 #assign [class="Vivaldi"] $ws1
 #assign [class="Vivaldi-stable"] $ws1
 assign [class="Firefox"] $ws1
+assign [class="Zen"] $ws1
 
 # workspace 2
 #assign [class="Gnome-terminal"] $ws2
 
 # workspace 3
-assign [class="Eclipse"] $ws3
 #assign [class="code-oss"] $ws3
 #assign [class="code"] $ws3
-assign [class="NetBeans IDE 8.1"] $ws3
-#assign [class="jetbrains-idea-ce"] $ws3
 #assign [class="jetbrains-idea"] $ws3
 #assign [class="Code"] $ws3
 assign [class="jetbrains-pycharm-ce"] $ws3
@@ -215,21 +210,14 @@ assign [class="Evolution"] $ws10
 assign [class="superProductivity"] $ws10
 
 # Workspace 9
-assign [class="Hexchat"] $ws7
 #MS teams PWA -- doesn't work
 assign [class="crx_cifhbcnohmdccbgoicgdjpfamggdegmo"] $ws8
 assign [class="Microsoft Teams - Preview"] $ws8
 assign [class="teams-for-linux"] $ws8
-assign [class="Mattermost"] $ws7
 assign [class="Slack"] $ws7
 
 # workspace
 #assign [class="Pavucontrol"] $ws10
-assign [class="Joplin"] $ws9
-#assign [class="remnote"] $ws9
-#assign [class="RemNote"] $ws9
-assign [class="notion-snap"] $ws9
-assign [class="notion-app"] $ws9
 assign [class="obsidian"] $ws9
 
 ### Bind workspace to the screen
@@ -351,8 +339,10 @@ bindsym $mod+x exec i3lock -c 2f343f
 bindsym $mod+Print exec gnome-screenshot -i
 
 # other launchers
-bindsym $mod+b exec __NV_PRIME_RENDER_OFFLOAD=1 __GLX_VENDOR_LIBRARY_NAME=nvidia firefox
-bindsym $mod+Shift+b exec __NV_PRIME_RENDER_OFFLOAD=1 __GLX_VENDOR_LIBRARY_NAME=nvidia firefox -P
+# bindsym $mod+b exec __NV_PRIME_RENDER_OFFLOAD=1 __GLX_VENDOR_LIBRARY_NAME=nvidia firefox
+# bindsym $mod+Shift+b exec __NV_PRIME_RENDER_OFFLOAD=1 __GLX_VENDOR_LIBRARY_NAME=nvidia firefox -P
+bindsym $mod+b exec __NV_PRIME_RENDER_OFFLOAD=1 __GLX_VENDOR_LIBRARY_NAME=nvidia zen-browser
+bindsym $mod+Shift+b exec __NV_PRIME_RENDER_OFFLOAD=1 __GLX_VENDOR_LIBRARY_NAME=nvidia zen-browser -P
 bindsym $mod+c exec alacritty
 #bindsym $mod+p exec pomodoro
 bindsym $mod+t exec thunar
