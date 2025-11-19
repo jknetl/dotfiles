@@ -339,10 +339,10 @@ bindsym $mod+x exec i3lock -c 2f343f
 bindsym $mod+Print exec gnome-screenshot -i
 
 # other launchers
-# bindsym $mod+b exec __NV_PRIME_RENDER_OFFLOAD=1 __GLX_VENDOR_LIBRARY_NAME=nvidia firefox
-# bindsym $mod+Shift+b exec __NV_PRIME_RENDER_OFFLOAD=1 __GLX_VENDOR_LIBRARY_NAME=nvidia firefox -P
-bindsym $mod+b exec __NV_PRIME_RENDER_OFFLOAD=1 __GLX_VENDOR_LIBRARY_NAME=nvidia zen-browser
-bindsym $mod+Shift+b exec __NV_PRIME_RENDER_OFFLOAD=1 __GLX_VENDOR_LIBRARY_NAME=nvidia zen-browser -P
+bindsym $mod+b exec __NV_PRIME_RENDER_OFFLOAD=1 __GLX_VENDOR_LIBRARY_NAME=nvidia firefox
+bindsym $mod+Shift+b exec __NV_PRIME_RENDER_OFFLOAD=1 __GLX_VENDOR_LIBRARY_NAME=nvidia firefox -P
+# bindsym $mod+b exec __NV_PRIME_RENDER_OFFLOAD=1 __GLX_VENDOR_LIBRARY_NAME=nvidia zen-browser
+# bindsym $mod+Shift+b exec __NV_PRIME_RENDER_OFFLOAD=1 __GLX_VENDOR_LIBRARY_NAME=nvidia zen-browser -P
 bindsym $mod+c exec alacritty
 #bindsym $mod+p exec pomodoro
 bindsym $mod+t exec thunar
