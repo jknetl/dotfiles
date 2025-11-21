@@ -96,3 +96,6 @@ carapace _carapace nushell | save --force $"($nu.home-path)/.cache/carapace/init
 
 
 source ($nu.home-path | path join '.config/nushell/work.env.nu')
+
+let mise_path = $nu.default-config-dir | path join mise.nu
+^mise activate nu | save $mise_path --force

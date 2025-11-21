@@ -57,3 +57,5 @@ source '~/.config/nushell/work.commands.nu'
 
 
 
+
+use ($nu.default-config-dir | path join mise.nu)
