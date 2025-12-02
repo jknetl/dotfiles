@@ -75,7 +75,9 @@ CONFIGS=(tmux.conf
          config/starship.toml
          )
 
-SCRIPTS=(tmux-default
+SCRIPTS=(
+         argo-annotate.nu
+         tmux-default
          i3exit
          brightness
          battery
