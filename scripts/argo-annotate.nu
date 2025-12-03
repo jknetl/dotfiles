@@ -24,7 +24,7 @@ def main [
     }
 
     # Join documents back with separator
-    let result = $annotated_docs | str join "\n---\n"
+    let result = $annotated_docs | str join "---\n"
 
     # Write to file if in-place flag is set, otherwise print to stdout
     if $in_place {
