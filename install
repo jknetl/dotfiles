@@ -41,6 +41,7 @@ CONFIGS=(tmux.conf
          config/gtk-4.0/settings.ini
          config/mc_solarized.ini
          config/redshift.conf
+         config/ghostty/config
          gtkrc-2.0
          config/i3/config
          config/i3/conkyrc
