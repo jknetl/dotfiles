@@ -1,0 +1,10 @@
+font-size = 12
+
+#Macos keybinding
+keybind = alt+left=unbind
+keybind = alt+right=unbind
+
+#MacOs specific options
+macos-option-as-alt = true
+macos-titlebar-style = hidden
+command = /usr/bin/nu
