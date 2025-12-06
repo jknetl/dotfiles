@@ -33,7 +33,7 @@ alias manw = man -Hfirefox
 # tmux
 alias t = tmux
 alias td = tmux-default
-alias mux = tmuxinator start
+alias mux = tmuxinator
 alias ta = tmux a
 alias tn = tmux new-session
 alias tcs = tmux choose-session
