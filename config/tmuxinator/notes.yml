@@ -1,0 +1,10 @@
+# /home/jknetl/.config/tmuxinator/notes.yml
+
+name: notes
+root: ~/obsidian-vault/
+
+windows:
+  - editor:
+      layout: main-vertical
+      panes:
+        - vim

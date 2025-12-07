@@ -1,0 +1,22 @@
+# /home/jknetl/.config/tmuxinator/dotfiles.yml
+
+name: dotfiles
+root: ~/dotfiles
+
+# Runs in each window and pane before window/pane specific commands. Useful for setting up interpreter versions.
+# pre_window: git fetch --all
+
+windows:
+  - dotfiles:
+      layout: main-vertical
+      # Synchronize all panes of this window, can be enabled before or after the pane commands run.
+      # 'before' represents legacy functionality and will be deprecated in a future release, in favour of 'after'
+      # synchronize: after
+      panes:
+        - nvim
+  - nvim:
+      root: ~/.config/nvim
+      panes:
+        - nvim
+
+
