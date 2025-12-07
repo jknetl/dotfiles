@@ -1,0 +1,8 @@
+# /home/jknetl/.config/tmuxinator/tmp.yml
+
+name: tmp
+root: ~/tmp
+
+windows:
+  - tmp:
+      layout: main-vertical

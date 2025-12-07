@@ -4,7 +4,7 @@ name: notes
 root: ~/obsidian-vault/
 
 windows:
-  - editor:
+  - obsidian-vault:
       layout: main-vertical
       panes:
         - vim
