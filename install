@@ -50,6 +50,7 @@ CONFIGS=(tmux.conf
          config/awesome/themes/default/theme.lua
          config/autorandr/postswitch
          config/kanata/kanata.kbd
+         config/kanata/kanata-macos.kbd
          config/nushell/aliases.nu
          config/nushell/aliases_kubectl.nu
          config/nushell/config.nu

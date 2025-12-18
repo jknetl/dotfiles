@@ -1,0 +1,58 @@
+(defvar
+  tap-time 200
+  hold-time 200
+)
+
+(defsrc
+  esc
+  grv  1    2    3    4    5    6    7    8    9    0    -    =    bspc
+  tab  q    w    e    r    t    y    u    i    o    p    [    ]    \
+  caps a    s    d    f    g    h    j    k    l    ;    '    ret
+  lsft z    x    c    v    b    n    m    ,    .    /    rsft
+  lctl lalt  lmet          spc            ralt rmet rctl
+)
+
+(deflayer qwerty
+  @esc
+  grv  1    2    3    4    5    6    7    8    9    0    -    =    bspc
+  tab  q    w    e    r    t    y    u    i    o    p    [    ]    \
+  @cap @a  @s   @d   @f    g    h   @j   @k   @l   @;    '    ret
+  lsft z    x    c    v    b    n    m    ,    .    /    rsft
+  lctl lalt lmet           @spc-arr            ralt rmet rctl
+)
+
+(deflayer navigation
+  esc
+  grv  1    2    3    4    5    6    7    8    9    0    -    =    bspc
+  tab  q    w    e  lrld   t    y    u    i    o    p    [    ]    \
+  caps a    s    d    f    g  left down  up  right  ret    '    ret
+  lsft z    x    c    v    b   del  bks   ,    .    /    rsft
+  lctl lalt lmet           spc            ralt rmet rctl
+)
+
+(deflayer numeric
+  esc
+  grv  1    2    3    4    5    6    7    8    9    0    -    =    bspc
+  tab  q    w    e    r    t    y    7    8    9    bks    [    ]    \
+  @cap a    s    d    f    g    h    4    5    6   ret    '    ret
+  lsft z    x    c    v    b    0    1    2    3    /    rsft
+  lctl lalt lmet           @spc-arr            ralt rmet rctl
+)
+
+(defalias
+  cap (tap-hold $tap-time $hold-time esc lctl)
+  spc-arr (tap-hold $tap-time $hold-time spc (layer-while-held navigation))
+  esc (tap-hold $tap-time $hold-time esc (layer-while-held numeric))
+)
+
+(defalias
+  a (tap-hold $tap-time $hold-time a lmet)
+  s (tap-hold $tap-time $hold-time s lalt)
+  d (tap-hold $tap-time $hold-time d lsft)
+  f (tap-hold $tap-time $hold-time f lctl)
+  j (tap-hold $tap-time $hold-time j rctl)
+  k (tap-hold $tap-time $hold-time k rsft)
+  l (tap-hold $tap-time $hold-time l ralt)
+  ; (tap-hold $tap-time $hold-time ; rmet)
+)
+
