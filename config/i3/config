@@ -326,7 +326,7 @@ bindsym $mod+o exec rofi-pulse-sink.sh
 bindsym $mod+Shift+o exec rofi-pulse-source.sh
 
 
-bindsym $mod+Shift+p exec xset r rate 200 100
+bindsym $mod+Shift+p exec xset r rate 250 60
 bindsym $mod+Shift+s sticky toggle
 
 

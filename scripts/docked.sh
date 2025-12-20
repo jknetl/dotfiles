@@ -4,4 +4,4 @@
 
 echo "$(date) - connected " >> ~/tmp/udev-log
 
-xset r rate 200 50 >>  ~/tmp/udev-log 2>&1
+xset r rate 200 60 >>  ~/tmp/udev-log 2>&1

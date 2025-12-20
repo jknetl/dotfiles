@@ -780,7 +780,7 @@ awful.spawn.with_shell("nitrogen --restore")
 --awful.spawn.with_shell("davmail")
  awful.spawn.with_shell("nm-i3.sh")
 -- awful.spawn.with_shell("nm-applet-i3.sh")
-awful.spawn.with_shell("xset r rate 200 50")
+awful.spawn.with_shell("xset r rate 200 60")
 awful.spawn.with_shell("systemctl stop --user redshift-gtk")
 
 -- wallpaper

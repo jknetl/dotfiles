@@ -40,7 +40,7 @@ setxkbmap -option caps:escape
 #xmodmap ~/.Xmodmap
 
 # xset rate [delay] [repetition speed] (all in ms)
-xset r rate 250 48
+xset r rate 250 60
 
 #enable numlock
 #setleds -D +num
