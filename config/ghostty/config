@@ -7,4 +7,4 @@ command = /usr/bin/nu
 window-decoration = server
 
 
-config = ?config-mac
+config-file = ?config-mac
