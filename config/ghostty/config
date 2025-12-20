@@ -4,7 +4,7 @@ font-size = 12
 confirm-close-surface = false
 command = /usr/bin/nu
 
-window-decoration = none
+window-decoration = server
 
 
 config = ?config-mac
