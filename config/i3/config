@@ -327,7 +327,7 @@ bindsym $mod+o exec rofi-pulse-sink.sh
 bindsym $mod+Shift+o exec rofi-pulse-source.sh
 
 
-bindsym $mod+Shift+p exec xset r rate 250 60
+bindsym $mod+Shift+p exec xset r rate 500 60
 bindsym $mod+Shift+s sticky toggle
 
 
@@ -447,7 +447,7 @@ exec_always setxkbmap "us,cz(qwerty)" -option grp:shifts_toggle
 #exec_always xmodmap .Xmodmap
 
 # xset rate [delay] [repetition speed] (all in ms)
-#exec_always xset r rate 250 40
+#exec_always xset r rate 500 60
 
 ################### END: Included in profile ##################################
 
