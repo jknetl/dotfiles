@@ -173,6 +173,7 @@ for_window [class="org.gnome.Nautilus"] floating enable
 for_window [class="Gnome-calculator"] floating enable
 for_window [class="gnome-calculator"] floating enable
 for_window [class="Pavucontrol"] floating enable
+for_window [class="Arandr"] floating enable
 
 
 # workspace 1
