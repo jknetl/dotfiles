@@ -43,7 +43,7 @@
 (defalias
   cap (tap-hold $tap-time $hold-time esc lctl)
   spc-arr (tap-hold $tap-time $hold-time spc (layer-while-held navigation))
-  esc (tap-hold $tap-time $hold-time esc (layer-while-held numeric))
+  esc (tap-hold-press 150 150 esc (layer-while-held numeric))
 )
 
 (defalias
