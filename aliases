@@ -1,8 +1,8 @@
 ### Deliberately overriden commands
-#alias bat='batcat --theme=base16'
-alias cat='bat --plain'
-alias catp='bat'
-alias catt='/usr/bin/cat'
+alias bat='batcat'
+# alias cat='bat --plain'
+# alias catp='bat'
+# alias catt='/usr/bin/cat'
 alias vim='nvim'
 alias nv='nvim'
 alias v='vim'

@@ -12,12 +12,13 @@ def --env y [...args] {
 }
 
 #alias bat = batcat --theme=base16
-alias cat = bat --plain
-alias catp = bat
-alias catt = /usr/bin/cat
+#alias cat = bat --plain
+#alias catp = bat
+# alias catt = /usr/bin/cat
 alias vim = nvim
 alias nv = nvim
 alias v = vim
+alias br = broot
 
 # alias ls = exa
 # alias ll = exa -l --icons --git
