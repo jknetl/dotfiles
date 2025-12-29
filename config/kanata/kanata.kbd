@@ -41,19 +41,19 @@
 )
 
 (defalias
-  cap (tap-hold $tap-time $hold-time esc lctl)
-  spc-arr (tap-hold $tap-time $hold-time spc (layer-while-held navigation))
-  esc (tap-hold-press 150 150 esc (layer-while-held numeric))
+  cap (tap-hold-press 150 150 esc lctl)
+  spc-arr (tap-hold-release $tap-time $hold-time spc (layer-while-held navigation))
+  esc (tap-hold-release 150 150 esc (layer-while-held numeric))
 )
 
 (defalias
-  a (tap-hold $tap-time $hold-time a lalt)
-  s (tap-hold $tap-time $hold-time s lmet)
-  d (tap-hold $tap-time $hold-time d lsft)
-  f (tap-hold $tap-time $hold-time f lctl)
-  j (tap-hold $tap-time $hold-time j rctl)
-  k (tap-hold $tap-time $hold-time k rsft)
-  l (tap-hold $tap-time $hold-time l rmet)
-  ; (tap-hold $tap-time $hold-time ; ralt)
+  a (tap-hold-release $tap-time $hold-time a lalt)
+  s (tap-hold-release $tap-time $hold-time s lmet)
+  d (tap-hold-release $tap-time $hold-time d lsft)
+  f (tap-hold-release $tap-time $hold-time f lctl)
+  j (tap-hold-release $tap-time $hold-time j rctl)
+  k (tap-hold-release $tap-time $hold-time k rsft)
+  l (tap-hold-release $tap-time $hold-time l rmet)
+  ; (tap-hold-release $tap-time $hold-time ; ralt)
 )
 
