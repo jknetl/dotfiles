@@ -25,7 +25,7 @@
   esc
   grv  1    2    3    4    5    6    7    8    9    0    -    =    bspc
   tab  q    up   e  lrld   t    y    u    i    o    p    [    ]    \
-  caps left down right f    g  left down  up  right  ret    '    ret
+  @cap @a   @s  @d   @f    g  left down  up  right  ret    '    ret
   lsft z    x    c    v    b   del  bks   ,    .    /    rsft
   lctl lalt lmet           spc            ralt rmet rctl
 )
@@ -34,25 +34,25 @@
   esc
   grv  1    2    3    4    5    6    7    8    9    0    -    =    bspc
   tab  q    w    e    r    t    y    7    8    9    bks    [    ]    \
-  @cap a    s    d    f    g    h    4    5    6   ret    '    ret
+  @cap @a   @s  @d   @f    g    h    4    5    6   ret    '    ret
   lsft z    x    c    v    b    0    1    2    3    /    rsft
   lctl lalt lmet           @spc-arr            ralt rmet rctl
 )
 
 (defalias
-  cap (tap-hold $tap-time $hold-time esc lctl)
-  spc-arr (tap-hold $tap-time $hold-time spc (layer-while-held navigation))
-  esc (tap-hold-press 150 150 esc (layer-while-held numeric))
+  cap (tap-hold-press 150 150 esc lctl)
+  spc-arr (tap-hold-release $tap-time $hold-time spc (layer-while-held navigation))
+  esc (tap-hold-release 150 150 esc (layer-while-held numeric))
 )
 
 (defalias
-  a (tap-hold $tap-time $hold-time a lmet)
-  s (tap-hold $tap-time $hold-time s lalt)
-  d (tap-hold $tap-time $hold-time d lsft)
-  f (tap-hold $tap-time $hold-time f lctl)
-  j (tap-hold $tap-time $hold-time j rctl)
-  k (tap-hold $tap-time $hold-time k rsft)
-  l (tap-hold $tap-time $hold-time l ralt)
-  ; (tap-hold $tap-time $hold-time ; rmet)
+  a (tap-hold-release $tap-time $hold-time a lmet)
+  s (tap-hold-release $tap-time $hold-time s lalt)
+  d (tap-hold-release $tap-time $hold-time d lsft)
+  f (tap-hold-release $tap-time $hold-time f lctl)
+  j (tap-hold-release $tap-time $hold-time j rctl)
+  k (tap-hold-release $tap-time $hold-time k rsft)
+  l (tap-hold-release $tap-time $hold-time l ralt)
+  ; (tap-hold-release $tap-time $hold-time ; rmet)
 )
 
