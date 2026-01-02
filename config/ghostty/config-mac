@@ -1,4 +1,4 @@
-font-size = 12
+font-size = 14
 
 #Macos keybinding
 keybind = alt+left=unbind
@@ -7,4 +7,4 @@ keybind = alt+right=unbind
 #MacOs specific options
 macos-option-as-alt = true
 macos-titlebar-style = hidden
-# command = /opt/homebrew/bin/nu
+command = /opt/homebrew/bin/nu
