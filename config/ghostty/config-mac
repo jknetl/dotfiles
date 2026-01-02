@@ -7,4 +7,4 @@ keybind = alt+right=unbind
 #MacOs specific options
 macos-option-as-alt = true
 macos-titlebar-style = hidden
-command = /usr/bin/nu
+# command = /opt/homebrew/bin/nu
