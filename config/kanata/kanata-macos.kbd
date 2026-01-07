@@ -22,10 +22,10 @@
 )
 
 (deflayer navigation
-  grv
+  esc
   grv  1    2    3    4    5    6    7    8    9    0    -    =    bspc
   tab  q    up   e  lrld   t    y    u    i    o    p    [    ]    \
-  @cap @a   @s  @d   @f    g  left down  up  right  ret    '    ret
+  caps @a   @s  @d   @f    g  left down  up  right  ret    '    ret
   lsft z    x    c    v    b   del  bks   ,    .    /    rsft
   lctl lalt lmet           spc            ralt rmet rctl
 )
@@ -42,7 +42,7 @@
 (defalias
   cap (tap-hold-press 150 150 esc lctl)
   spc-arr (tap-hold-release $tap-time $hold-time spc (layer-while-held navigation))
-  esc (tap-hold-release 150 150 esc (layer-while-held numeric))
+  esc (tap-hold-release 150 150 grv (layer-while-held numeric))
 )
 
 (defalias
