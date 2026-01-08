@@ -11,7 +11,7 @@ print $"Found ($clusters | length) clusters in rancher."
 print "Fetching kubeconfigs for all clusters..."
 sleep 0.5sec
 # Fetch kubeconfigs in parallel
-let kubeconfigs = ($clusters | par-each -t 20 { |cluster|
+let kubeconfigs = ($clusters | par-each -t 8 { |cluster|
     print $"Fetching kubeconfig for cluster: ($cluster.name)"
     rancher clusters kubeconfig ($cluster.id) ($cluster.name) | from yaml
 })
