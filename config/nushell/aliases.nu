@@ -52,7 +52,7 @@ alias lg = lazygit
 alias gcb = git branch --show-current
 alias grr = git rev-parse --show-toplevel
 def --env cgr [] { cd (git rev-parse --show-toplevel | str trim) }
-def ghash [] { git rev-parse --short HEAD | str trim }
+def ghash [] { git rev-parse --short=7 HEAD | str trim }
 def ghashfull [] { git rev-parse HEAD | str trim }
 def --env cdgroot [] { cd (git rev-parse --show-toplevel | str trim) }
 alias groot = git rev-parse --show-toplevel

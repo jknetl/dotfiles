@@ -21,9 +21,9 @@
 mkdir ($nu.data-dir | path join "vendor/autoload")
 
 # Load aliases.nu if it exists from the same directory as config.nu
-source ($nu.home-path | path join '.config/nushell/aliases.nu')
-source ($nu.home-path | path join '.config/nushell/aliases_kubectl.nu')
-source ($nu.home-path | path join '.config/nushell/catppuccin_mocha.nu')
+source ($nu.home-dir | path join '.config/nushell/aliases.nu')
+source ($nu.home-dir | path join '.config/nushell/aliases_kubectl.nu')
+source ($nu.home-dir | path join '.config/nushell/catppuccin_mocha.nu')
 source ~/.cache/carapace/init.nu
 source ~/.zoxide.nu
 
