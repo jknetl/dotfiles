@@ -3,6 +3,9 @@
 # Add ArgoCD tracking annotations to Kubernetes YAML resources
 # Usage: argo-annotate.nu <app-name> <input-file>
 
+
+let default_namespace = kubectl config view --minify | from yaml | get contexts | first | get context.namespace
+
 def main [
     app_name: string  # The ArgoCD application name
     input_file: string  # Path to the Kubernetes YAML file
@@ -42,7 +45,7 @@ def annotate_document [
     # Extract resource metadata
     let kind = $resource.kind? | default ""
     let name = $resource.metadata?.name? | default ""
-    let namespace = $resource.metadata?.namespace? | default "default"
+    let namespace = $resource.metadata?.namespace? | default $default_namespace
 
     # Determine the API group (for core resources like Service, it's empty)
     let api_version = $resource.apiVersion? | default ""
