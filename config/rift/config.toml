@@ -170,7 +170,7 @@ vertical = 0
 # vertical = 8
 [settings.ui.menu_bar]
 # enable menu bar workspace indicators
-enabled = false
+enabled = true
 # if enabled, it will show all workspaces including empty ones. disabled because this
 # tends to take up too much room in the menubar and then is auto hidden by macos
 show_empty = false
@@ -180,7 +180,7 @@ mode = "all"
 active_label = "index"
 # when displaying workspaces, choose whether to draw the layout preview or a set of labels
 # options are "layout" or "label"
-display_style = "layout"
+display_style = "label"
 
 [settings.ui.stack_line]
 # experimental stack line indicator (defaults to off)
@@ -231,6 +231,10 @@ haptic_pattern = "level_change"
 drag_swap_fraction = 0.3
 
 [virtual_workspaces]
+
+# => Workspaces in rift are indeed from 0 - but to keep my conventions from i3 lets consider workspace 0 as workspace 10
+# => this means workspace 1 will be the default and the order of workspaces corrseponds to the numbers on keyabord from left to right
+
 # Virtual workspaces
 # - enabled: if false, rift behaves like a simple tiling WM with a single space
 # - default_workspace_count: number of workspaces to create on startup (1–32)
@@ -240,7 +244,7 @@ drag_swap_fraction = 0.3
 #   that's already active, it will switch to the last workspace instead
 # - reapply_app_rules_on_title_change: if true, app rules are re-evaluated when a window's title changes
 enabled = true
-default_workspace_count = 4
+default_workspace_count = 10
 auto_assign_windows = true
 preserve_focus_per_workspace = true
 workspace_auto_back_and_forth = false
@@ -259,7 +263,7 @@ workspace_rules = []
 # Default workspace to activate on startup (0-based index).
 # If omitted, defaults to 0 (first workspace). Must be less than default_workspace_count.
 # Uncomment to change:
-# default_workspace = 0
+default_workspace = 1
 
 # Workspace names (indexed order). If fewer than default_workspace_count are provided,
 # remaining workspaces are named "Workspace X".
@@ -385,6 +389,7 @@ comb1 = "Alt + Shift"
 # - snap_strip / center_selection
 
 "Alt + Z" = "toggle_space_activated"
+"Alt + Q" = { exec = ["/bin/bash", "-c", "osascript -e 'tell application (path to frontmost application as text) to quit'"] }
 
 "Alt + H" = { move_focus = "left" }
 "Alt + J" = { move_focus = "down" }
@@ -396,23 +401,35 @@ comb1 = "Alt + Shift"
 "comb1 + K" = { move_node = "up" }
 "comb1 + L" = { move_node = "right" }
 
-"Alt + 0" = { switch_to_workspace = 0 }
 "Alt + 1" = { switch_to_workspace = 1 }
 "Alt + 2" = { switch_to_workspace = 2 }
 "Alt + 3" = { switch_to_workspace = 3 }
+"Alt + 4" = { switch_to_workspace = 4 }
+"Alt + 5" = { switch_to_workspace = 5 }
+"Alt + 6" = { switch_to_workspace = 6 }
+"Alt + 7" = { switch_to_workspace = 7 }
+"Alt + 8" = { switch_to_workspace = 8 }
+"Alt + 9" = { switch_to_workspace = 9 }
+"Alt + 0" = { switch_to_workspace = 0 }
 
-"comb1 + 0" = { move_window_to_workspace = 0 }
 "comb1 + 1" = { move_window_to_workspace = 1 }
 "comb1 + 2" = { move_window_to_workspace = 2 }
 "comb1 + 3" = { move_window_to_workspace = 3 }
+"comb1 + 4" = { move_window_to_workspace = 4 }
+"comb1 + 5" = { move_window_to_workspace = 5 }
+"comb1 + 6" = { move_window_to_workspace = 6 }
+"comb1 + 7" = { move_window_to_workspace = 7 }
+"comb1 + 8" = { move_window_to_workspace = 8 }
+"comb1 + 9" = { move_window_to_workspace = 9 }
+"comb1 + 0" = { move_window_to_workspace = 0 }
 
 "Alt + Tab" = "switch_to_last_workspace"
 
 # commands to change the layout engine of the active workspace
-# "Alt + Ctrl + 1" = { set_workspace_layout = { mode = "traditional" } }
-# "Alt + Ctrl + 2" = { set_workspace_layout = { mode = "bsp" } }
-# "Alt + Ctrl + 3" = { set_workspace_layout = { mode = "master_stack" } }
-# "Alt + Ctrl + 4" = { set_workspace_layout = { mode = "scrolling" } }
+"Alt + Ctrl + 1" = { set_workspace_layout = { mode = "traditional" } }
+"Alt + Ctrl + 2" = { set_workspace_layout = { mode = "bsp" } }
+"Alt + Ctrl + 3" = { set_workspace_layout = { mode = "master_stack" } }
+"Alt + Ctrl + 4" = { set_workspace_layout = { mode = "scrolling" } }
 
 "Alt + Shift + Left" = { join_window = "left" }
 "Alt + Shift + Right" = { join_window = "right" }
@@ -453,6 +470,9 @@ comb1 = "Alt + Shift"
 # "Alt + Ctrl + M" = "show_mission_control_all"
 
 "Alt + Enter" = { "exec" = ["/bin/bash", "-c", "open -a \"/System/Applications/Utilities/Terminal.app\""] }
+"Alt + C" = { exec = ["open", "-n", "/Applications/Ghostty.app/"] }
+"Alt + B" = { exec = ["open", "-n", "/Applications/Firefox.app"] }
+"Ctrl + Alt + B" = { exec = ["open", "-na", "/Applications/Firefox.app", "--args", "-P"] }
 
 "Alt + Shift + D" = "debug" # prints layout tree
 
