@@ -20,6 +20,14 @@ alias nv = nvim
 alias v = vim
 alias br = broot
 
+alias cl = clockify-cli
+alias clr = clockify-cli report
+alias cls = clockify-cli show
+alias cls = clockify-cli show
+alias clcl = clockify-cli clone
+alias clin = clockify-cli in
+alias clout = clockify-cli out
+
 # alias ls = exa
 # alias ll = exa -l --icons --git
 # alias lt = exa --tree --icons
