@@ -212,14 +212,14 @@ assign [class="superProductivity"] $ws10
 
 # Workspace 9
 #MS teams PWA -- doesn't work
-assign [class="crx_cifhbcnohmdccbgoicgdjpfamggdegmo"] $ws8
-assign [class="Microsoft Teams - Preview"] $ws8
-assign [class="teams-for-linux"] $ws8
-assign [class="Slack"] $ws7
+assign [class="crx_cifhbcnohmdccbgoicgdjpfamggdegmo"] $ws9
+assign [class="Microsoft Teams - Preview"] $ws9
+assign [class="teams-for-linux"] $ws9
+assign [class="Slack"] $ws9
 
 # workspace
 #assign [class="Pavucontrol"] $ws10
-assign [class="obsidian"] $ws9
+assign [class="obsidian"] $ws5
 
 ### Bind workspace to the screen
 

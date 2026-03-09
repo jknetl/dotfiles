@@ -16,7 +16,7 @@ move_app_to_workspace iterm 2
 move_app_to_workspace ghostty 2
 move_app_to_workspace alacritty 2
 move_app_to_workspace intellij 3
-move_app_to_workspace obsidian 9
+move_app_to_workspace obsidian 5
 move_app_to_workspace slack 8
-move_app_to_workspace teams 7
+move_app_to_workspace teams 9
 move_app_to_workspace outlook 10
