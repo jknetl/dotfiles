@@ -168,7 +168,8 @@ alt-shift-left = 'move-workspace-to-monitor --wrap-around prev'
 ctrl-alt-shift-h = 'move-node-to-monitor --wrap-around left'
 ctrl-alt-shift-l = 'move-node-to-monitor --wrap-around right'
 
-alt-q = 'close --quit-if-last-window'
+# alt-q = 'close --quit-if-last-window'
+alt-q = "exec-and-forget bash -c 'WS=$(aerospace list-workspaces --focused); aerospace close --quit-if-last-window; sleep 0.1; aerospace workspace $WS'"
 alt-x = 'close'
 alt-g = 'exec-and-forget ~/bin/aerospace-remove-ghost-windows.sh'
 
