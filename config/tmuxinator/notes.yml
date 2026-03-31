@@ -1,7 +1,7 @@
 # /home/jknetl/.config/tmuxinator/notes.yml
 
 name: notes
-root: ~/obsidian-vault/
+root: ~/obsidian/main-vault/
 
 windows:
   - obsidian-vault:
