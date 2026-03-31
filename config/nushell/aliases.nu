@@ -136,6 +136,26 @@ alias f = flux
 alias b64 = base64
 alias b64d = base64 -d
 
+def jwt-decode [token?: string] {
+    let t = if ($token | is-empty) { $in } else { $token }
+    let parts = ($t | split row ".")
+    let decode_part = { |part|
+        let s = ($part | str replace --all "-" "+" | str replace --all "_" "/")
+        let pad = ((4 - ($s | str length) mod 4) mod 4)
+        let padded = match $pad {
+            0 => $s,
+            1 => $"($s)=",
+            2 => $"($s)==",
+            _ => $s,
+        }
+        $padded | decode base64 | decode | from json
+    }
+    {
+        header: (do $decode_part $parts.0),
+        payload: (do $decode_part $parts.1),
+    }
+}
+
 alias gcl = gcloud
 
 alias gl = glab
@@ -170,6 +190,36 @@ alias sl = screen-layout
 
 alias evolution = GTK_THEME=Arc evolution
 
+
+# Parse .env file content from a pipeline and return a record suitable for `load-env`
+#
+# Usage:
+#   source parse-dotenv.nu
+#   open .env | from env
+#   open .env | from env | load-env
+def "from env" [] {
+    $in
+    | lines
+    | where {|line|
+        let trimmed = ($line | str trim)
+        $trimmed != "" and not ($trimmed | str starts-with "#")
+    }
+    | parse --regex '^(?P<key>[A-Za-z_][A-Za-z0-9_]*)=(?P<value>.*)'
+    | update value {|row|
+        let v = ($row.value | str trim)
+        if ($v | str starts-with '"') and ($v | str ends-with '"') {
+            $v | str replace --regex '^"(.*)"$' '${1}'
+        } else if ($v | str starts-with "'") and ($v | str ends-with "'") {
+            $v | str replace --regex "^'(.*)'$" '${1}'
+        } else {
+            # Strip trailing inline comments (KEY=value # comment)
+            $v | str replace --regex '\s+#.*$' ''
+        }
+    }
+    | reduce -f {} {|row, acc| $acc | insert $row.key $row.value }
+}
 # Sourcing other alias files is not directly supported in Nushell, but you can use 'source' if the files are Nushell scripts:
 # if ([$env.HOME/.work.aliases] | path exists) { source $"($env.HOME)/.work.aliases" }
 # if ([$env.HOME/.kubectl_aliases] | path exists) { source $"($env.HOME)/.kubectl_aliases" }
+#
+
