@@ -91,7 +91,7 @@ outer.right =      8
 # alt-slash = 'layout tiles horizontal vertical'
 # alt-comma = 'layout accordion horizontal vertical'
 
-alt-f = 'fullscreen'
+alt-shift-f = 'fullscreen'
 alt-s = 'layout v_accordion' # 'layout stacking' in i3
 alt-w = 'layout h_accordion' # 'layout tabbed' in i3
 alt-e = 'layout tiles horizontal vertical' # 'layout toggle split' in i3
@@ -160,11 +160,11 @@ alt-tab = 'workspace-back-and-forth'
 # See: https://nikitabobko.github.io/AeroSpace/commands#move-workspace-to-monitor
 alt-shift-tab = 'move-workspace-to-monitor --wrap-around next'
 
-# Arrow keys for monitor switching / moving apps
-alt-left= 'focus-monitor --wrap-around next'
-alt-right= 'focus-monitor --wrap-around prev'
-alt-shift-right = 'move-workspace-to-monitor --wrap-around next'
-alt-shift-left = 'move-workspace-to-monitor --wrap-around prev'
+# Comma/period for monitor switching / moving apps
+alt-comma = 'focus-monitor --wrap-around next'
+alt-period = 'focus-monitor --wrap-around prev'
+alt-shift-period = 'move-workspace-to-monitor --wrap-around next'
+alt-shift-comma = 'move-workspace-to-monitor --wrap-around prev'
 ctrl-alt-shift-h = 'move-node-to-monitor --wrap-around left'
 ctrl-alt-shift-l = 'move-node-to-monitor --wrap-around right'
 
