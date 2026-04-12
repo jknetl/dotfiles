@@ -40,7 +40,7 @@ keybinds {
         bind "i" { TogglePanePinned; SwitchToMode "Normal"; }
     }
     move {
-        bind "Ctrl h" { SwitchToMode "Normal"; }
+        bind "Ctrl Shift h" { SwitchToMode "Normal"; }
         bind "n" "Tab" { MovePane; }
         bind "p" { MovePaneBackwards; }
         bind "h" "Left" { MovePane "Left"; }
@@ -198,6 +198,47 @@ keybinds {
         bind "Alt ]" { NextSwapLayout; }
         bind "Alt p" { TogglePaneInGroup; }
         bind "Alt Shift p" { ToggleGroupMarking; }
+
+               bind "Ctrl h" {
+            MessagePlugin "https://github.com/hiasr/vim-zellij-navigator/releases/download/0.3.0/vim-zellij-navigator.wasm" {
+                name "move_focus_or_tab";
+                payload "left";
+
+                // Plugin Configuration
+                move_mod "ctrl"; // Optional, should be added on every move command if changed.
+                use_arrow_keys "false"; // Optional, uses arrow keys instead of hjkl. Should be added to every command where you want to use it.
+            };
+        }
+
+        bind "Ctrl j" {
+            MessagePlugin "https://github.com/hiasr/vim-zellij-navigator/releases/download/0.3.0/vim-zellij-navigator.wasm" {
+                name "move_focus";
+                payload "down";
+
+                move_mod "ctrl";
+                use_arrow_keys "false";
+            };
+        }
+
+        bind "Ctrl k" {
+            MessagePlugin "https://github.com/hiasr/vim-zellij-navigator/releases/download/0.3.0/vim-zellij-navigator.wasm" {
+                name "move_focus";
+                payload "up";
+
+                move_mod "ctrl";
+                use_arrow_keys "false";
+            };
+        }
+
+        bind "Ctrl l" {
+            MessagePlugin "https://github.com/hiasr/vim-zellij-navigator/releases/download/0.3.0/vim-zellij-navigator.wasm" {
+                name "move_focus_or_tab";
+                payload "right";
+
+                move_mod "ctrl"; // Optional, should be added on every command if you want to use it
+                use_arrow_keys "false";
+            };
+        }
     }
     shared_except "normal" "locked" {
         bind "Enter" "Esc" { SwitchToMode "Normal"; }
@@ -218,7 +259,7 @@ keybinds {
         bind "Ctrl t" { SwitchToMode "Tab"; }
     }
     shared_except "move" "locked" {
-        bind "Ctrl h" { SwitchToMode "Move"; }
+        bind "Ctrl Shift h" { SwitchToMode "Move"; }
     }
     shared_except "tmux" "locked" {
         bind "Ctrl b" { SwitchToMode "Tmux"; }
@@ -337,6 +378,7 @@ load_plugins {
 // Default: default
 //
 // theme "default"
+theme "catppuccin-macchiato"
 
 // The name of the default layout to load on startup
 // Default: "default"
