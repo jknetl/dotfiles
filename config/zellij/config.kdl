@@ -198,6 +198,8 @@ keybinds {
         bind "Alt ]" { NextSwapLayout; }
         bind "Alt p" { TogglePaneInGroup; }
         bind "Alt Shift p" { ToggleGroupMarking; }
+        bind "Ctrl ." { GoToNextTab; }
+        bind "Ctrl ," { GoToPreviousTab; }
 
 
         // Unocmment for the seamless navigation with neovim using C-hjkl in the normal mode (requires also enabling neovim plugin for that)
@@ -261,6 +263,7 @@ keybinds {
         bind "Ctrl t" { SwitchToMode "Tab"; }
     }
     shared_except "move" "locked" {
+        unbind "Ctrl h"
         bind "Ctrl Shift h" { SwitchToMode "Move"; }
     }
     shared_except "tmux" "locked" {
