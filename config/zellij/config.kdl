@@ -198,8 +198,10 @@ keybinds {
         bind "Alt ]" { NextSwapLayout; }
         bind "Alt p" { TogglePaneInGroup; }
         bind "Alt Shift p" { ToggleGroupMarking; }
-        bind "Ctrl ." { GoToNextTab; }
-        bind "Ctrl ," { GoToPreviousTab; }
+        // bind "Ctrl ." { GoToNextTab; }
+        // bind "Ctrl ," { GoToPreviousTab; }
+        bind "Alt ." { GoToNextTab; }
+        bind "Alt ," { GoToPreviousTab; }
 
 
         // Unocmment for the seamless navigation with neovim using C-hjkl in the normal mode (requires also enabling neovim plugin for that)
@@ -585,7 +587,6 @@ theme "catppuccin-macchiato"
 // typically work best. Set to 0 to use the number of (physical) CPU cores.
 // NOTE: This only applies to web clients at the moment."#;
 // client_async_worker_tasks 4
-
 
 web_client {
     font "monospace"
