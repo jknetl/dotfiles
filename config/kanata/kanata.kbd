@@ -9,7 +9,7 @@
   tab  q    w    e    r    t    y    u    i    o    p    [    ]    \
   caps a    s    d    f    g    h    j    k    l    ;    '    ret
   lsft z    x    c    v    b    n    m    ,    .    /    rsft
-  lctl lalt  lmet          spc            ralt rmet rctl
+  lctl lmet  lalt          spc            ralt rmet rctl
 )
 
 (deflayer qwerty
@@ -18,7 +18,7 @@
   tab  q    w    e    r    t    y    u    i    o    p    [    ]    \
   @cap @a  @s   @d   @f    g    h   @j   @k   @l   @;    '    ret
   lsft z    x    c    v    b    n    m    ,    .    /    rsft
-  lctl lalt lmet           @spc-arr            ralt rmet rctl
+  lctl lmet lalt           @spc-arr            ralt rmet rctl
 )
 
 ;; there is is for training purposes - when you comment out qwerty layer you disable the regular mod keys
@@ -37,7 +37,7 @@
   tab  q    up   e  lrld   t    y    u    i    o    p    [    ]    \
   caps @a   @s  @d   @f    g  left down  up  right  ret    '    ret
   lsft z    x    c    v    b   del  bks   ,    .    /    rsft
-  lctl lalt lmet           spc            ralt rmet rctl
+  lctl lmet lalt           spc            ralt rmet rctl
 )
 
 (deflayer numeric
@@ -46,7 +46,7 @@
   tab  q    w    e    r    t   del   7    8    9    bks    [    ]    \
   @cap @a   @s  @d   @f    g  bspc   4    5    6   ret    '    ret
   lsft z    x    c    v    b    0    1    2    3    /    rsft
-  lctl lalt lmet           @spc-arr            ralt rmet rctl
+  lctl lmet lalt           @spc-arr            ralt rmet rctl
 )
 
 (defalias
