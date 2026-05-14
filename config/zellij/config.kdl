@@ -157,10 +157,10 @@ keybinds clear-defaults=true {
         bind "Alt ]" { NextSwapLayout; }
         bind "Alt f" { ToggleFloatingPanes; }
 
-        bind "Ctrl h" { MoveFocusOrTab "left"; }
+        bind "Ctrl h" { MoveFocus "left"; }
         bind "Ctrl j" { MoveFocus "down"; }
         bind "Ctrl k" { MoveFocus "up"; }
-        bind "Ctrl l" { MoveFocusOrTab "right"; }
+        bind "Ctrl l" { MoveFocus "right"; }
 
         bind "Alt n" { NewPane; }
 
