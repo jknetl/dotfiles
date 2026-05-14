@@ -145,7 +145,7 @@ keybinds clear-defaults=true {
         }
     }
     shared_except "locked" {
-        bind "Ctrl g" { SwitchToMode "locked"; }
+        unbind "Ctrl g" { SwitchToMode "locked"; }
 
         // direct shortcuts with alt
         bind "Alt ." { GoToNextTab; }
@@ -238,14 +238,14 @@ keybinds clear-defaults=true {
     }
     tmux clear-defaults=true {
         bind "Ctrl space" { Write 2; SwitchToMode "Normal"; }
-        bind "Esc" { SwitchToMode "Normal"; }
-        bind "g" { SwitchToMode "Locked"; }
-        bind "p" { SwitchToMode "Pane"; }
-        bind "t" { SwitchToMode "Tab"; }
-        bind "n" { SwitchToMode "Resize"; }
-        bind "h" { SwitchToMode "Move"; }
-        bind "s" { SwitchToMode "Scroll"; }
-        bind "o" { SwitchToMode "Session"; }
+        bind "Esc" { SwitchToMode "normal"; }
+        bind "g" { SwitchToMode "locked"; }
+        bind "p" { SwitchToMode "pane"; }
+        bind "t" { SwitchToMode "tab"; }
+        bind "n" { SwitchToMode "resize"; }
+        bind "h" { SwitchToMode "move"; }
+        bind "s" { SwitchToMode "scroll"; }
+        bind "o" { SwitchToMode "session"; }
         bind "q" { Quit; }
     }
 }
