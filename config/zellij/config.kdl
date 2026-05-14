@@ -148,8 +148,8 @@ keybinds clear-defaults=true {
         unbind "Ctrl g" { SwitchToMode "locked"; }
 
         // direct shortcuts with alt
-        bind "Alt ." { GoToNextTab; }
-        bind "Alt ," { GoToPreviousTab; }
+        bind "Ctrl ." { GoToNextTab; }
+        bind "Ctrl ," { GoToPreviousTab; }
         bind "Alt -" { Resize "Decrease"; }
         bind "Alt +" { Resize "Increase"; }
         bind "Alt =" { Resize "Increase"; }
@@ -157,15 +157,15 @@ keybinds clear-defaults=true {
         bind "Alt ]" { NextSwapLayout; }
         bind "Alt f" { ToggleFloatingPanes; }
 
-        bind "Alt h" { MoveFocusOrTab "left"; }
-        bind "Alt j" { MoveFocus "down"; }
-        bind "Alt k" { MoveFocus "up"; }
-        bind "Alt l" { MoveFocusOrTab "right"; }
+        bind "Ctrl h" { MoveFocusOrTab "left"; }
+        bind "Ctrl j" { MoveFocus "down"; }
+        bind "Ctrl k" { MoveFocus "up"; }
+        bind "Ctrl l" { MoveFocusOrTab "right"; }
 
         bind "Alt n" { NewPane; }
 
-        bind "Alt o" { MoveTab "right"; }
-        bind "Alt i" { MoveTab "left"; }
+        bind "Alt ." { MoveTab "right"; }
+        bind "Alt ," { MoveTab "left"; }
         bind "Alt p" { TogglePaneInGroup; }
 
         bind "Alt Shift p" { ToggleGroupMarking; }
