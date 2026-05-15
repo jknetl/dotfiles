@@ -3,10 +3,6 @@ font-size = 15
 #Macos keybinding
 keybind = alt+left=unbind
 keybind = alt+right=unbind
-keybind = ctrl+h=unbind
-keybind = super+h=unbind
-keybind = alt+h=unbind
-
 
 #MacOs specific options
 macos-option-as-alt = true
