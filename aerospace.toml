@@ -178,6 +178,8 @@ alt-g = 'exec-and-forget ~/bin/aerospace-remove-ghost-windows.sh'
 alt-c = 'exec-and-forget open -n /Applications/Ghostty.app/'
 alt-b = 'exec-and-forget open -n /Applications/Firefox.app'
 ctrl-alt-b = 'exec-and-forget open -na /Applications/Firefox.app --args -P'
+alt-t = 'exec-and-forget open ~' # T for Tree
+
 # alt-b = 'exec-and-forget open -n /Applications/Zen.app'
 # ctrl-alt-b = 'exec-and-forget open -na /Applications/Zen.app --args -P'
 # alt-shift-b = 'exec-and-forget open -na /Applications/Firefox.app'
@@ -217,3 +219,12 @@ alt-shift-h = ['join-with left', 'mode main']
 alt-shift-j = ['join-with down', 'mode main']
 alt-shift-k = ['join-with up', 'mode main']
 alt-shift-l = ['join-with right', 'mode main']
+
+
+## App specific config
+# run `aerospace list-windows --focused` to see window ids
+# you can also use regex 
+# if.app-name-regex-substring = '^(Finder|Calculator|System Settings|Activity Monitor)$'
+[[on-window-detected]]
+if.app-id = 'com.apple.finder'
+run = 'layout floating'
