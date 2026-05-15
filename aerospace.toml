@@ -222,8 +222,13 @@ alt-shift-l = ['join-with right', 'mode main']
 
 
 ## App specific config
-# run `aerospace list-windows --focused` to see window ids
-# you can also use regex 
+# run `aerospace list-windows --all` to see window names 
+# or `aerospace list-windows --all   --format '%{window-id} | %{app-bundle-id} |  %{app-name} |  %{window-title}'`
+#
+# you can also use regex  for app name
+#     if.app-id = 'com.apple.systempreferences'
+#     if.app-name-regex-substring = 'settings'
+#     if.window-title-regex-substring = '...'
 # if.app-name-regex-substring = '^(Finder|Calculator|System Settings|Activity Monitor)$'
 [[on-window-detected]]
 if.app-id = 'com.apple.finder'
