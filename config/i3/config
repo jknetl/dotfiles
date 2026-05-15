@@ -61,8 +61,10 @@ bindsym $mod+q kill
 #bindsym $mod+d exec rofi -show run
 #bindsym $mod+d exec "rofi -combi-modi run,drun -show combi"
 bindsym $mod+d exec "~/.config/rofi/launchers/type-5/launcher.sh"
+bindsym Mod1+space exec "~/.config/rofi/launchers/type-5/launcher.sh"
 bindsym $mod+Shift+d exec "rofi -combi-modi run -show combi"
 bindsym $mod+p exec rofi -show window
+bindsym Mod1+Tab exec rofi -show window
 # There also is the (new) i3-dmenu-desktop which only displays applications
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
 # installed.
@@ -156,7 +158,7 @@ bindsym $mod+Shift+0 move container to workspace $ws10
 
 
 # Focus apps accross workaspces shortcut
-bindsym $mod+n exec i3-msg [class="obsidian"] focus
+# bindsym $mod+n exec i3-msg [class="obsidian"] focus
 bindsym $mod+s exec i3-msg [class="Slack"] focus
 bindsym $mod+z exec i3-msg [class="zoom"] focus
 
