@@ -145,8 +145,6 @@ keybinds clear-defaults=true {
         }
     }
     shared_except "locked" {
-        unbind "Ctrl g" { SwitchToMode "locked"; }
-
         // direct shortcuts with alt
         bind "Ctrl ." { GoToNextTab; }
         bind "Ctrl ," { GoToPreviousTab; }
@@ -170,9 +168,6 @@ keybinds clear-defaults=true {
 
         bind "Alt Shift p" { ToggleGroupMarking; }
         //bind "Ctrl q" { Quit; }
-    }
-    shared_except "locked" "move" {
-        unbind "Ctrl h" { SwitchToMode "move"; }
     }
     shared_except "locked" "session" {
         unbind "Ctrl o" { SwitchToMode "session"; }
@@ -461,7 +456,7 @@ default_shell "nu"
 // (Requires restart)
 // Default: true (if the host terminal supports it)
 // 
-// support_kitty_keyboard_protocol false
+support_kitty_keyboard_protocol true
 // Whether to make sure a local web server is running when a new Zellij session starts.
 // This web server will allow creating new sessions and attaching to existing ones that have
 // opted in to being shared in the browser.
