@@ -63,7 +63,6 @@ bindsym $mod+q kill
 bindsym $mod+d exec "~/.config/rofi/launchers/type-5/launcher.sh"
 bindsym Mod1+space exec "~/.config/rofi/launchers/type-5/launcher.sh"
 bindsym $mod+Shift+d exec "rofi -combi-modi run -show combi"
-bindsym $mod+p exec rofi -show window
 bindsym Mod1+Tab exec rofi -show window
 # There also is the (new) i3-dmenu-desktop which only displays applications
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
@@ -92,7 +91,7 @@ bindsym $mod+g split h
 bindsym $mod+v split v
 
 # enter fullscreen mode for the focused container
-bindsym $mod+f fullscreen toggle
+bindsym $mod+shift+f fullscreen toggle
 
 # change container layout (stacked, tabbed, toggle split)
 # bindsym $mod+s layout stacking
@@ -333,7 +332,7 @@ bindsym $mod+Shift+p exec xset r rate 500 60
 bindsym $mod+Shift+s sticky toggle
 
 
-bindsym $mod+Shift+f exec flameshot gui
+bindsym $mod+p exec flameshot gui
 
 # Custom keybindings
 bindsym $mod+x exec i3lock -c 2f343f
