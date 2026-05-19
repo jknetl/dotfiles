@@ -11,22 +11,13 @@ def main [
     input_file: string  # Path to the Kubernetes YAML file
     --in-place (-i)  # Edit file in-place (overwrite input file)
 ] {
-    # Read the input file
-    let content = open $input_file
+    let annotated_docs = open --raw $input_file
+        | split row "---\n"
+        | where { |doc| not ($doc | str trim | is-empty) }
+        | each { |doc| $doc | from yaml }
+        | where { |doc| $doc != null }
+        | each { |doc| annotate_document $doc $app_name }
 
-    # Split the file by YAML document separator (---)
-    let documents = $content
-
-    # Process each document
-    let annotated_docs = $documents | each { |doc|
-        if ($doc | str trim | is-empty) {
-            $doc
-        } else {
-            annotate_document $doc $app_name
-        }
-    }
-
-    # Join documents back with separator
     let result = $annotated_docs | str join "---\n"
 
     # Write to file if in-place flag is set, otherwise print to stdout
