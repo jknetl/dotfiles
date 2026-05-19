@@ -6,12 +6,13 @@
 def main [
     app_name: string  # The ArgoCD application name
 ] {
-    APP_NAME=$app_name yq '
+    let default_namespace = kubectl config view --minify | from yaml | get contexts | first | get context.namespace
+    APP_NAME=$app_name DEFAULT_NS=$default_namespace yq '
       select(has("kind")) |= .metadata.annotations["argocd.argoproj.io/tracking-id"] = (
         env(APP_NAME) + ":" +
         (((.apiVersion // "") | select(test("/")) | capture("(?P<group>[^/]+)/.*") | .group + "/") // "/") +
         .kind + ":" +
-        (.metadata.namespace // "default") + "/" +
+        (.metadata.namespace // env(DEFAULT_NS)) + "/" +
         (.metadata.name // "")
       )
     '
