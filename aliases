@@ -13,6 +13,8 @@ alias v='vim'
 alias ff='cd "$(fd --type d | fzf)"'
 
 
+alias zj='zellij'
+
 # my pomodoro app
 alias pomodoro='pomodoro -g'
 

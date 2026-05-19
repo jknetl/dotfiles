@@ -20,6 +20,8 @@ alias nv = nvim
 alias v = vim
 alias br = broot
 
+alias zj = zellij
+
 alias cl = clockify-cli
 alias clr = clockify-cli report
 alias cls = clockify-cli show
