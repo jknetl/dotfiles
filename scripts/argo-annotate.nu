@@ -1,31 +1,22 @@
-#!/usr/bin/env nu
+#!/usr/bin/env -S nu --stdin
 
 # Add ArgoCD tracking annotations to Kubernetes YAML resources
-# Usage: argo-annotate.nu <app-name> <input-file>
+# Usage: cat <manifest.yaml> | argo-annotate.nu <app-name>
 
 
 let default_namespace = kubectl config view --minify | from yaml | get contexts | first | get context.namespace
 
 def main [
     app_name: string  # The ArgoCD application name
-    input_file: string  # Path to the Kubernetes YAML file
-    --in-place (-i)  # Edit file in-place (overwrite input file)
 ] {
-    let annotated_docs = open --raw $input_file
+    let annotated_docs = $in
         | split row "---\n"
         | where { |doc| not ($doc | str trim | is-empty) }
         | each { |doc| $doc | from yaml }
         | where { |doc| $doc != null }
         | each { |doc| annotate_document $doc $app_name }
 
-    let result = $annotated_docs | str join "---\n"
-
-    # Write to file if in-place flag is set, otherwise print to stdout
-    if $in_place {
-        $result | save -f $input_file
-    } else {
-        $result
-    }
+    $annotated_docs | str join "---\n"
 }
 
 # Annotate a single YAML document

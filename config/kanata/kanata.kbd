@@ -1,6 +1,19 @@
 (defvar
-  tap-time 180
-  hold-time 180
+  tap-time    200
+  hold-time   250
+  hrm-idle-ms 150
+
+  left-hand-keys   (q w e r t a s d f g z x c v b)
+  right-hand-keys  (y u i o p h j k l ; n m , . /)
+
+  left-hand-press    (q w e r t z x c v b)
+  right-hand-press   (y u i o p n m , . /)
+  left-hand-release  (a s d f g)
+  right-hand-release (h j k l ;)
+)
+
+(deffakekeys
+  to-base (layer-switch qwerty)
 )
 
 (defsrc
@@ -16,53 +29,65 @@
   @esc
   grv  1    2    3    4    5    6    7    8    9    0    -    =    bspc
   tab  q    w    e    r    t    y    u    i    o    p    [    ]    \
-  @cap @a  @s   @d   @f    g    h   @j   @k   @l   @;    '    ret
+  @cap @a   @s   @d   @f   g    h    @j   @k   @l   @;   '    ret
   lsft z    x    c    v    b    n    m    ,    .    /    rsft
   lctl lmet lalt           @spc-arr            ralt rmet rctl
 )
 
-;; there is is for training purposes - when you comment out qwerty layer you disable the regular mod keys
+(deflayer nomods
+  @esc
+  grv  1    2    3    4    5    6    7    8    9    0    -    =    bspc
+  tab  q    w    e    r    t    y    u    i    o    p    [    ]    \
+  @cap a    s    d    f    g    h    j    k    l    ;    '    ret
+  lsft z    x    c    v    b    n    m    ,    .    /    rsft
+  lctl lmet lalt           @spc-arr            ralt rmet rctl
+)
+
+;; training: home-row mods enabled, bottom-row modifiers disabled (for building muscle memory)
 (deflayer training
   @esc
   grv  1    2    3    4    5    6    7    8    9    0    -    =    bspc
   tab  q    w    e    r    t    y    u    i    o    p    [    ]    \
-  @cap @a  @s   @d   @f    g    h   @j   @k   @l   @;    '    ret
+  @cap @a   @s   @d   @f   g    h    @j   @k   @l   @;   '    ret
   lsft z    x    c    v    b    n    m    ,    .    /    rsft
-  XX XX XX           @spc-arr            XX XX XX
+  XX   XX   XX             @spc-arr            XX   XX   XX
 )
 
 (deflayer navigation
   esc
-  grv  f1   f2   f3   f4   f5   f6   f7   f8   f9   f10    f11    f12    bspc
-  tab  q    up   e  lrld   t    y    u    i    o    p    [    ]    \
-  caps @a   @s  @d   @f    g  left down  up  right  ret    '    ret
-  lsft z    x    c    v    b   del  bks   ,    .    /    rsft
+  grv  f1   f2   f3   f4   f5   f6   f7   f8   f9   f10  f11  f12  bspc
+  tab  q    up   e    lrld t    y    u    i    o    p    [    ]    \
+  @cw  @a   @s   @d   @f   g    left down up   right ret  '    ret
+  lsft z    x    c    v    b    del  bks  ,    .    /    rsft
   lctl lmet lalt           spc            ralt rmet rctl
 )
 
 (deflayer numeric
   esc
   grv  1    2    3    4    5    6    7    8    9    0    -    =    bspc
-  tab  q    w    e    r    t   del   7    8    9    bks    [    ]    \
-  @cap @a   @s  @d   @f    g  bspc   4    5    6   ret    '    ret
+  tab  q    w    e    r    t    del  7    8    9    bks  [    ]    \
+  @cap @a   @s   @d   @f   g    bspc 4    5    6    ret  '    ret
   lsft z    x    c    v    b    0    1    2    3    /    rsft
   lctl lmet lalt           @spc-arr            ralt rmet rctl
 )
 
 (defalias
-  cap (tap-hold-press 150 150 esc lctl)
+  cap     (tap-hold-press 150 150 esc lctl)
   spc-arr (tap-hold-release $tap-time $hold-time spc (layer-while-held navigation))
-  esc (tap-hold-release 150 150 grv (layer-while-held numeric))
+  esc     (tap-hold-release 150 150 grv (layer-while-held numeric))
+  cw      (caps-word 2000)
+  tap     (multi
+            (layer-switch nomods)
+            (on-idle-fakekey to-base tap $hrm-idle-ms))
 )
 
 (defalias
-  a (tap-hold-release $tap-time $hold-time a lalt)
-  s (tap-hold-release $tap-time $hold-time s lmet)
-  d (tap-hold-release $tap-time $hold-time d lsft)
-  f (tap-hold-release $tap-time $hold-time f lctl)
-  j (tap-hold-release $tap-time $hold-time j rctl)
-  k (tap-hold-release $tap-time $hold-time k rsft)
-  l (tap-hold-release $tap-time $hold-time l rmet)
-  ; (tap-hold-release $tap-time $hold-time ; ralt)
+  a (tap-hold-release-tap-keys-release $tap-time $hold-time (multi a @tap) lalt $left-hand-press $left-hand-release)
+  s (tap-hold-release-tap-keys-release $tap-time $hold-time (multi s @tap) lmet $left-hand-press $left-hand-release)
+  d (tap-hold-release-tap-keys-release $tap-time $hold-time (multi d @tap) lsft $left-hand-press $left-hand-release)
+  f (tap-hold-release-tap-keys-release $tap-time $hold-time (multi f @tap) lctl $left-hand-press $left-hand-release)
+  j (tap-hold-release-tap-keys-release $tap-time $hold-time (multi j @tap) rctl $right-hand-press $right-hand-release)
+  k (tap-hold-release-tap-keys-release $tap-time $hold-time (multi k @tap) rsft $right-hand-press $right-hand-release)
+  l (tap-hold-release-tap-keys-release $tap-time $hold-time (multi l @tap) rmet $right-hand-press $right-hand-release)
+  ; (tap-hold-release-tap-keys-release $tap-time $hold-time (multi ; @tap) ralt $right-hand-press $right-hand-release)
 )
-
