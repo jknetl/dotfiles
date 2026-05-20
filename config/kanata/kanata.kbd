@@ -73,13 +73,13 @@
 )
 
 (defalias
+  tap     (multi
+            (layer-switch nomods)
+            (on-idle-fakekey to-base tap $hrm-idle-ms))
   cap     (tap-hold-press $repress-time $quick-hold-time esc lctl)
   spc-arr (tap-hold-release $repress-time $hold-time (multi spc @tap) (layer-while-held navigation))
   esc     (tap-hold-release $repress-time $quick-hold-time grv (layer-while-held numeric))
   cw      (caps-word 2000)
-  tap     (multi
-            (layer-switch nomods)
-            (on-idle-fakekey to-base tap $hrm-idle-ms))
 )
 
 (defalias
