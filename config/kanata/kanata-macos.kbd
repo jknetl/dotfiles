@@ -1,7 +1,8 @@
 (defvar
-  tap-time    200
-  hold-time   250
-  hrm-idle-ms 150
+  repress-time       200
+  hold-time          220
+  quick-hold-time    15
+  hrm-idle-ms        150
 
   left-hand-keys   (q w e r t a s d f g z x c v b)
   right-hand-keys  (y u i o p h j k l ; n m , . /)
@@ -72,9 +73,9 @@
 )
 
 (defalias
-  cap     (tap-hold-press 150 150 esc lctl)
-  spc-arr (tap-hold-release $tap-time $hold-time spc (layer-while-held navigation))
-  esc     (tap-hold-release 150 150 grv (layer-while-held numeric))
+  cap     (tap-hold-press $repress-time $quick-hold-time esc lctl)
+  spc-arr (tap-hold-release $repress-time $hold-time spc (layer-while-held navigation))
+  esc     (tap-hold-release $repress-time $quick-hold-time grv (layer-while-held numeric))
   cw      (caps-word 2000)
   tap     (multi
             (layer-switch nomods)
@@ -82,12 +83,12 @@
 )
 
 (defalias
-  a (tap-hold-release-tap-keys-release $tap-time $hold-time (multi a @tap) lmet $left-hand-press $left-hand-release)
-  s (tap-hold-release-tap-keys-release $tap-time $hold-time (multi s @tap) lalt $left-hand-press $left-hand-release)
-  d (tap-hold-release-tap-keys-release $tap-time $hold-time (multi d @tap) lsft $left-hand-press $left-hand-release)
-  f (tap-hold-release-tap-keys-release $tap-time $hold-time (multi f @tap) lctl $left-hand-press $left-hand-release)
-  j (tap-hold-release-tap-keys-release $tap-time $hold-time (multi j @tap) rctl $right-hand-press $right-hand-release)
-  k (tap-hold-release-tap-keys-release $tap-time $hold-time (multi k @tap) rsft $right-hand-press $right-hand-release)
-  l (tap-hold-release-tap-keys-release $tap-time $hold-time (multi l @tap) ralt $right-hand-press $right-hand-release)
-  ; (tap-hold-release-tap-keys-release $tap-time $hold-time (multi ; @tap) rmet $right-hand-press $right-hand-release)
+  a (tap-hold-release-tap-keys-release $repress-time $hold-time (multi a @tap) lmet $left-hand-press $left-hand-release)
+  s (tap-hold-release-tap-keys-release $repress-time $hold-time (multi s @tap) lalt $left-hand-press $left-hand-release)
+  d (tap-hold-release-tap-keys-release $repress-time $hold-time (multi d @tap) lsft $left-hand-press $left-hand-release)
+  f (tap-hold-release-tap-keys-release $repress-time $hold-time (multi f @tap) lctl $left-hand-press $left-hand-release)
+  j (tap-hold-release-tap-keys-release $repress-time $hold-time (multi j @tap) rctl $right-hand-press $right-hand-release)
+  k (tap-hold-release-tap-keys-release $repress-time $hold-time (multi k @tap) rsft $right-hand-press $right-hand-release)
+  l (tap-hold-release-tap-keys-release $repress-time $hold-time (multi l @tap) ralt $right-hand-press $right-hand-release)
+  ; (tap-hold-release-tap-keys-release $repress-time $hold-time (multi ; @tap) rmet $right-hand-press $right-hand-release)
 )
