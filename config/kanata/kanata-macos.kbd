@@ -1,7 +1,7 @@
 (defvar
   repress-time       200
   hold-time          250
-  quick-hold-time    15
+  quick-hold-time    150
   hrm-idle-ms        150
 
   left-hand-keys   (q w e r t a s d f g z x c v b)
