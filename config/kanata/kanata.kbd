@@ -1,6 +1,6 @@
 (defvar
   repress-time       200
-  hold-time          220
+  hold-time          250
   quick-hold-time    150
   hrm-idle-ms        150
 
