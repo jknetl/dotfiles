@@ -358,14 +358,14 @@ bindsym $mod+t exec thunar
 # TODO: change to cursor keys, after you change between windows to vim-like settings
 
 bindsym $mod+Shift+Down move workspace to output down
-bindsym $mod+Shift+Right move workspace to output right
-bindsym $mod+Shift+Left move workspace to output left
+bindsym $mod+Shift+period move workspace to output right
+bindsym $mod+Shift+comma move workspace to output left
 bindsym $mod+Shift+Up move workspace to output up
 
 # focus output
 bindsym $mod+Down focus output down
-bindsym $mod+Right focus output right
-bindsym $mod+Left focus output left
+bindsym $mod+period focus output right
+bindsym $mod+comma focus output left
 bindsym $mod+Up focus output up
 
 
