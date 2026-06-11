@@ -2,7 +2,7 @@
   repress-time       200
   hold-time          250
   quick-hold-time    150
-  hrm-idle-ms        150
+  hrm-idle-ms        100
 
   left-hand-keys   (q w e r t a s d f g z x c v b)
   right-hand-keys  (y u i o p h j k l ; n m , . /)
