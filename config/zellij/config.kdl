@@ -170,7 +170,7 @@ keybinds clear-defaults=true {
         //bind "Ctrl q" { Quit; }
     }
     shared_except "locked" "session" {
-        unbind "Ctrl o" { SwitchToMode "session"; }
+        bind "Ctrl x" { SwitchToMode "session"; }
     }
     shared_except "locked" "scroll" "search" "tmux" {
         bind "Ctrl space" { SwitchToMode "tmux"; }
@@ -179,10 +179,10 @@ keybinds clear-defaults=true {
         unbind "Ctrl s" { SwitchToMode "scroll"; }
     }
     shared_except "locked" "tab" {
-        unbind "Ctrl t" { SwitchToMode "tab"; }
+        bind "Ctrl t" { SwitchToMode "tab"; }
     }
     shared_except "locked" "pane" {
-        unbind "Ctrl p" { SwitchToMode "pane"; }
+        bind "Ctrl s" { SwitchToMode "pane"; }
     }
     shared_except "locked" "resize" {
        unbind "Ctrl n" { SwitchToMode "resize"; }
