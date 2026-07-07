@@ -1,6 +1,6 @@
 theme = "catppuccin_mocha"
-
-# [editor]
+[editor]
+bufferline = "always"
 # line-number = "relative"
 # mouse = false
 #
