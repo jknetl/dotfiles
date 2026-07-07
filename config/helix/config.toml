@@ -1,6 +1,15 @@
 theme = "catppuccin_mocha"
 [editor]
 bufferline = "always"
+[keys.normal]
+C-g = [
+    ":write-all",
+    ":new",
+    ":insert-output lazygit",
+    ":buffer-close!",
+    ":redraw",
+    ":reload-all"
+]
 # line-number = "relative"
 # mouse = false
 #
