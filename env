@@ -3,7 +3,7 @@ GIT_AUTHOR_NAME="Jakub Knetl"
 # JAVA_HOME=/usr/lib/jvm/latest
 
 export BROWSER='firefox'
-export EDITOR='nvim'
+export EDITOR='hx'
 # export _JAVA_OPTIONS="-Dawt.useSystemAAFontSettings=lcd -Dsun.java2d.xrender=true"
 # directories
 export storage="$HOME/storage"

@@ -26,7 +26,7 @@ $env.GIT_AUTHOR_NAME = "Jakub Knetl"
 # $env.JAVA_HOME = $"($nu.home-dir)/.jvm/latest"
 
 $env.BROWSER = 'firefox'
-$env.EDITOR = 'nvim'
+$env.EDITOR = 'hx'
 # $env._JAVA_OPTIONS = "-Dawt.useSystemAAFontSettings = lcd -Dsun.java2d.xrender = true"
 
 # directories
