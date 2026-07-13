@@ -25,7 +25,11 @@ $env.GIT_AUTHOR_NAME = "Jakub Knetl"
 
 # $env.JAVA_HOME = $"($nu.home-dir)/.jvm/latest"
 
-$env.BROWSER = 'firefox'
+# Don't set BROWSER env variable because of MacOS
+# many CLI tools will read it and try to use content of this variable as command
+# however on MacOs `firefox` command don't exists - when  env variable is unset
+# it should use open/xdg-open and handle it properly
+# $env.BROWSER = 'firefox'
 $env.EDITOR = 'hx'
 # $env._JAVA_OPTIONS = "-Dawt.useSystemAAFontSettings = lcd -Dsun.java2d.xrender = true"
 

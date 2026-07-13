@@ -10,6 +10,10 @@ C-g = [
     ":redraw",
     ":reload-all"
 ]
+
+[keys.normal.space]
+m = ':sh zellij run --floating --close-on-exit --name markdown -- mo "%{buffer_name}"'
+G = ':sh gh browse "%{buffer_name}:%{cursor_line}" -c=%sh{git rev-parse HEAD}'
 # line-number = "relative"
 # mouse = false
 #
