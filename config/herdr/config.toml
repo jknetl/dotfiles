@@ -70,7 +70,7 @@ prefix = "ctrl+space"
 # reload_config = "prefix+shift+r"
 # open_notification_target = "prefix+o"
 # workspace_picker = "prefix+w"
-# goto = "prefix+g"
+goto = "prefix+g"
 # new_workspace = "prefix+shift+n"
 # new_worktree = "prefix+shift+g"
 # open_worktree = ""    # optional, unset by default
@@ -79,7 +79,7 @@ prefix = "ctrl+space"
 # close_workspace = "prefix+shift+d"
 previous_workspace = "ctrl+shift+," # optional, unset by default
 next_workspace = "ctrl+shift+."     # optional, unset by default
-previous_agent = "ctrl+[ctrl+shift+,"     # optional, unset by default
+previous_agent = "ctrl+["     # optional, unset by default
 next_agent = "ctrl+]"         # optional, unset by default
 # focus_agent = ""        # optional indexed binding, e.g. "prefix+alt+1..9"
 focus_agent = "prefix+ctrl+1..9"
@@ -122,12 +122,19 @@ split_vertical = ["prefix+v", "alt+n"]
 # type = "popup" opens a session-modal terminal without changing the tab layout.
 # Popup width and height accept terminal cells or percentages such as "80%".
 # On Windows, command strings run through cmd.exe /d /c.
-# [[keys.command]]
-# key = "prefix+alt+g"
-# type = "popup"
-# command = "lazygit"
-# width = "80%"
-# height = "80%"
+[[keys.command]]
+key = "prefix+shift+g"
+type = "popup"
+command = "lazygit"
+width = "80%"
+height = "80%"
+
+[[keys.command]]
+key = "alt+f"
+type = "popup"
+command = "nu"
+width = "80%"
+height = "80%"
 
 # Legacy indexed shortcut config is still parsed for compatibility.
 # Prefer switch_tab, switch_workspace, and focus_agent for new configs.
