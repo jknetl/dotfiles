@@ -92,6 +92,7 @@ SCRIPTS=(
          battery
          backup-photos.sh
          check-shutdown.sh
+         cc-editor.sh
          encrypt-pdf.sh
          prepend-file.sh
          thumbnails.sh
