@@ -130,6 +130,13 @@ width = "80%"
 height = "80%"
 
 [[keys.command]]
+key = "prefix+shift+y"
+type = "popup"
+command = "yazi"
+width = "80%"
+height = "80%"
+
+[[keys.command]]
 key = "alt+f"
 type = "popup"
 command = "nu"
