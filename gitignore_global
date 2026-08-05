@@ -72,3 +72,4 @@ local.properties
 .texlipse
 
 **/.claude/settings.local.json
+**/.claude/session-summary.md
