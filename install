@@ -82,6 +82,7 @@ CONFIGS=(tmux.conf
          config/borders/bordersrc
          config/kitty/kitty.conf
          config/starship.toml
+         config/lazygit/config.yml
          )
 
 SCRIPTS=(
