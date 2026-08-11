@@ -31,6 +31,12 @@ alias tcs='tmux choose-session'
 alias trws='tmux rename-window $(shorten-path.sh $(pwd))'
 alias trw='tmux rename-window $(basename $(pwd))'
 
+# Herdr
+
+alias h='herdr'
+alias hr='herdr server reload-config'
+alias hs='herdr session'
+alias hsa='herdr session attach'
 
 alias restart-plasma='kquitapp5 plasmashell ; kstart5 plasmashell'
 

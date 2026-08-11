@@ -51,6 +51,13 @@ alias tcs = tmux choose-session
 def trws [] { tmux rename-window (shorten-path.sh (pwd)) }
 def trw [] { tmux rename-window (pwd | path basename) }
 
+# herdr
+#
+alias h = herdr
+alias hr = herdr server reload-config
+alias hs = herdr session
+alias hsa = herdr session attach
+
 # alias restart-plasma = kquitapp5 plasmashell; kstart5 plasmashell
 
 # git

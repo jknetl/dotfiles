@@ -126,22 +126,22 @@ split_vertical = ["prefix+v", "alt+n"]
 key = "prefix+shift+g"
 type = "popup"
 command = "lazygit"
-width = "80%"
-height = "80%"
+width = "90%"
+height = "90%"
 
 [[keys.command]]
 key = "prefix+shift+y"
 type = "popup"
 command = "yazi"
 width = "80%"
-height = "80%"
+height = "90%"
 
 [[keys.command]]
 key = "alt+f"
 type = "popup"
 command = "nu"
 width = "80%"
-height = "80%"
+height = "90%"
 
 # Legacy indexed shortcut config is still parsed for compatibility.
 # Prefer switch_tab, switch_workspace, and focus_agent for new configs.
