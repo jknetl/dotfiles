@@ -76,6 +76,21 @@ alias groot = git rev-parse --show-toplevel
 
 def --env ffg [] { cdgroot; ff }
 
+# Create a git worktree for a new branch, next to the current repo dir
+# eg. in `dotfiles` on branch main, `gwt fix-config` creates branch fix-config
+# from main in `../dotfiles_fix-config` and cds into it
+def --env gwt [
+    branch_name: string
+    --source-branch (-s): string
+] {
+    let source = if ($source_branch | is-empty) { git branch --show-current | str trim } else { $source_branch }
+    let repo_root = (git rev-parse --show-toplevel | str trim)
+    let repo_name = ($repo_root | path basename)
+    let worktree_path = ($repo_root | path dirname | path join $"($repo_name)_($branch_name)")
+    git worktree add -b $branch_name $worktree_path $source
+    cd $worktree_path
+}
+
 # C programming
 alias gdbb = gdb --tui
 

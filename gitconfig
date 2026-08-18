@@ -30,6 +30,7 @@
 	blamewccc = blame -w -C -C -C
 	diffw = diff --word-diff
 	fpush = push --force-with-lease
+	wt = worktree
 [user]
 	name = Jakub Knetl
 	email = knetl.j@gmail.com
