@@ -1,5 +1,8 @@
+.worktrees
+
 # Claude
 .claude/settings.local.json
+.claude/worktrees
 
 # MacOS
 .DS_Store
