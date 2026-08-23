@@ -5,10 +5,13 @@ confirm-close-surface = false
 command = /usr/bin/nu
 
 window-decoration = server
-# reload config with ctrl+shift+,
 
 # Free up ctrl+, (used by zellij) instead of opening config in editor
 keybind = ctrl+,=unbind
+
+# Reload config with ctrl+shift+r instead of default ctrl+shift+, (collides with herdr shortcut)
+keybind = ctrl+shift+,=unbind
+keybind = ctrl+shift+r=reload_config
 
 
 config-file = ?config-mac
