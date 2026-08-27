@@ -1,2 +1,2 @@
 [mgr]
-linemode = "size"
+linemode = "mtime"
