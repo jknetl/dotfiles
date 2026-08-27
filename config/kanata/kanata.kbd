@@ -29,8 +29,8 @@
 (deflayer qwerty
   @esc
   grv  1    2    3    4    5    6    7    8    9    0    -    =    bspc
-  tab  q    w    e    r    t    y    u    i    o    p    [    ]    \
-  @cap @a   @s   @d   @f   g    h    @j   @k   @l   @;   '    ret
+  @tabh q   w    e    r    t    y    u    i    o    p    @lbrh ]   \
+  @cap a    s    d    f    g    h    j    k    l    @scln @quo ret
   lsft z    x    c    v    b    n    m    ,    .    /    rsft
   lctl lmet lalt           @spc-arr            ralt rmet rctl
 )
@@ -38,8 +38,8 @@
 (deflayer nomods
   @esc
   grv  1    2    3    4    5    6    7    8    9    0    -    =    bspc
-  tab  q    w    e    r    t    y    u    i    o    p    [    ]    \
-  @cap a    s    d    f    g    h    j    k    l    ;    '    ret
+  @tabh q   w    e    r    t    y    u    i    o    p    @lbrh ]   \
+  @cap a    s    d    f    g    h    j    k    l    @scln @quo ret
   lsft z    x    c    v    b    n    m    ,    .    /    rsft
   lctl lmet lalt           spc             ralt rmet rctl
 )
@@ -57,8 +57,8 @@
 (deflayer navigation
   esc
   grv  f1   f2   f3   f4   f5   f6   f7   f8   f9   f10  f11  f12  bspc
-  tab  q    up   e    lrld t    y    u    i    o    p    [    ]    \
-  @cw  @a   @s   @d   @f   g    left down up   right ret  '    ret
+  grv  q   up   e    lrld t    y    u    i    o    p    @lbrh ]   \
+  @cw  a    s    d    f    g    left down up   right ret  @quo ret
   lsft z    x    c    v    b    bks  del  ,    .    /    rsft
   lctl lmet lalt           spc            ralt rmet rctl
 )
@@ -66,8 +66,8 @@
 (deflayer numeric
   esc
   grv  1    2    3    4    5    6    7    8    9    0    -    =    bspc
-  tab  q    w    e    r    t    del  7    8    9    bks  [    ]    \
-  @cap @a   @s   @d   @f   g    bspc 4    5    6    ret  '    ret
+  @tabh q   w    e    r    t    del  7    8    9    bks  @lbrh ]   \
+  @cap a    s    d    f    g    bspc 4    5    6    ret  @quo ret
   lsft z    x    c    v    b    0    1    2    3    /    rsft
   lctl lmet lalt           @spc-arr            ralt rmet rctl
 )
@@ -76,7 +76,11 @@
   tap     (multi
             (layer-switch nomods)
             (on-idle-fakekey to-base tap $hrm-idle-ms))
-  cap     (tap-hold-press $repress-time $quick-hold-time esc lctl)
+  cap     (tap-hold-release $repress-time $hold-time esc lctl)
+  quo     (tap-hold-release $repress-time $hold-time ' rctl)
+  tabh    (tap-hold-release $repress-time $hold-time tab lmet)
+  lbrh    (tap-hold-release $repress-time $hold-time [ rmet)
+  scln    (tap-hold-release $repress-time $hold-time ; ralt)
   spc-arr (tap-hold-release $repress-time $hold-time (multi spc @tap) (layer-while-held navigation))
   esc     (tap-hold-release $repress-time $quick-hold-time grv (layer-while-held numeric))
   cw      (caps-word 2000)
