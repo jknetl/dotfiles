@@ -83,6 +83,11 @@ CONFIGS=(tmux.conf
          config/kitty/kitty.conf
          config/starship.toml
          config/lazygit/config.yml
+         config/yazi/yazi.toml
+         config/yazi/keymap.toml
+         config/yazi/theme.toml
+         config/yazi/init.lua
+         config/yazi/plugins/folder-rules.yazi/main.lua
          )
 
 SCRIPTS=(
