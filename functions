@@ -104,6 +104,12 @@ if [ -f "$HOME/.work.functions" ]; then
    source "$HOME/.work.functions"
 fi
 
+function ffgw() {
+  local selected
+  selected=$(git worktree list | fzf | awk '{print $1}')
+  [ -n "$selected" ] && cd "$selected"
+}
+
 
 # list ec2 instances
 function aws-ec2() {
