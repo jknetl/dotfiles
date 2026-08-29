@@ -3,6 +3,7 @@
   hold-time          250
   quick-hold-time    150
   hrm-idle-ms        70
+  chord-time         60
 
   left-hand-keys   (q w e r t a s d f g z x c v b)
   right-hand-keys  (y u i o p h j k l ; n m , . /)
@@ -11,6 +12,10 @@
   right-hand-press   (y u i o p n m , . /)
   left-hand-release  (a s d f g)
   right-hand-release (h j k l ;)
+)
+
+(defcfg
+  concurrent-tap-hold yes
 )
 
 (deffakekeys
@@ -95,4 +100,13 @@
   k (tap-hold-release-tap-keys-release $repress-time $hold-time (multi k @tap) rsft $right-hand-press $right-hand-release)
   l (tap-hold-release-tap-keys-release $repress-time $hold-time (multi l @tap) rmet $right-hand-press $right-hand-release)
   ; (tap-hold-release-tap-keys-release $repress-time $hold-time (multi ; @tap) ralt $right-hand-press $right-hand-release)
+)
+
+(defchordsv2
+  (r t) S-9 $chord-time all-released (navigation numeric)
+  (y u) S-0 $chord-time all-released (navigation numeric)
+  (f g) [   $chord-time all-released (navigation numeric)
+  (h j) ]   $chord-time all-released (navigation numeric)
+  (v b) S-[ $chord-time all-released (navigation numeric)
+  (n m) S-] $chord-time all-released (navigation numeric)
 )
