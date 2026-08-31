@@ -1,0 +1,4 @@
+[[language]]
+name = "ini"
+# My goal here is to only add *.conf but so far helix doesn't support extending the default (so this is current default list + conf)
+file-types = ["ini", "desktop", "properties", "cfg", "directory", "conf"]

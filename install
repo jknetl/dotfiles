@@ -37,6 +37,7 @@ CONFIGS=(tmux.conf
          config/alacritty/catppuccin-macchiato.toml
          config/alacritty/catppuccin-fappe.toml
          config/helix/config.toml
+         config/helix/languages.toml
          config/herdr/config.toml
          config/tilda/config_0
          config/gtk-3.0/settings.ini
