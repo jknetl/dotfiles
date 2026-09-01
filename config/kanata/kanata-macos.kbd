@@ -67,7 +67,7 @@
   esc
   _    _    _    _    _    _    _    _    _    _    _    _
   grv  f1   f2   f3   f4   f5   f6   f7   f8   f9   f10  f11  f12  bspc
-  grv  q   up   e    lrld t    y    u    i    o    p    @lbrh ]   \
+  grv  q   up   e    lrld t    y    u    i    o    p    @navlbr ]   \
   @cw  a    s    d    f    g    left down up   right ret  @quo ret
   lsft z    x    c    v    b    del  bks  ,    .    /    rsft
   _    lctl lalt lmet           spc            ralt rmet rctl
@@ -101,6 +101,7 @@
   quo     (tap-hold-release $repress-time $hold-time ' rctl)
   tabh    (tap-hold-release $repress-time $hold-time tab lalt)
   lbrh    (tap-hold-release $repress-time $hold-time bspc ralt)
+  navlbr  (tap-hold-release $repress-time $hold-time del ralt)
   scln    (tap-hold-release $repress-time $hold-time ; rmet)
   spc-arr (tap-hold-release $repress-time $hold-time (multi spc @tap) (layer-while-held navigation))
   esc     (tap-hold-release $repress-time $quick-hold-time grv (layer-while-held numeric))
