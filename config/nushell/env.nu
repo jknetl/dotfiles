@@ -98,8 +98,5 @@ $env.CARAPACE_BRIDGES = 'zsh,fish,bash,inshellisense'
 mkdir $"($nu.home-dir)/.cache/carapace"
 carapace _carapace nushell | save --force $"($nu.home-dir)/.cache/carapace/init.nu"
 
-
-source ($nu.home-dir | path join '.config/nushell/work.env.nu')
-
 let mise_path = $nu.default-config-dir | path join mise.nu
 ^mise activate nu | save $mise_path --force
