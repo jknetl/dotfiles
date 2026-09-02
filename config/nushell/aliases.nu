@@ -253,3 +253,5 @@ def "from env" [] {
 # if ([$env.HOME/.kubectl_aliases] | path exists) { source $"($env.HOME)/.kubectl_aliases" }
 #
 
+alias pa = pulsar-admin
+alias pc = pulsar-client
