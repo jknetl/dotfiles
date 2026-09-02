@@ -36,8 +36,8 @@
   @esc
   _    _    _    _    _    _    _    _    _    _    _    _
   grv  1    2    3    4    5    6    7    8    9    0    -    =    bspc
-  @tabh q   w    e    r    t    y    u    i    o    p    @lbrh ]   \
-  @cap a    s    d    f    g    h    j    k    l    ;    @quo ret
+  tab  q    w    e    r    t    y    u    i    o    p    bspc ]   \
+  @cap @a   @s   @d   @f   g    h    @j   @k   @l   @;   @quo ret
   lsft z    x    c    v    b    n    m    ,    .    /    rsft
   @fn  lctl lalt lmet           @spc-arr            ralt rmet rctl
 )
@@ -46,7 +46,7 @@
   @esc
   _    _    _    _    _    _    _    _    _    _    _    _
   grv  1    2    3    4    5    6    7    8    9    0    -    =    bspc
-  @tabh q   w    e    r    t    y    u    i    o    p    @lbrh ]   \
+  tab  q    w    e    r    t    y    u    i    o    p    bspc ]   \
   @cap a    s    d    f    g    h    j    k    l    ;    @quo ret
   lsft z    x    c    v    b    n    m    ,    .    /    rsft
   @fn  lctl lalt lmet           spc             ralt rmet rctl
@@ -68,7 +68,7 @@
   _    _    _    _    _    _    _    _    _    _    _    _
   grv  f1   f2   f3   f4   f5   f6   f7   f8   f9   f10  f11  f12  bspc
   grv  q   up   e    lrld t    y    u    i    o    p    @navlbr ]   \
-  @cw  a    s    d    f    g    left down up   right ret  @quo ret
+  @cw  @a   @s   @d   @f   g    left down up   right ret  @quo ret
   lsft z    x    c    v    b    del  bks  ,    .    \    rsft
   _    lctl lalt lmet           spc            ralt rmet rctl
 )
@@ -77,8 +77,8 @@
   esc
   _    _    _    _    _    _    _    _    _    _    _    _
   grv  1    2    3    4    5    6    7    8    9    0    -    =    bspc
-  @tabh q   w    e    r    t    del  7    8    9    bks  @lbrh ]   \
-  @cap a    s    d    f    g    bspc 4    5    6    ret  @quo ret
+  tab  q    w    e    r    t    del  7    8    9    bks  bspc ]   \
+  @cap @a   @s   @d   @f   g    bspc 4    5    6    ret  @quo ret
   lsft z    x    c    v    b    0    1    2    3    /    rsft
   _    lctl lalt lmet           @spc-arr            ralt rmet rctl
 )
@@ -99,8 +99,6 @@
             (on-idle-fakekey to-base tap $hrm-idle-ms))
   cap     (tap-hold-release $repress-time $hold-time esc lctl)
   quo     (tap-hold-release $repress-time $hold-time ' rctl)
-  tabh    (tap-hold-release $repress-time $hold-time tab lalt)
-  lbrh    (tap-hold-release $repress-time $hold-time bspc ralt)
   navlbr  (tap-hold-release $repress-time $hold-time del ralt)
   scln    (tap-hold-release $repress-time $hold-time ; rmet)
   spc-arr (tap-hold-release $repress-time $hold-time (multi spc @tap) (layer-while-held navigation))
