@@ -8,5 +8,5 @@ firefox = [
 
 [open]
 prepend_rules = [
-	{ mime = "text/html", use = "firefox" },
+	{ mime = "text/html", use = [ "edit", "firefox" ] },
 ]
