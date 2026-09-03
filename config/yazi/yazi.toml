@@ -1,2 +1,12 @@
 [mgr]
 linemode = "mtime"
+
+[opener]
+firefox = [
+	{ run = 'open -a Firefox %s', orphan = true, desc = "Open in Firefox", for = "macos" },
+]
+
+[open]
+prepend_rules = [
+	{ mime = "text/html", use = "firefox" },
+]
