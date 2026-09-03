@@ -1,3 +1,5 @@
+;; list of key names can be found in https://github.com/jtroo/kanata/blob/main/parser/src/keys/mod.rs
+
 (defvar
   repress-time       200
   hold-time          200
@@ -68,7 +70,7 @@
   _    _    _    _    _    _    _    _    _    _    _    _
   grv  f1   f2   f3   f4   f5   f6   f7   f8   f9   f10  f11  f12  bspc
   grv  q   up   e    lrld t    y    u    i    o    p    @navlbr ]   \
-  @cw  @a   @s   @d   @f   g    left down up   right ret  @quo ret
+  @cw  @a   @s   @d   @f   g    left down up   right ;  ret  ret
   lsft z    x    c    v    b    del  bks  ,    .    \    rsft
   _    lctl lalt lmet           spc            ralt rmet rctl
 )
@@ -125,4 +127,6 @@
   (h j) ]   $chord-time all-released (navigation numeric)
   (v b) S-[ $chord-time all-released (navigation numeric)
   (n m) S-] $chord-time all-released (navigation numeric)
+  (k l) ret $chord-time all-released (navigation numeric)
+  (j k) esc $chord-time all-released (navigation numeric)
 )
