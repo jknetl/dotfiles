@@ -83,6 +83,8 @@ These files are expected to exist on the machine but are not in the repo:
 
 ## Adding New Configs
 
+**Mandatory, every time a new config/script file is added to the repo — do not skip:**
+
 1. Add the config file to the repo.
 2. Add its path to the appropriate array (`CONFIGS` or `SCRIPTS`) in `./install`.
-3. Run `./install -l` to create the symlink.
+3. Run `./install -l` to create the symlink, and verify the symlink actually exists (a file living only under `dotfiles/` with no matching entry in `./install` is inert — it's just an untracked-from-`$HOME` file, e.g. a Yazi plugin never gets loaded).

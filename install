@@ -89,6 +89,7 @@ CONFIGS=(tmux.conf
          config/yazi/theme.toml
          config/yazi/init.lua
          config/yazi/plugins/folder-rules.yazi/main.lua
+         config/yazi/plugins/piper.yazi/main.lua
          )
 
 SCRIPTS=(
