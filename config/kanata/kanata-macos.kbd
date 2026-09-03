@@ -127,6 +127,6 @@
   (h j) ]   $chord-time all-released (navigation numeric)
   (v b) S-[ $chord-time all-released (navigation numeric)
   (n m) S-] $chord-time all-released (navigation numeric)
-  (k l) ret $chord-time all-released (navigation numeric)
-  (j k) esc $chord-time all-released (navigation numeric)
+  (m ,) esc $chord-time all-released (navigation numeric)
+  (, .) ret $chord-time all-released (navigation numeric)
 )
