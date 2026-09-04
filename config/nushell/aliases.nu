@@ -153,6 +153,16 @@ alias ksl = kubie ns
 alias kon = kubeon
 alias koff = kubeoff
 
+alias kontexts = k config get-contexts -oname
+
+def kontexts_interactive [filter?] {
+    mut contexts = kontexts
+    if ($filter != null) {
+        $contexts = ($contexts | grep $filter)
+    }
+    return ( $contexts | fzf --prompt="pick context>")
+}
+alias ki = kontexts_interactive 
 def --wrapped knetshoot [...rest] {
     # Define the full image string with interpolation
     let image_name = $"($env.DOCKER_IO_REGISTRY)/nicolaka/netshoot"
