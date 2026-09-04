@@ -21,6 +21,8 @@ H = "goto_previous_buffer"
 m = ':sh zellij run --floating --close-on-exit --name markdown -- mo "%{buffer_name}"'
 G = ':sh gh browse "%{buffer_name}:%{cursor_line}" -c=%sh{git rev-parse HEAD}'
 o = "file_picker_in_current_buffer_directory"
+x = ":buffer-close"
+X = ":buffer-close!"
 # line-number = "relative"
 # mouse = false
 #
