@@ -3,6 +3,9 @@ theme = "catppuccin_mocha"
 [editor]
 bufferline = "always"
 soft-wrap.enable = true
+auto-save.focus-lost = true
+auto-save.after-delay.enable = true
+auto-save.after-delay.timeout = 3000
 
 [keys.normal]
 C-g = [
