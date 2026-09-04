@@ -30,7 +30,7 @@ $env.GIT_AUTHOR_NAME = "Jakub Knetl"
 # however on MacOs `firefox` command don't exists - when  env variable is unset
 # it should use open/xdg-open and handle it properly
 # $env.BROWSER = 'firefox'
-$env.EDITOR = 'hx'
+$env.EDITOR = 'nvim'
 # $env._JAVA_OPTIONS = "-Dawt.useSystemAAFontSettings = lcd -Dsun.java2d.xrender = true"
 
 # directories

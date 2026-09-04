@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # cc-editor — wrapper so Claude Code's Ctrl+G editor gets the repo
-# as its working directory, for path completion in nvim/helix.
+# as its working directory, for path completion in nvim.
 
 set -euo pipefail
 
@@ -23,5 +23,4 @@ fi
 
 cd "$root"
 
-# Swap this line for `exec hx "$file"` if you prefer Helix.
-exec hx "$file"
+exec nvim "$file"

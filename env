@@ -7,7 +7,7 @@ GIT_AUTHOR_NAME="Jakub Knetl"
 # however on MacOs `firefox` command don't exists - when  env variable is unset
 # it should use open/xdg-open and handle it properly
 #export BROWSER='firefox'
-export EDITOR='hx'
+export EDITOR='nvim'
 # export _JAVA_OPTIONS="-Dawt.useSystemAAFontSettings=lcd -Dsun.java2d.xrender=true"
 # directories
 export storage="$HOME/storage"
