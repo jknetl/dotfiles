@@ -78,7 +78,7 @@
   spc-arr (tap-hold-release $repress-time $hold-time (multi spc @tap) (layer-while-held symbol))
   esc     (tap-hold-release $repress-time $quick-hold-time grv (layer-while-held symbol))
   cw      (caps-word 2000)
-  f13     (tap-hold-release $repress-time $hold-time (multi spc @tap) (layer-while-held navigation))
+  f13     (tap-hold-release $repress-time $hold-time (multi ret @tap) (layer-while-held navigation))
 )
 
 (defalias
@@ -88,7 +88,7 @@
   f (tap-hold-release-tap-keys-release $repress-time $hold-time (multi f @tap) lctl $left-hand-press $left-hand-release)
   j (tap-hold-release-tap-keys-release $repress-time $hold-time (multi j @tap) rctl $right-hand-press $right-hand-release)
   k (tap-hold-release-tap-keys-release $repress-time $hold-time (multi k @tap) rsft $right-hand-press $right-hand-release)
-  l (tap-hold-release-tap-keys-release $repress-time $hold-time (multi l @tap) ralt $right-hakd-press $right-hand-release)
+  l (tap-hold-release-tap-keys-release $repress-time $hold-time (multi l @tap) ralt $right-hand-press $right-hand-release)
   ; (tap-hold-release-tap-keys-release $repress-time $hold-time (multi ; @tap) rmet $right-hand-press $right-hand-release)
 )
 
