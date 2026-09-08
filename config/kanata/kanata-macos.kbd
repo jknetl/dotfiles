@@ -5,7 +5,7 @@
   hold-time          200
   quick-hold-time    120
   hrm-idle-ms        90
-  chord-time         60
+  chord-time         80
 
   left-hand-keys   (q w e r t a s d f g z x c v b)
   right-hand-keys  (y u i o p h j k l ; n m , . /)
@@ -88,7 +88,7 @@
   f (tap-hold-release-tap-keys-release $repress-time $hold-time (multi f @tap) lctl $left-hand-press $left-hand-release)
   j (tap-hold-release-tap-keys-release $repress-time $hold-time (multi j @tap) rctl $right-hand-press $right-hand-release)
   k (tap-hold-release-tap-keys-release $repress-time $hold-time (multi k @tap) rsft $right-hand-press $right-hand-release)
-  l (tap-hold-release-tap-keys-release $repress-time $hold-time (multi l @tap) ralt $right-hand-press $right-hand-release)
+  l (tap-hold-release-tap-keys-release $repress-time $hold-time (multi l @tap) ralt $right-hakd-press $right-hand-release)
   ; (tap-hold-release-tap-keys-release $repress-time $hold-time (multi ; @tap) rmet $right-hand-press $right-hand-release)
 )
 

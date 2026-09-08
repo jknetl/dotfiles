@@ -5,7 +5,7 @@
   hold-time          200
   quick-hold-time    100
   hrm-idle-ms        90
-  chord-time         60
+  chord-time         80
 
   left-hand-keys   (q w e r t a s d f g z x c v b)
   right-hand-keys  (y u i o p h j k l ; n m , . /)
