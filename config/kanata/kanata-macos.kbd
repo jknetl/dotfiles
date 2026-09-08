@@ -42,7 +42,7 @@
   tab  q    w    e    r    t    y    u    i    o    p    bspc ]   \
   @cap @a   @s   @d   @f   g    h    @j   @k   @l   @;   @quo ret
   lsft z    x    c    v    b    n    m    ,    .    /    rsft
-  fn   lctl lalt lmet           @spc-arr            ralt rmet rctl
+  fn   lctl lalt lmet           @spc-arr            ralt @nav rctl
 )
 
 ;; auto-entered while typing: identical to qwerty but home row is plain letters
@@ -54,7 +54,7 @@
   tab  q    w    e    r    t    y    u    i    o    p    bspc ]   \
   @cap a    s    d    f    g    h    j    k    l    ;    @quo ret
   lsft z    x    c    v    b    n    m    ,    .    /    rsft
-  fn   lctl lalt lmet           @spc-arr            ralt rmet rctl
+  fn   lctl lalt lmet           @spc-arr            ralt @nav rctl
 )
 
 (deflayer navigation
@@ -90,7 +90,8 @@
   spc-arr (tap-hold-release $repress-time $hold-time (multi spc @tap) (layer-while-held symbol))
   esc     (tap-hold-release $repress-time $quick-hold-time grv (layer-while-held symbol))
   cw      (caps-word 2000)
-  f13     (tap-hold-release $repress-time $hold-time (multi ret @tap) (layer-while-held navigation))
+  nav     (tap-hold-release $repress-time $hold-time (multi ret @tap) (layer-while-held navigation))
+  f13     @nav
 )
 
 (defalias
