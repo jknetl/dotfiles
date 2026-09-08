@@ -4,7 +4,7 @@
   repress-time       200
   hold-time          200
   quick-hold-time    100
-  hrm-idle-ms        70
+  hrm-idle-ms        90
   chord-time         60
 
   left-hand-keys   (q w e r t a s d f g z x c v b)
@@ -25,6 +25,7 @@
 )
 
 (defsrc
+  f13
   esc
   grv  1    2    3    4    5    6    7    8    9    0    -    =    bspc
   tab  q    w    e    r    t    y    u    i    o    p    [    ]    \
@@ -34,6 +35,7 @@
 )
 
 (deflayer qwerty
+  @f13
   @esc
   grv  1    2    3    4    5    6    7    8    9    0    -    =    bspc
   tab  q    w    e    r    t    y    u    i    o    p    bspc ]   \
@@ -42,26 +44,8 @@
   lctl lmet lalt           @spc-arr            ralt rmet rctl
 )
 
-(deflayer nomods
-  @esc
-  grv  1    2    3    4    5    6    7    8    9    0    -    =    bspc
-  tab  q    w    e    r    t    y    u    i    o    p    bspc ]   \
-  @cap a    s    d    f    g    h    j    k    l    ;    @quo ret
-  lsft z    x    c    v    b    n    m    ,    .    /    rsft
-  lctl lmet lalt           spc             ralt rmet rctl
-)
-
-;; training: home-row mods enabled, bottom-row modifiers disabled (for building muscle memory)
-(deflayer training
-  @esc
-  grv  1    2    3    4    5    6    7    8    9    0    -    =    bspc
-  tab  q    w    e    r    t    y    u    i    o    p    [    ]    \
-  @cap @a   @s   @d   @f   g    h    @j   @k   @l   @;   '    ret
-  lsft z    x    c    v    b    n    m    ,    .    /    rsft
-  XX   XX   XX             @spc-arr            XX   XX   XX
-)
-
 (deflayer navigation
+  f13
   esc
   grv  f1   f2   f3   f4   f5   f6   f7   f8   f9   f10  f11  f12  bspc
   grv  q   up   e    lrld t    y    u    i    o    p    @navlbr ]   \
@@ -70,10 +54,11 @@
   lctl lmet lalt           spc            ralt rmet rctl
 )
 
-(deflayer numeric
+(deflayer symbol
+  f13
   esc
   grv  1    2    3    4    5    6    7    8    9    0    -    =    bspc
-  tab  q    w    e    r    t    del  7    8    9    bks  bspc ]   \
+  tab  q    w    e    r    t    del  7    8    9    -    =    ]   \
   @cap @a   @s   @d   @f   g    bspc 4    5    6    ret  @quo ret
   lsft z    x    c    v    b    0    1    2    3    /    rsft
   lctl lmet lalt           @spc-arr            ralt rmet rctl
@@ -81,15 +66,16 @@
 
 (defalias
   tap     (multi
-            (layer-switch nomods)
+            (layer-switch qwerty)
             (on-idle-fakekey to-base tap $hrm-idle-ms))
   cap     (tap-hold-release $repress-time $hold-time esc lctl)
   quo     (tap-hold-release $repress-time $hold-time ' rctl)
   navlbr  (tap-hold-release $repress-time $hold-time del rmet)
   scln    (tap-hold-release $repress-time $hold-time ; ralt)
-  spc-arr (tap-hold-release $repress-time $hold-time (multi spc @tap) (layer-while-held navigation))
-  esc     (tap-hold-release $repress-time $quick-hold-time grv (layer-while-held numeric))
+  spc-arr (tap-hold-release $repress-time $hold-time (multi spc @tap) (layer-while-held symbol))
+  esc     (tap-hold-release $repress-time $quick-hold-time grv (layer-while-held symbol))
   cw      (caps-word 2000)
+  f13     (tap-hold-release $repress-time $hold-time (multi spc @tap) (layer-while-held navigation))
 )
 
 (defalias
@@ -104,12 +90,12 @@
 )
 
 (defchordsv2
-  (r t) S-9 $chord-time all-released (navigation numeric)
-  (y u) S-0 $chord-time all-released (navigation numeric)
-  (f g) [   $chord-time all-released (navigation numeric)
-  (h j) ]   $chord-time all-released (navigation numeric)
-  (v b) S-[ $chord-time all-released (navigation numeric)
-  (n m) S-] $chord-time all-released (navigation numeric)
-  (m ,) esc $chord-time all-released (navigation numeric)
-  (, .) ret $chord-time all-released (navigation numeric)
+  (r t) S-9 $chord-time all-released (navigation symbol)
+  (y u) S-0 $chord-time all-released (navigation symbol)
+  (f g) [   $chord-time all-released (navigation symbol)
+  (h j) ]   $chord-time all-released (navigation symbol)
+  (v b) S-[ $chord-time all-released (navigation symbol)
+  (n m) S-] $chord-time all-released (navigation symbol)
+  (m ,) esc $chord-time all-released (navigation symbol)
+  (, .) ret $chord-time all-released (navigation symbol)
 )
