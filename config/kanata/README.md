@@ -71,7 +71,7 @@ Changes take effect after reloading kanata.
 |---|---|---|
 | `qwerty` | default | Normal typing with HRMs |
 | `nomods` | auto (while typing fast) | Same as qwerty but plain letters on home row |
-| `navigation` | hold right Space (`f13`), or hold right Cmd / right Alt | Arrows on hjkl, F-keys on number row, `up` on W, reload (`lrld`) on R, caps-word on Caps |
+| `navigation` | hold right Space (`f13`), hold right Cmd / right Alt, or hold Caps | Arrows on hjkl, F-keys on number row, `up` on W, reload (`lrld`) on R, caps-word on Caps |
 | `symbol` | hold left Space, or hold `` ` `` | Numpad on right half, `Del`/`Bksp` on left, `=` on G, `-` on P, `` ` `` on Tab |
 
 ## Caps Word
@@ -82,7 +82,7 @@ Hold **right Space** (to enter the navigation layer), then tap **Caps**. While a
 
 | Key | Tap | Hold |
 |---|---|---|
-| `caps` | Escape | Left Ctrl |
+| `caps` | Escape | Navigation layer |
 | `` ` `` (grv) | `` ` `` | Symbol layer (`quick-hold-time`) |
 | left `Space` | Space | Symbol layer |
 | right `Space` (`f13`) | Enter | Navigation layer |
