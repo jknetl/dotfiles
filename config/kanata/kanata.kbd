@@ -59,7 +59,7 @@
   f13
   esc
   grv  f1   f2   f3   f4   f5   f6   f7   f8   f9   f10  f11  f12  bspc
-  grv  q   up   e    lrld t    y    u    i    o    p    [    ]   \
+  tab  q   up   e    lrld t    y    u    i    o    p    [    ]   \
   @cw  @a   @s   @d   @f   g    left down up right  ; ret  ret
   lsft z    x    c    v    b     n    m  ,    .    /    rsft
   lctl lmet lalt           spc            ralt rmet rctl
@@ -69,7 +69,7 @@
   f13
   esc
   grv  f1   f2   f3   f4   f5   f6   f7   f8   f9   f10  f11  f12  bspc
-  tab  q    w    e    r    t    del  7    8    9    -    @navlbr ]   \
+  grv  q    w    e    r    t    del  7    8    9    -    @navlbr ]   \
   @cap @a   @s   @d   @f   =    bspc 4    5    6    ret  @quo ret
   lsft z    x    c    v    b    0    1    2    3    \    rsft
   lctl lmet lalt           @spc-arr            ralt rmet rctl

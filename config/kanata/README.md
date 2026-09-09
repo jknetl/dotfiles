@@ -72,7 +72,7 @@ Changes take effect after reloading kanata.
 | `qwerty` | default | Normal typing with HRMs |
 | `nomods` | auto (while typing fast) | Same as qwerty but plain letters on home row |
 | `navigation` | hold right Space (`f13`), or hold right Cmd / right Alt | Arrows on hjkl, F-keys on number row, `up` on W, reload (`lrld`) on R, caps-word on Caps |
-| `symbol` | hold left Space, or hold `` ` `` | Numpad on right half, `Del`/`Bksp` on left, `=` on G, `-` on P |
+| `symbol` | hold left Space, or hold `` ` `` | Numpad on right half, `Del`/`Bksp` on left, `=` on G, `-` on P, `` ` `` on Tab |
 
 ## Caps Word
 
@@ -89,6 +89,7 @@ Hold **right Space** (to enter the navigation layer), then tap **Caps**. While a
 | right Cmd (macOS `rmet`) / right Alt (Linux `ralt`) | Enter | Navigation layer |
 | `'` | `'` | Right Ctrl |
 | `[` (symbol layer) | Del | Right Alt (macOS) / Right Meta (Linux) |
+| `tab` (symbol layer) | `` ` `` | — |
 
 The `[` key on the qwerty layer is remapped to `Bksp`.
 
