@@ -73,8 +73,8 @@
   esc
   _    _    _    _    _    _    _    _    _    _    _    _
   grv  f1   f2   f3   f4   f5   f6   f7   f8   f9   f10  f11  f12  bspc
-  grv  q    w    e    r    t    del  7    8    9    +    @navlbr ]   \
-  @cap @a   @s   @d   @f   =    bspc 4    5    6    -  . ret
+  grv  S-1  S-2  S-3  S-4  S-5  del  7    8    9    +    @navlbr ]   \
+  @cap S-6  S-7  S-8  -    =    bspc 4    5    6    -  . ret
   lsft z    x    c    v    b    0    1    2    3    /    rsft
   _    lctl lalt lmet           @spc-arr            ralt rmet rctl
 )

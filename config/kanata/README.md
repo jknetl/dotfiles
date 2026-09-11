@@ -72,7 +72,7 @@ Changes take effect after reloading kanata.
 | `qwerty` | default | Normal typing with HRMs |
 | `nomods` | auto (while typing fast) | Same as qwerty but plain letters on home row |
 | `navigation` | hold right Space (`f13`), hold right Cmd / right Alt, or hold Caps | Arrows on hjkl, F-keys on number row, `up` on W, reload (`lrld`) on R, caps-word on Caps |
-| `symbol` | hold left Space, or hold `` ` `` | Numpad on right half, `Del`/`Bksp` on left, `=` on G, `-` on P, `` ` `` on Tab |
+| `symbol` | hold left Space, or hold `` ` `` | Numpad on right half, `Del`/`Bksp` on left, `=` on G, `-` on P, `` ` `` on Tab, `!@#$%` on QWERT, `^&*-` on ASDF (no HRM on this layer's left hand) |
 
 ## Caps Word
 
