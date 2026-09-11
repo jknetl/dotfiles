@@ -63,7 +63,7 @@
   _    _    _    _    _    _    _    _    _    _    _    _
   grv  f1   f2   f3   f4   f5   f6   f7   f8   f9   f10  f11  f12  bspc
   tab  q   up   e    lrld t    y    u    i    o    p    [    ]   \
-  @cw  @a   @s   @d   @f   g    left down up   right ;  ret  ret
+  @cw  @a   @s   @d   @f   g    left @nav-j @nav-k @nav-l @nav-scln ret  ret
   lsft z    x    c    v    b     n    m  ,    .    /    rsft
   _    lctl lalt lmet           spc            ralt rmet rctl
 )
@@ -74,7 +74,7 @@
   _    _    _    _    _    _    _    _    _    _    _    _
   grv  f1   f2   f3   f4   f5   f6   f7   f8   f9   f10  f11  f12  bspc
   grv  S-1  S-2  S-3  S-4  S-5  del  7    8    9    +    @navlbr ]   \
-  @cap S-6  S-7  S-8  -    =    bspc 4    5    6    -  . ret
+  @cap @sym-a @sym-s @sym-d @sym-f =    bspc @sym-j @sym-k @sym-l @sym-scln . ret
   lsft z    x    c    v    b    0    1    2    3    /    rsft
   _    lctl lalt lmet           @spc-arr            ralt rmet rctl
 )
@@ -103,6 +103,27 @@
   k (tap-hold-release-tap-keys-release $repress-time $hold-time (multi k @tap) rsft $right-hand-press $right-hand-release)
   l (tap-hold-release-tap-keys-release $repress-time $hold-time (multi l @tap) ralt $right-hand-press $right-hand-release)
   ; (tap-hold-release-tap-keys-release $repress-time $hold-time (multi ; @tap) rmet $right-hand-press $right-hand-release)
+)
+
+;; HRM for navigation/symbol layers: tap outputs the layer's own action,
+;; hold outputs the same modifier as the corresponding base-layer HRM key,
+;; so holding still works whether the layer switch or the key press comes first.
+(defalias
+  nav-j    (tap-hold-release-tap-keys-release $repress-time $hold-time down  rctl $right-hand-press $right-hand-release)
+  nav-k    (tap-hold-release-tap-keys-release $repress-time $hold-time up    rsft $right-hand-press $right-hand-release)
+  nav-l    (tap-hold-release-tap-keys-release $repress-time $hold-time right ralt $right-hand-press $right-hand-release)
+  nav-scln (tap-hold-release-tap-keys-release $repress-time $hold-time ;     rmet $right-hand-press $right-hand-release)
+)
+
+(defalias
+  sym-a    (tap-hold-release-tap-keys-release $repress-time $hold-time S-6 lmet $left-hand-press  $left-hand-release)
+  sym-s    (tap-hold-release-tap-keys-release $repress-time $hold-time S-7 lalt $left-hand-press  $left-hand-release)
+  sym-d    (tap-hold-release-tap-keys-release $repress-time $hold-time S-8 lsft $left-hand-press  $left-hand-release)
+  sym-f    (tap-hold-release-tap-keys-release $repress-time $hold-time -   lctl $left-hand-press  $left-hand-release)
+  sym-j    (tap-hold-release-tap-keys-release $repress-time $hold-time 4   rctl $right-hand-press $right-hand-release)
+  sym-k    (tap-hold-release-tap-keys-release $repress-time $hold-time 5   rsft $right-hand-press $right-hand-release)
+  sym-l    (tap-hold-release-tap-keys-release $repress-time $hold-time 6   ralt $right-hand-press $right-hand-release)
+  sym-scln (tap-hold-release-tap-keys-release $repress-time $hold-time -   rmet $right-hand-press $right-hand-release)
 )
 
 (defchordsv2
