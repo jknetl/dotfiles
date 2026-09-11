@@ -145,9 +145,9 @@ height = "90%"
 
 # Legacy indexed shortcut config is still parsed for compatibility.
 # Prefer switch_tab, switch_workspace, and focus_agent for new configs.
-# [keys.indexed]
-# tabs = ""       # e.g. "ctrl" makes ctrl+1..9 switch tabs directly
-# workspaces = "" # e.g. "ctrl+shift" makes ctrl+shift+1..9 switch workspaces directly
+[keys.indexed]
+tabs = "ctrl" # ctrl+1..9 switches tabs directly; herdr has no 0/10th-tab binding
+workspaces = "ctrl+shift" # ctrl+shift+1..9 switches workspaces directly
 # agents = ""     # e.g. "alt" makes alt+1..9 focus agent rows directly
 
 # [worktrees]
