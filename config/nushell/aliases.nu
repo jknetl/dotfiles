@@ -153,7 +153,7 @@ alias ksl = kubie ns
 alias kon = kubeon
 alias koff = kubeoff
 
-alias kontexts = k config get-contexts -oname
+alias kontexts = kubectl config get-contexts -oname
 
 def kontexts_interactive [filter?] {
     mut contexts = kontexts
