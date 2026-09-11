@@ -79,17 +79,19 @@ goto = "prefix+g"
 # close_workspace = "prefix+shift+d"
 previous_workspace = "ctrl+shift+," # optional, unset by default
 next_workspace = "ctrl+shift+."     # optional, unset by default
-previous_agent = "ctrl+["     # optional, unset by default
-next_agent = "ctrl+]"         # optional, unset by default
-# focus_agent = ""        # optional indexed binding, e.g. "prefix+alt+1..9"
-focus_agent = "prefix+ctrl+1..9"
+previous_agent = "ctrl+["           # optional, unset by default
+next_agent = "ctrl+]"               # optional, unset by default
+focus_agent = "prefix+1..9"         # optional indexed binding, e.g. "prefix+alt+1..9"
 # remote_image_paste = "ctrl+v" # only active in herdr --remote; empty disables raw-key image paste
 # new_tab = "prefix+c"
 # rename_tab = "prefix+shift+t"
 previous_tab = ["prefix+p", "ctrl+comma"]
 next_tab = ["prefix+n", "ctrl+period"]
-# switch_tab = "prefix+1..9"
-switch_workspace = "prefix+shift+1..9"   # optional indexed binding, e.g. "prefix+shift+1..9"
+switch_tab = "ctrl+1..9"
+switch_workspace = [
+  "prefix+shift+1..9",
+  "ctrl+shift+1..9",
+] # optional indexed binding, e.g. "prefix+shift+1..9"
 # close_tab = "prefix+shift+x"
 # rename_pane = "prefix+shift+p"
 # edit_scrollback = "prefix+e"
@@ -143,12 +145,8 @@ command = "nu"
 width = "80%"
 height = "90%"
 
-# Legacy indexed shortcut config is still parsed for compatibility.
-# Prefer switch_tab, switch_workspace, and focus_agent for new configs.
-[keys.indexed]
-tabs = "ctrl" # ctrl+1..9 switches tabs directly; herdr has no 0/10th-tab binding
-workspaces = "ctrl+shift" # ctrl+shift+1..9 switches workspaces directly
-# agents = ""     # e.g. "alt" makes alt+1..9 focus agent rows directly
+# Legacy indexed shortcut config ([keys.indexed]) is still parsed for compatibility,
+# but this config now uses switch_tab, switch_workspace, and focus_agent directly.
 
 # [worktrees]
 # directory = "~/.herdr/worktrees"
