@@ -75,7 +75,7 @@
   grv  f1   f2   f3   f4   f5   f6   f7   f8   f9   f10  f11  f12  bspc
   grv  S-1  S-2  S-3  S-4  S-5  del  7    8    9    +    @navlbr ]   \
   @cap @sym-a @sym-s @sym-d @sym-f =    bspc @sym-j @sym-k @sym-l @sym-scln . ret
-  lsft z    x    c    v    b    0    1    2    3    /    rsft
+  lsft z    x    c    v    b    0    1    2    3    \    rsft
   _    lctl lalt lmet           @spc-arr            ralt rmet rctl
 )
 
