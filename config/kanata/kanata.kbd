@@ -38,7 +38,7 @@
   @f13
   @esc
   grv  1    2    3    4    5    6    7    8    9    0    -    =    bspc
-  tab  q    w    e    r    t    y    u    i    o    p    bspc ]   \
+  @tab q    w    e    r    t    y    u    i    o    p    bspc ]   \
   @cap @a   @s   @d   @f   g    h    @j   @k   @l   @;   @quo ret
   lsft z    x    c    v    b    n    m    ,    .    /    rsft
   lctl lmet lalt           @spc-arr            @nav rmet rctl
@@ -49,7 +49,7 @@
   @f13
   @esc
   grv  1    2    3    4    5    6    7    8    9    0    -    =    bspc
-  tab  q    w    e    r    t    y    u    i    o    p    bspc ]   \
+  @tab q    w    e    r    t    y    u    i    o    p    bspc ]   \
   @cap a    s    d    f    g    h    j    k    l    ;    @quo ret
   lsft z    x    c    v    b    n    m    ,    .    /    rsft
   lctl lmet lalt           @spc-arr            @nav rmet rctl
@@ -79,7 +79,8 @@
   tap     (multi
             (layer-switch nomods)
             (on-idle-fakekey to-base tap $hrm-idle-ms))
-  cap     (tap-hold-release $repress-time $hold-time esc (layer-while-held navigation))
+  cap     (tap-hold-press $repress-time $hold-time esc lctl)
+  tab     (tap-hold-release $repress-time $hold-time tab (layer-while-held navigation))
   quo     (tap-hold-release $repress-time $hold-time ' rctl)
   navlbr  (tap-hold-release $repress-time $hold-time del rmet)
   scln    (tap-hold-release $repress-time $hold-time ; ralt)
