@@ -258,6 +258,7 @@ sidebar_collapsed_mode = "compact"
 # delivery = "off"
 # delay_seconds = 1
 
+delivery = "system"
 [ui.toast.herdr]
 # position = "bottom-right"
 
