@@ -1,9 +1,11 @@
+
+
 [merge]
 	tool = nvimdiff2
-  conflictstyle = diff3
+  conflictStyle = zdiff3
 [core]
 	excludesfile = ~/.gitignore_global
-	pager = less -x4
+  pager = delta
 	editor = nvim
 	autocrlf = input
 	fsmonitor = true
@@ -79,3 +81,8 @@
   autoSquash = true
   autoStash = true
   updateRefs = true
+[interactive]
+    diffFilter = delta --color-only
+[delta]
+    navigate = true  # use n and N to move between diff sections
+    dark = true      # or `light = true`, or omit for auto-detection
