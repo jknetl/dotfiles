@@ -196,11 +196,11 @@ alt-t = 'exec-and-forget open ~' # T for Tree
 alt-shift-semicolon = 'mode service'
 alt-r = 'mode resize'
 
-# Activate Spotlight (cmd-space) via cmd-enter
-cmd-enter = '''exec-and-forget osascript -e '
-tell application "System Events" to keystroke space using {command down}
-'
-'''
+# # Activate Spotlight (cmd-space) via cmd-enter
+# cmd-enter = '''exec-and-forget osascript -e '
+# tell application "System Events" to keystroke space using {command down}
+# '
+# '''
 
 [mode.resize.binding]
 h = 'resize width -80'
