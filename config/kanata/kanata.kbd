@@ -41,7 +41,7 @@
   @tab q    w    e    r    t    y    u    i    o    p    bspc ]   \
   @cap @a   @s   @d   @f   g    h    @j   @k   @l   @;   @quo ret
   lsft z    x    c    v    b    n    m    ,    .    /    rsft
-  lctl lmet lalt           @spc-arr            @nav rmet rctl
+  lctl lmet lalt           @spc-arr            @nav  @nav rctl
 )
 
 ;; auto-entered while typing: identical to qwerty but home row is plain letters
@@ -52,7 +52,7 @@
   @tab q    w    e    r    t    y    u    i    o    p    bspc ]   \
   @cap a    s    d    f    g    h    j    k    l    ;    @quo ret
   lsft z    x    c    v    b    n    m    ,    .    /    rsft
-  lctl lmet lalt           @spc-arr            @nav rmet rctl
+  lctl lmet lalt           @spc-arr            @nav @nav rctl
 )
 
 (deflayer navigation
