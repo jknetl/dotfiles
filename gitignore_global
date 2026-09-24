@@ -3,6 +3,7 @@
 # Claude
 .claude/settings.local.json
 .claude/worktrees
+**/.claude/token-efficiency
 
 # MacOS
 .DS_Store
