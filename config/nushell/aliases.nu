@@ -11,6 +11,19 @@ def --env y [...args] {
 	rm -fp $tmp
 }
 
+# todo make this os agnostic (pb vs xclip on linux)
+def ccp [] { pwd | pbcopy }
+
+# copy path relative to git repo root, or absolute path if not in a repo
+def ccpr [] {
+	let root = (do { git rev-parse --show-toplevel } | complete)
+	if $root.exit_code == 0 {
+		$env.PWD | path relative-to ($root.stdout | str trim) | pbcopy
+	} else {
+		pwd | pbcopy
+	}
+}
+
 #alias bat = batcat --theme=base16
 #alias cat = bat --plain
 #alias catp = bat
