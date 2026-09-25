@@ -110,6 +110,7 @@ Active only on the `navigation` and `symbol` layers, within `chord-time`, releas
 | `n`+`m` | `}` |
 | `m`+`,` | Escape |
 | `,`+`.` | Enter |
+| `x`+`c` | `-` |
 
 ## Reload
 

@@ -136,4 +136,5 @@
   (n m) S-] $chord-time all-released (navigation symbol)
   (m ,) esc $chord-time all-released (navigation symbol)
   (, .) ret $chord-time all-released (navigation symbol)
+  (x c) -   $chord-time all-released (navigation symbol)
 )
