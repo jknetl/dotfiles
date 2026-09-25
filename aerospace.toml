@@ -9,7 +9,10 @@ after-login-command = []
 # You can use it to add commands that run after AeroSpace startup.
 # 'after-startup-command' is run after 'after-login-command'
 # Available commands : https://nikitabobko.github.io/AeroSpace/commands
-after-startup-command = ["exec-and-forget borders active_color=0xfffa9b02 inactive_color=0xff494d64 width=8.0", "exec-and-forget ~/bin/aerospace-reposition-windows.sh"]
+after-startup-command = [
+  "exec-and-forget borders active_color=0xfffa9b02 inactive_color=0xff494d64 width=8.0",
+  "exec-and-forget ~/bin/aerospace-reposition-windows.sh",
+]
 
 # Start AeroSpace at login
 start-at-login = true
@@ -51,11 +54,11 @@ on-focused-monitor-changed = ['move-mouse monitor-lazy-center']
 #                 See: https://nikitabobko.github.io/AeroSpace/guide#assign-workspaces-to-monitors
 [gaps]
 inner.horizontal = 12
-inner.vertical =   12
-outer.left =       8
-outer.bottom =     8
-outer.top =        8
-outer.right =      8
+inner.vertical = 12
+outer.left = 8
+outer.bottom = 8
+outer.top = 8
+outer.right = 8
 
 # 'main' binding mode declaration
 # See: https://nikitabobko.github.io/AeroSpace/guide#binding-modes
@@ -92,8 +95,8 @@ outer.right =      8
 # alt-comma = 'layout accordion horizontal vertical'
 
 alt-shift-f = 'fullscreen'
-alt-s = 'layout v_accordion' # 'layout stacking' in i3
-alt-w = 'layout h_accordion' # 'layout tabbed' in i3
+alt-s = 'layout v_accordion'               # 'layout stacking' in i3
+alt-w = 'layout h_accordion'               # 'layout tabbed' in i3
 alt-e = 'layout tiles horizontal vertical' # 'layout toggle split' in i3
 alt-shift-space = 'layout floating tiling' # 'floating toggle' in i3
 
@@ -178,7 +181,7 @@ alt-g = 'exec-and-forget ~/bin/aerospace-remove-ghost-windows.sh'
 alt-c = 'exec-and-forget open -n /Applications/Ghostty.app/'
 alt-b = 'exec-and-forget open -n /Applications/Firefox.app'
 ctrl-alt-b = 'exec-and-forget open -na /Applications/Firefox.app --args -P'
-alt-t = 'exec-and-forget open ~' # T for Tree
+alt-t = 'exec-and-forget open ~'                                            # T for Tree
 
 # alt-b = 'exec-and-forget open -n /Applications/Zen.app'
 # ctrl-alt-b = 'exec-and-forget open -na /Applications/Zen.app --args -P'
@@ -215,7 +218,10 @@ esc = 'mode main'
 [mode.service.binding]
 esc = ['reload-config', 'mode main']
 r = ['flatten-workspace-tree', 'mode main'] # reset layout
-f = ['layout floating tiling', 'mode main'] # Toggle between floating and tiling layout
+f = [
+  'layout floating tiling',
+  'mode main',
+] # Toggle between floating and tiling layout
 backspace = ['close-all-windows-but-current', 'mode main']
 
 # sticky is not yet supported https://github.com/nikitabobko/AeroSpace/issues/2
