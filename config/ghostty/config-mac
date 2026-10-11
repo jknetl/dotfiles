@@ -3,8 +3,28 @@ font-size = 15
 #Macos keybinding
 keybind = alt+left=unbind
 keybind = alt+right=unbind
+keybind = ctrl+h=unbind
+keybind = super+h=unbind
+keybind = alt+h=unbind
+keybind = super+a=unbind
+keybind = super+d=unbind
+keybind = super+e=unbind
+keybind = super+f=unbind
+keybind = super+g=unbind
+keybind = super+j=unbind
+keybind = super+k=unbind
+keybind = super+n=unbind
+keybind = super+t=unbind
+keybind = super+w=unbind
+keybind = super+z=unbind
+keybind = ctrl+shift+c=copy_to_clipboard
+keybind = ctrl+shift+v=paste_from_clipboard
 
 #MacOs specific options
 macos-option-as-alt = true
 macos-titlebar-style = hidden
 command = /opt/homebrew/bin/zsh
+
+# Send Cmd+key as Ctrl+key to TUIs (herdr splits on Cmd+hjkl etc.).
+# Menu shortcuts (Cmd+C/V/T/W/Q...) fire before the remap and keep working.
+key-remap = super=ctrl

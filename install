@@ -92,6 +92,10 @@ CONFIGS=(tmux.conf
          config/yazi/plugins/piper.yazi/main.lua
          )
 
+#config files linked only on macOS
+MACOS_CONFIGS=(config/ghostty/config-mac
+               )
+
 SCRIPTS=(
          argo-annotate.nu
          tmux-default
@@ -139,8 +143,16 @@ ENSURE_FILES=(
 )
 
 
+function platform_configs {
+  local configs=("${CONFIGS[@]}")
+  if [ "$(uname)" = "Darwin" ]; then
+    configs+=("${MACOS_CONFIGS[@]}")
+  fi
+  printf '%s\n' "${configs[@]}"
+}
+
 function backup {
-    for file in "${CONFIGS[@]}"
+    for file in $(platform_configs)
     do
         if [ -e "$dotfile_prefix$file" ]
         then
@@ -171,7 +183,7 @@ function backup {
 }
 
 function create_links {
-  for file in "${CONFIGS[@]}"
+  for file in $(platform_configs)
   do
       #Create config file directory
       if [ "." != $(dirname $file) ]
