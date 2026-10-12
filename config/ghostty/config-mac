@@ -20,6 +20,7 @@ keybind = super+w=unbind
 keybind = super+z=unbind
 keybind = super+period=csi:46;5u
 keybind = ctrl+period=csi:46;5u
+keybind = super+shift+v=unbind
 keybind = ctrl+shift+c=copy_to_clipboard
 keybind = ctrl+shift+v=paste_from_clipboard
 
