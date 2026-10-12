@@ -6,6 +6,7 @@ keybind = alt+right=unbind
 keybind = ctrl+h=unbind
 keybind = super+h=unbind
 keybind = alt+h=unbind
+keybind = super+,=unbind
 keybind = super+a=unbind
 keybind = super+d=unbind
 keybind = super+e=unbind
@@ -17,6 +18,8 @@ keybind = super+n=unbind
 keybind = super+t=unbind
 keybind = super+w=unbind
 keybind = super+z=unbind
+keybind = super+period=csi:46;5u
+keybind = ctrl+period=csi:46;5u
 keybind = ctrl+shift+c=copy_to_clipboard
 keybind = ctrl+shift+v=paste_from_clipboard
 
