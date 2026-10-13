@@ -18,6 +18,8 @@ keybind = super+n=unbind
 keybind = super+t=unbind
 keybind = super+w=unbind
 keybind = super+z=unbind
+keybind = super+[=unbind
+keybind = super+]=unbind
 keybind = super+period=csi:46;5u
 keybind = ctrl+period=csi:46;5u
 keybind = super+shift+v=unbind
