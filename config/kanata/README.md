@@ -14,6 +14,9 @@ Caps  A     S     D     F     G  |  H     J     K     L     ;     '
 ```
 
 (Layout above is Linux.) macOS swaps Alt↔Meta on both sides (`A`=Cmd/Meta, `S`=Option/Alt, `L`=Option/Alt, `;`=Cmd/Meta), and keeps the old `Shift Ctrl` / `Ctrl Shift` order on `D F` / `J K`.
+This is the Linux/Windows layout (`kanata.kbd`). `kanata-macos.kbd` still has Shift on the middle fingers (`D`/`K`) and Ctrl on the index fingers (`F`/`J`).
+
+macOS swaps Alt↔Meta on both sides (`A`=Cmd/Meta, `S`=Option/Alt, `L`=Option/Alt, `;`=Cmd/Meta).
 
 Tap = letter. Hold = modifier. The modifiers are **bilateral**: holding `F` (left Shift) and pressing `J` (right Shift) works normally; the bilateral-key lists prevent same-hand accidental modifier activation.
 
