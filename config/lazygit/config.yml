@@ -28,3 +28,8 @@ gui:
 
   authorColors:
     '*': '#b4befe'
+
+git:
+  diffRenderers:
+    - colorArg: always
+      command: delta --paging=never
