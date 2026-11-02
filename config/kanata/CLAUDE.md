@@ -18,6 +18,11 @@ Known intentional differences to preserve (don't "fix" these into matching):
 - macOS `defsrc`/layers have an extra `fn` column and a full F1–F12 row that
   Linux doesn't declare in `defsrc` (Linux reaches F-keys only via the
   navigation layer).
+- Device filter in `defcfg`: kanata must only grab the laptop's built-in
+  keyboard so it stays out of the way of the docked ZMK keyboard. macOS uses
+  `macos-dev-names-include`, Linux uses `linux-dev-names-include`, and the
+  names are hardware-specific. Linux is still pending, see
+  `linux-device-filter-plan.md`.
 
 After editing, update `README.md` if the change affects layer behavior,
 bindings tables, or timing knobs documented there.
