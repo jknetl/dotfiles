@@ -126,7 +126,7 @@ Active only on the `navigation` and `symbol` layers, within `chord-time`, releas
 Kanata only grabs the laptop's built-in keyboard, so the service can stay running while a docked ZMK keyboard (which does home row mods in firmware) is attached. Without the filter, kanata would remap the ZMK keyboard a second time.
 
 - macOS: `macos-dev-names-include ("Apple Internal Keyboard / Trackpad")` in `kanata-macos.kbd`. List devices with `kanata --list`.
-- Linux: not applied yet. See `linux-device-filter-plan.md`.
+- Linux: `linux-dev-names-include ("AT Translated Set 2 keyboard")` in `kanata.kbd`. List devices by running kanata without a filter and reading the `is included`/`is ignored` journal lines, or with `grep Name /proc/bus/input/devices`. The name is machine-specific.
 
 If the built-in keyboard is ever replaced or the name changes, kanata finds no device to grab and stops remapping. Re-run the device listing and update the name.
 

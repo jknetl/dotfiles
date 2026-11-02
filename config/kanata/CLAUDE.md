@@ -21,8 +21,7 @@ Known intentional differences to preserve (don't "fix" these into matching):
 - Device filter in `defcfg`: kanata must only grab the laptop's built-in
   keyboard so it stays out of the way of the docked ZMK keyboard. macOS uses
   `macos-dev-names-include`, Linux uses `linux-dev-names-include`, and the
-  names are hardware-specific. Linux is still pending, see
-  `linux-device-filter-plan.md`.
+  names are hardware-specific.
 
 After editing, update `README.md` if the change affects layer behavior,
 bindings tables, or timing knobs documented there.
