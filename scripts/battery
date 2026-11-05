@@ -6,9 +6,8 @@ battery="/sys/class/power_supply/BAT0"
 full=$(cat /sys/class/power_supply/BAT0/energy_full)
 now=$(cat /sys/class/power_supply/BAT0/energy_now)
 
-percent=$(bc <<< "scale=2; ($now/$full) * 100")
-# trim to integer
-percent=$(bc <<< "$percent / 1")
+# integer percentage (bash arithmetic, no bc dependency)
+percent=$(( now * 100 / full ))
 
 
 if (( $percent > 90 )) ; then
