@@ -110,6 +110,43 @@ def --env gwt [
     cd $worktree_path
 }
 
+# Switch to an existing git worktree, fuzzy-picked by path or branch
+def --env gwts [] {
+    if (do -i { git rev-parse --git-dir } | complete | get exit_code) != 0 {
+        error make { msg: "not inside a git repository" }
+    }
+    if (which fzf | is-empty) {
+        error make { msg: "fzf is not installed" }
+    }
+    let worktrees = (
+        git worktree list --porcelain
+        | split row "\n\n"
+        | where { |b| ($b | str trim) != "" }
+        | each { |b|
+            let lines = ($b | lines)
+            let path = ($lines | where { |l| $l starts-with "worktree " } | first | str replace "worktree " "")
+            let branch = if ($lines | any { |l| $l == "detached" }) {
+                "(detached)"
+            } else if ($lines | any { |l| $l == "bare" }) {
+                "(bare)"
+            } else {
+                $lines | where { |l| $l starts-with "branch " } | get -o 0 | default "" | str replace "branch refs/heads/" ""
+            }
+            { path: $path, branch: $branch }
+        }
+    )
+    let width = ($worktrees | get path | each { str length } | math max)
+    let selected = (
+        $worktrees
+        | each { |w| $"($w.path | fill -w $width)\t($w.branch)" }
+        | str join "\n"
+        | fzf --delimiter "\t" --with-nth "1,2" --prompt "worktree> "
+        | str trim
+    )
+    if ($selected | is-empty) { return }
+    cd ($selected | split row "\t" | first | str trim)
+}
+
 # C programming
 alias gdbb = gdb --tui
 
