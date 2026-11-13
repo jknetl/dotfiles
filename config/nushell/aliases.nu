@@ -156,6 +156,9 @@ alias gdbb = gdb --tui
 # alias mci = mvn clean install
 # alias magp = mvn archetype:generate -DarchetypeGroupId=org.apache.maven.archetypes -DarchetypeArtifactId=maven-archetype-quickstart -DarchetypeVersion=1.1
 
+# AI agents
+alias cl = claude
+
 # gradle
 alias gw = ./gradlew
 alias grcb = gradle clean build
