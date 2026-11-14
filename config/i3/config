@@ -61,7 +61,7 @@ bindsym $mod+q kill
 #bindsym $mod+d exec rofi -show run
 #bindsym $mod+d exec "rofi -combi-modi run,drun -show combi"
 bindsym $mod+d exec "~/.config/rofi/launchers/type-5/launcher.sh"
-bindsym Mod1+space exec "~/.config/rofi/launchers/type-5/launcher.sh"
+bindsym $mod+space exec "~/.config/rofi/launchers/type-5/launcher.sh"
 bindsym $mod+Shift+d exec "rofi -combi-modi run -show combi"
 bindsym Mod1+Tab exec rofi -show window
 # There also is the (new) i3-dmenu-desktop which only displays applications
@@ -99,10 +99,10 @@ bindsym $mod+w layout tabbed
 bindsym $mod+e layout toggle split
 
 # toggle tiling / floating
-bindsym $mod+space floating toggle
+bindsym $mod+shift+space floating toggle
 
 # change focus between tiling / floating windows
-bindsym $mod+shift+space focus mode_toggle
+# bindsym $mod+shift+space focus mode_toggle
 
 # focus the parent container
 bindsym $mod+a focus parent
