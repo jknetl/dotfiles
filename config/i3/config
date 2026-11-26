@@ -320,7 +320,7 @@ bindsym $mod+shift+x mode "$mode_system"
 bindsym $mod+shift+m exec autorandr -c
 
 #switch keyboard layout
-bindsym $mod+i exec xkbmap-layout.sh
+bindsym $mod+Shift+i exec xkbmap-layout.sh
 
 # switch pulse audio default sink/source
 
