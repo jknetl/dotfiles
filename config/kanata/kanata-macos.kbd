@@ -91,7 +91,7 @@
   quo     (tap-hold-release $repress-time $hold-time ' rctl)
   navlbr  (tap-hold-release $repress-time $hold-time del ralt)
   scln    (tap-hold-release $repress-time $hold-time ; rmet)
-  spc-arr (tap-hold-release $repress-time $hold-time (multi spc @tap) (layer-while-held symbol))
+  spc-arr (tap-hold-release $repress-time $hold-time (multi spc @tap) (layer-while-held navigation))
   esc     (tap-hold-release $repress-time $quick-hold-time grv (layer-while-held symbol))
   cw      (caps-word 2000)
   nav     (tap-hold-release $repress-time $hold-time (multi ret @tap) (layer-while-held navigation))
