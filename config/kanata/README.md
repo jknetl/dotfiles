@@ -117,8 +117,8 @@ Changes take effect after reloading kanata.
 | Layer | How to reach | Purpose |
 |---|---|---|
 | `qwerty` | default | Normal typing with HRMs |
-| `navigation` | hold Space, hold right Space (`f13`), hold right Cmd / right Alt, or hold Tab | Arrows on hjkl, F-keys on number row, `up` on W, reload (`lrld`) on R, caps-word on Caps |
-| `symbol` | hold `` ` `` | Numpad on right half, `Del`/`Bksp` on left, `=` on G, `-` on P, `` ` `` on Tab, `!@#$%` on QWERT, `^&*-` on ASDF |
+| `navigation` | hold Space, hold right Space (`f13`), hold right Cmd (`rmet`), or hold Tab | Arrows on hjkl, F-keys on number row, `up` on W, reload (`lrld`) on R, caps-word on Caps |
+| `symbol` | hold `` ` ``, or hold right Alt | Modeled on the ZMK `symbol` layer. Numpad on right half; `F1`–`F7` `/ * + Del` on the number row; `!@#$%` on QWERT; `^&*()` on ASDFG; `` ` - = [ ] `` on ZXCVB; `-` on P; `` ` `` on Tab |
 
 On both `navigation` and `symbol`, the home-row keys (`a s d f` / `j k l ;`) still work as HRM: tapping outputs the layer's own action (arrow, digit, symbol), holding outputs the same modifier as on `qwerty` (`nav-j/k/l/scln` and `sym-a/s/d/f/j/k/l/scln` aliases). This means the hold works regardless of whether you press the layer-switch key or the home-row key first — you no longer have to hold the layer switch *before* pressing the modifier key for it to register as a hold.
 
@@ -135,7 +135,8 @@ Hold **right Space** or **Tab** (to enter the navigation layer), then tap **Caps
 | `` ` `` (grv) | `` ` `` | Symbol layer (`quick-hold-time`) |
 | left `Space` | Space | Navigation layer |
 | right `Space` (`f13`) | Enter | Navigation layer |
-| right Cmd (macOS `rmet`) / right Alt (Linux `ralt`) | Enter | Navigation layer |
+| right Cmd (`rmet`) | Enter | Navigation layer |
+| right Alt (`ralt`) | Enter | Symbol layer |
 | `'` | `'` | Right Ctrl |
 | `[` (symbol layer) | Del | Right Alt (macOS) / Right Meta (Linux) |
 | `tab` (symbol layer) | `` ` `` | — |
