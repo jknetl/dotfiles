@@ -11,7 +11,7 @@ Known intentional differences to preserve (don't "fix" these into matching):
 - `quick-hold-time`: 100ms on Linux, 120ms on macOS.
 - HRM hold keys: Linux is `A=lalt S=lmet D=lctl F=lsft` (mirrored on the right:
   `J=rsft K=rctl L=rmet ;=ralt`), macOS is `A=lctl S=lalt D=lmet F=lsft`
-  (`J=rsft K=rmet L=ralt ;=rctl`). This applies to the `nav-*` and `sym-*`
+  (`J=rsft K=rmet L=ralt ;=rctl`). This applies to the `sym-*`
   aliases too.
 - `navlbr`/`scln` aliases hold to the opposite Alt/Meta key between the two
   files, for the same reason.

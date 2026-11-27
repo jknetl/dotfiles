@@ -45,7 +45,7 @@ Each home-row key is `tap-hold-opposite-hand-release`, the equivalent of ZMK's `
 
 Hand assignment comes from the `defhands` block (whole keyboard, not just letters). Consequence, same as on ZMK: same-hand modifier chords (e.g. holding `A` + `F` on the left hand) are not possible; use one key from each hand.
 
-The old `nomods` helper layer and the `@tap` / `on-idle-fakekey` machinery were removed: `require-prior-idle` does the same job natively and per finger. The `sym-*` aliases use the same mechanism (the navigation layer has no HRMs on the right hand: `j k l ;` are plain keys).
+The old `nomods` helper layer and the `@tap` / `on-idle-fakekey` machinery were removed: `require-prior-idle` does the same job natively and per finger. The `sym-*` aliases use the same mechanism.
 
 ## Timing Knobs
 
@@ -92,7 +92,7 @@ Per-finger values are copied from the ZMK behaviors (`HRM_*_v1_TKZ`):
 
 ### Per-key and structural tweaks
 
-These are edited in the HRM `defalias` blocks (`a s d f j k l ;`, plus `nav-*` and `sym-*`), which all share the same option list:
+These are edited in the HRM `defalias` blocks (`a s d f j k l ;`, plus `sym-j/k/l/scln`), which all share the same option list:
 
 ```
 (tap-hold-opposite-hand-release $tt-pinky a lalt
@@ -120,7 +120,7 @@ Changes take effect after reloading kanata.
 | `navigation` | hold Space, hold right Space (`f13`), hold right Cmd (`rmet`), or hold Tab | Arrows on hjkl, F-keys on number row, `up` on W, reload (`lrld`) on R, caps-word on Caps |
 | `symbol` | hold `` ` ``, or hold right Alt | Modeled on the ZMK `symbol` layer. Numpad on right half; `F1`–`F7` `/ * + Del` on the number row; `!@#$%` on QWERT; `^&*()` on ASDFG; `` ` - = [ ] `` on ZXCVB; `-` on P; `` ` `` on Tab |
 
-On both `navigation` and `symbol`, the home-row keys (`a s d f` / `j k l ;`) still work as HRM: tapping outputs the layer's own action (arrow, digit, symbol), holding outputs the same modifier as on `qwerty` (`nav-j/k/l/scln` and `sym-a/s/d/f/j/k/l/scln` aliases). This means the hold works regardless of whether you press the layer-switch key or the home-row key first — you no longer have to hold the layer switch *before* pressing the modifier key for it to register as a hold.
+On `navigation` the right-hand home row (`j k l ;`) is plain keys, and on `symbol` the left-hand home row (`a s d f`) is plain keys. The opposite hand keeps HRM behavior there: on `navigation` `a s d f` and on `symbol` `j k l ;` tap the layer's own action (arrow, digit, symbol) and hold the same modifier as on `qwerty` (`sym-j/k/l/scln` aliases on `symbol`). This means the hold works regardless of whether you press the layer-switch key or the home-row key first.
 
 ## Caps Word
 

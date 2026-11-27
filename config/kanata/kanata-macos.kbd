@@ -72,7 +72,7 @@
   _    _    _    _    _    _    _    _    _    _    _    _
   grv  f1   f2   f3   f4   f5   f6   f7   /    S-8  S-=  del  =    bspc
   grv  S-1  S-2  S-3  S-4  S-5  del  7    8    9    -    @navlbr ]   \
-  @cap @sym-a @sym-s @sym-d @sym-f S-0  bspc @sym-j @sym-k @sym-l @sym-scln . ret
+  @cap a    s    d    f    S-0  bspc @sym-j @sym-k @sym-l @sym-scln . ret
   lsft grv  -    =    [    ]    0    1    2    3    \    rsft
   _    lctl lalt lmet           @spc-arr            ralt rmet rctl
 )
@@ -125,18 +125,6 @@
 )
 
 (defalias
-  sym-a (tap-hold-opposite-hand-release $tt-pinky S-6 lctl
-    (timeout hold) (same-hand tap) (neutral-keys spc f13) (neutral hold)
-    (require-prior-idle $idle-other) (tap-repress-timeout $quick-tap))
-  sym-s (tap-hold-opposite-hand-release $tt-ring S-7 lalt
-    (timeout hold) (same-hand tap) (neutral-keys spc f13) (neutral hold)
-    (require-prior-idle $idle-other) (tap-repress-timeout $quick-tap))
-  sym-d (tap-hold-opposite-hand-release $tt-middy S-8 lmet
-    (timeout hold) (same-hand tap) (neutral-keys spc f13) (neutral hold)
-    (require-prior-idle $idle-other) (tap-repress-timeout $quick-tap))
-  sym-f (tap-hold-opposite-hand-release $tt-index S-9 lsft
-    (timeout hold) (same-hand tap) (neutral-keys spc f13) (neutral hold)
-    (require-prior-idle $idle-index) (tap-repress-timeout $quick-tap))
   sym-j (tap-hold-opposite-hand-release $tt-index 4 rsft
     (timeout hold) (same-hand tap) (neutral-keys spc f13) (neutral hold)
     (require-prior-idle $idle-index) (tap-repress-timeout $quick-tap))
