@@ -59,7 +59,7 @@
   esc
   grv  f1   f2   f3   f4   f5   f6   f7   f8   f9   f10  f11  f12  bspc
   tab  q   up   e    lrld t    y    u    i    o    p    [    ]   \
-  @cw  @a   @s   @d   @f   g    left j    k    l    ;     ret  ret
+  @cw  @a   @s   @d   @f   g    left down up   right ;    ret  ret
   lsft z    x    c    v    b     n    m  ,    .    /    rsft
   lctl lmet lalt           spc            ralt rmet rctl
 )
@@ -69,7 +69,7 @@
   esc
   grv  f1   f2   f3   f4   f5   f6   f7   /    S-8  S-=  del  =    bspc
   grv  S-1  S-2  S-3  S-4  S-5  del  7    8    9    -    @navlbr ]   \
-  @cap a    s    d    f    S-0  bspc @sym-j @sym-k @sym-l @sym-scln . ret
+  @cap S-6  S-7  S-8  S-9  S-0  bspc @sym-j @sym-k @sym-l @sym-scln . ret
   lsft grv  -    =    [    ]    0    1    2    3    \    rsft
   lctl lmet lalt           @spc-arr            ralt rmet rctl
 )

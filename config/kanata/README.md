@@ -120,7 +120,7 @@ Changes take effect after reloading kanata.
 | `navigation` | hold Space, hold right Space (`f13`), hold right Cmd (`rmet`), or hold Tab | Arrows on hjkl, F-keys on number row, `up` on W, reload (`lrld`) on R, caps-word on Caps |
 | `symbol` | hold `` ` ``, or hold right Alt | Modeled on the ZMK `symbol` layer. Numpad on right half; `F1`–`F7` `/ * + Del` on the number row; `!@#$%` on QWERT; `^&*()` on ASDFG; `` ` - = [ ] `` on ZXCVB; `-` on P; `` ` `` on Tab |
 
-On `navigation` the right-hand home row (`j k l ;`) is plain keys, and on `symbol` the left-hand home row (`a s d f`) is plain keys. The opposite hand keeps HRM behavior there: on `navigation` `a s d f` and on `symbol` `j k l ;` tap the layer's own action (arrow, digit, symbol) and hold the same modifier as on `qwerty` (`sym-j/k/l/scln` aliases on `symbol`). This means the hold works regardless of whether you press the layer-switch key or the home-row key first.
+On `navigation` the right-hand home row (`j k l ;`) is plain keys (down, up, right, `;`) with no hold modifier, and on `symbol` the left-hand home row (`a s d f`) is plain symbols (`^ & * (`) with no hold modifier. The opposite hand keeps HRM behavior there: on `navigation` `a s d f` keep the base HRMs and on `symbol` `j k l ;` tap the layer's own action (digit, symbol) and hold the same modifier as on `qwerty` (`sym-j/k/l/scln` aliases on `symbol`). This means the hold works regardless of whether you press the layer-switch key or the home-row key first.
 
 ## Caps Word
 
