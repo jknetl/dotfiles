@@ -61,7 +61,7 @@
   _    _    _    _    _    _    _    _    _    _    _    _
   grv  f1   f2   f3   f4   f5   f6   f7   f8   f9   f10  f11  f12  bspc
   tab  q   up   e    lrld t    y    u    i    o    p    [    ]   \
-  @cw  @a   @s   @d   @f   g    left @nav-j @nav-k @nav-l @nav-scln ret  ret
+  @cw  @a   @s   @d   @f   g    left j    k    l    ;     ret  ret
   lsft z    x    c    v    b     n    m  ,    .    /    rsft
   _    lctl lalt lmet           spc            ralt rmet rctl
 )
@@ -120,24 +120,6 @@
     (timeout hold) (same-hand tap) (neutral-keys spc f13) (neutral hold)
     (require-prior-idle $idle-other) (tap-repress-timeout $quick-tap))
   ; (tap-hold-opposite-hand-release $tt-pinky ; rctl
-    (timeout hold) (same-hand tap) (neutral-keys spc f13) (neutral hold)
-    (require-prior-idle $idle-other) (tap-repress-timeout $quick-tap))
-)
-
-;; HRM for navigation/symbol layers: tap outputs the layer's own action,
-;; hold outputs the same modifier as the corresponding base-layer HRM key,
-;; so holding still works whether the layer switch or the key press comes first.
-(defalias
-  nav-j (tap-hold-opposite-hand-release $tt-index down rsft
-    (timeout hold) (same-hand tap) (neutral-keys spc f13) (neutral hold)
-    (require-prior-idle $idle-index) (tap-repress-timeout $quick-tap))
-  nav-k (tap-hold-opposite-hand-release $tt-middy up rmet
-    (timeout hold) (same-hand tap) (neutral-keys spc f13) (neutral hold)
-    (require-prior-idle $idle-other) (tap-repress-timeout $quick-tap))
-  nav-l (tap-hold-opposite-hand-release $tt-ring right ralt
-    (timeout hold) (same-hand tap) (neutral-keys spc f13) (neutral hold)
-    (require-prior-idle $idle-other) (tap-repress-timeout $quick-tap))
-  nav-scln (tap-hold-opposite-hand-release $tt-pinky ; rctl
     (timeout hold) (same-hand tap) (neutral-keys spc f13) (neutral hold)
     (require-prior-idle $idle-other) (tap-repress-timeout $quick-tap))
 )

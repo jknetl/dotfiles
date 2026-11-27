@@ -45,7 +45,7 @@ Each home-row key is `tap-hold-opposite-hand-release`, the equivalent of ZMK's `
 
 Hand assignment comes from the `defhands` block (whole keyboard, not just letters). Consequence, same as on ZMK: same-hand modifier chords (e.g. holding `A` + `F` on the left hand) are not possible; use one key from each hand.
 
-The old `nomods` helper layer and the `@tap` / `on-idle-fakekey` machinery were removed: `require-prior-idle` does the same job natively and per finger. The `nav-*` / `sym-*` aliases use the same mechanism.
+The old `nomods` helper layer and the `@tap` / `on-idle-fakekey` machinery were removed: `require-prior-idle` does the same job natively and per finger. The `sym-*` aliases use the same mechanism (the navigation layer has no HRMs on the right hand: `j k l ;` are plain keys).
 
 ## Timing Knobs
 
