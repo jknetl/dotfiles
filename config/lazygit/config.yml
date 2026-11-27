@@ -31,3 +31,36 @@ git:
   diffRenderers:
     - colorArg: always
       command: delta --paging=never
+customCommands:
+  - key: "<c-n>"
+    context: localBranches
+    description: Create branch from selected branch without checkout
+    prompts:
+      - type: input
+        title: New branch name
+        key: BranchName
+    command: git branch {{.Form.BranchName | quote}} {{.SelectedLocalBranch.Name | quote}}
+  - key: "<c-n>"
+    context: remoteBranches
+    description: Create branch from selected remote branch without checkout
+    prompts:
+      - type: input
+        title: New branch name
+        key: BranchName
+    command: git branch --no-track {{.Form.BranchName | quote}} {{.SelectedRemoteBranch.RemoteName | quote}}/{{.SelectedRemoteBranch.Name | quote}}
+  - key: "<c-n>"
+    context: commits
+    description: Create branch from selected commit without checkout
+    prompts:
+      - type: input
+        title: New branch name
+        key: BranchName
+    command: git branch {{.Form.BranchName | quote}} {{.SelectedLocalCommit.Hash}}
+  - key: "<c-n>"
+    context: subCommits
+    description: Create branch from selected commit without checkout
+    prompts:
+      - type: input
+        title: New branch name
+        key: BranchName
+    command: git branch {{.Form.BranchName | quote}} {{.SelectedSubCommit.Hash}}
