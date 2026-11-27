@@ -4,16 +4,27 @@
   repress-time       200
   hold-time          200
   quick-hold-time    120
-  hrm-idle-ms        90
   chord-time         80
 
-  left-hand-keys   (q w e r t a s d f g z x c v b)
-  right-hand-keys  (y u i o p h j k l ; n m , . /)
+  ;; Per-finger HRM tuning, copied from the ZMK keymap (zmk_mylayout_5.4.keymap):
+  ;; tt-* = tapping-term-ms, idle-* = require-prior-idle-ms, quick-tap = quick-tap-ms
+  tt-index           190
+  tt-middy           210
+  tt-ring            210
+  tt-pinky           260
+  idle-index         100
+  idle-other         150
+  quick-tap          300
+)
 
-  left-hand-press    (q w e r t z x c v b)
-  right-hand-press   (y u i o p n m , . /)
-  left-hand-release  (a s d f g)
-  right-hand-release (h j k l ;)
+;; Physical hand assignment for tap-hold-opposite-hand (needs kanata >= 1.12.0).
+;; Mirrors ZMK's hold-trigger-key-positions: only an opposite-hand key can turn a
+;; home-row key into a modifier; same-hand keys always resolve as a tap.
+;; Thumb keys (spc, f13) are neutral and trigger the hold from either hand,
+;; like the thumb positions in ZMK's trigger lists.
+(defhands
+  (left  esc grv 1 2 3 4 5 tab q w e r t caps a s d f g lsft z x c v b fn lctl lalt lmet)
+  (right 6 7 8 9 0 - = bspc y u i o p [ ] \ h j k l ; ' ret n m , . / rsft ralt rmet rctl)
 )
 
 (defcfg
@@ -21,10 +32,6 @@
   macos-dev-names-include (
     "Apple Internal Keyboard / Trackpad"
   )
-)
-
-(deffakekeys
-  to-base (layer-switch qwerty)
 )
 
 (defsrc
@@ -44,18 +51,6 @@
   grv  1    2    3    4    5    6    7    8    9    0    -    =    bspc
   @tab q    w    e    r    t    y    u    i    o    p    bspc ]   \
   @cap @a   @s   @d   @f   g    h    @j   @k   @l   @;   @quo ret
-  lsft z    x    c    v    b    n    m    ,    .    /    rsft
-  fn   lctl lalt lmet           @spc-arr            @nav @nav rctl
-)
-
-;; auto-entered while typing: identical to qwerty but home row is plain letters
-(deflayer nomods
-  @f13
-  @esc
-  _    _    _    _    _    _    _    _    _    _    _    _
-  grv  1    2    3    4    5    6    7    8    9    0    -    =    bspc
-  @tab q    w    e    r    t    y    u    i    o    p    bspc ]   \
-  @cap a    s    d    f    g    h    j    k    l    ;    @quo ret
   lsft z    x    c    v    b    n    m    ,    .    /    rsft
   fn   lctl lalt lmet           @spc-arr            @nav @nav rctl
 )
@@ -83,52 +78,96 @@
 )
 
 (defalias
-  tap     (multi
-            (layer-switch nomods)
-            (on-idle-fakekey to-base tap $hrm-idle-ms))
-  cap     (tap-hold-press $repress-time $hold-time esc lctl)
+  cap    (tap-hold-press $repress-time $hold-time esc lctl)
   tab     (tap-hold-release $repress-time $hold-time tab (layer-while-held navigation))
   quo     (tap-hold-release $repress-time $hold-time ' rctl)
   navlbr  (tap-hold-release $repress-time $hold-time del ralt)
   scln    (tap-hold-release $repress-time $hold-time ; rmet)
-  spc-arr (tap-hold-release $repress-time $hold-time (multi spc @tap) (layer-while-held navigation))
+  spc-arr (tap-hold-release $repress-time $hold-time spc (layer-while-held navigation))
   esc     (tap-hold-release $repress-time $quick-hold-time grv (layer-while-held symbol))
   cw      (caps-word 2000)
-  nav     (tap-hold-release $repress-time $hold-time (multi ret @tap) (layer-while-held navigation))
+  nav     (tap-hold-release $repress-time $hold-time ret (layer-while-held navigation))
   f13     @nav
 )
 
 (defalias
-  a (tap-hold-release-tap-keys-release $repress-time $hold-time (multi a @tap) lctl $left-hand-press $left-hand-release)
-  s (tap-hold-release-tap-keys-release $repress-time $hold-time (multi s @tap) lalt $left-hand-press $left-hand-release)
-  d (tap-hold-release-tap-keys-release $repress-time $hold-time (multi d @tap) lmet $left-hand-press $left-hand-release)
-  f (tap-hold-release-tap-keys-release $repress-time $hold-time (multi f @tap) lsft $left-hand-press $left-hand-release)
-  j (tap-hold-release-tap-keys-release $repress-time $hold-time (multi j @tap) rsft $right-hand-press $right-hand-release)
-  k (tap-hold-release-tap-keys-release $repress-time $hold-time (multi k @tap) rmet $right-hand-press $right-hand-release)
-  l (tap-hold-release-tap-keys-release $repress-time $hold-time (multi l @tap) ralt $right-hand-press $right-hand-release)
-  ; (tap-hold-release-tap-keys-release $repress-time $hold-time (multi ; @tap) rctl $right-hand-press $right-hand-release)
+  ;; Home row mods, modeled on ZMK's tap-preferred hold-tap with hold-trigger-on-release:
+  ;;  - opposite-hand key pressed AND released while held -> modifier (hold-trigger-on-release)
+  ;;  - same-hand key pressed                              -> letter (positional hold-tap)
+  ;;  - held past the per-finger tapping term              -> modifier (tap-preferred timeout)
+  ;;  - typed within idle-* ms after another key           -> letter (require-prior-idle-ms)
+  ;;  - tapped then re-pressed within quick-tap ms         -> letter again (quick-tap-ms)
+  a (tap-hold-opposite-hand-release $tt-pinky a lctl
+    (timeout hold) (same-hand tap) (neutral-keys spc f13) (neutral hold)
+    (require-prior-idle $idle-other) (tap-repress-timeout $quick-tap))
+  s (tap-hold-opposite-hand-release $tt-ring s lalt
+    (timeout hold) (same-hand tap) (neutral-keys spc f13) (neutral hold)
+    (require-prior-idle $idle-other) (tap-repress-timeout $quick-tap))
+  d (tap-hold-opposite-hand-release $tt-middy d lmet
+    (timeout hold) (same-hand tap) (neutral-keys spc f13) (neutral hold)
+    (require-prior-idle $idle-other) (tap-repress-timeout $quick-tap))
+  f (tap-hold-opposite-hand-release $tt-index f lsft
+    (timeout hold) (same-hand tap) (neutral-keys spc f13) (neutral hold)
+    (require-prior-idle $idle-index) (tap-repress-timeout $quick-tap))
+  j (tap-hold-opposite-hand-release $tt-index j rsft
+    (timeout hold) (same-hand tap) (neutral-keys spc f13) (neutral hold)
+    (require-prior-idle $idle-index) (tap-repress-timeout $quick-tap))
+  k (tap-hold-opposite-hand-release $tt-middy k rmet
+    (timeout hold) (same-hand tap) (neutral-keys spc f13) (neutral hold)
+    (require-prior-idle $idle-other) (tap-repress-timeout $quick-tap))
+  l (tap-hold-opposite-hand-release $tt-ring l ralt
+    (timeout hold) (same-hand tap) (neutral-keys spc f13) (neutral hold)
+    (require-prior-idle $idle-other) (tap-repress-timeout $quick-tap))
+  ; (tap-hold-opposite-hand-release $tt-pinky ; rctl
+    (timeout hold) (same-hand tap) (neutral-keys spc f13) (neutral hold)
+    (require-prior-idle $idle-other) (tap-repress-timeout $quick-tap))
 )
 
 ;; HRM for navigation/symbol layers: tap outputs the layer's own action,
 ;; hold outputs the same modifier as the corresponding base-layer HRM key,
 ;; so holding still works whether the layer switch or the key press comes first.
 (defalias
-  nav-j    (tap-hold-release-tap-keys-release $repress-time $hold-time down  rsft $right-hand-press $right-hand-release)
-  nav-k    (tap-hold-release-tap-keys-release $repress-time $hold-time up    rmet $right-hand-press $right-hand-release)
-  nav-l    (tap-hold-release-tap-keys-release $repress-time $hold-time right ralt $right-hand-press $right-hand-release)
-  nav-scln (tap-hold-release-tap-keys-release $repress-time $hold-time ;     rctl $right-hand-press $right-hand-release)
+  nav-j (tap-hold-opposite-hand-release $tt-index down rsft
+    (timeout hold) (same-hand tap) (neutral-keys spc f13) (neutral hold)
+    (require-prior-idle $idle-index) (tap-repress-timeout $quick-tap))
+  nav-k (tap-hold-opposite-hand-release $tt-middy up rmet
+    (timeout hold) (same-hand tap) (neutral-keys spc f13) (neutral hold)
+    (require-prior-idle $idle-other) (tap-repress-timeout $quick-tap))
+  nav-l (tap-hold-opposite-hand-release $tt-ring right ralt
+    (timeout hold) (same-hand tap) (neutral-keys spc f13) (neutral hold)
+    (require-prior-idle $idle-other) (tap-repress-timeout $quick-tap))
+  nav-scln (tap-hold-opposite-hand-release $tt-pinky ; rctl
+    (timeout hold) (same-hand tap) (neutral-keys spc f13) (neutral hold)
+    (require-prior-idle $idle-other) (tap-repress-timeout $quick-tap))
 )
 
 (defalias
-  sym-a    (tap-hold-release-tap-keys-release $repress-time $hold-time S-6 lctl $left-hand-press  $left-hand-release)
-  sym-s    (tap-hold-release-tap-keys-release $repress-time $hold-time S-7 lalt $left-hand-press  $left-hand-release)
-  sym-d    (tap-hold-release-tap-keys-release $repress-time $hold-time S-8 lmet $left-hand-press  $left-hand-release)
-  sym-f    (tap-hold-release-tap-keys-release $repress-time $hold-time -   lsft $left-hand-press  $left-hand-release)
-  sym-j    (tap-hold-release-tap-keys-release $repress-time $hold-time 4   rsft $right-hand-press $right-hand-release)
-  sym-k    (tap-hold-release-tap-keys-release $repress-time $hold-time 5   rmet $right-hand-press $right-hand-release)
-  sym-l    (tap-hold-release-tap-keys-release $repress-time $hold-time 6   ralt $right-hand-press $right-hand-release)
-  sym-scln (tap-hold-release-tap-keys-release $repress-time $hold-time -   rctl $right-hand-press $right-hand-release)
+  sym-a (tap-hold-opposite-hand-release $tt-pinky S-6 lctl
+    (timeout hold) (same-hand tap) (neutral-keys spc f13) (neutral hold)
+    (require-prior-idle $idle-other) (tap-repress-timeout $quick-tap))
+  sym-s (tap-hold-opposite-hand-release $tt-ring S-7 lalt
+    (timeout hold) (same-hand tap) (neutral-keys spc f13) (neutral hold)
+    (require-prior-idle $idle-other) (tap-repress-timeout $quick-tap))
+  sym-d (tap-hold-opposite-hand-release $tt-middy S-8 lmet
+    (timeout hold) (same-hand tap) (neutral-keys spc f13) (neutral hold)
+    (require-prior-idle $idle-other) (tap-repress-timeout $quick-tap))
+  sym-f (tap-hold-opposite-hand-release $tt-index - lsft
+    (timeout hold) (same-hand tap) (neutral-keys spc f13) (neutral hold)
+    (require-prior-idle $idle-index) (tap-repress-timeout $quick-tap))
+  sym-j (tap-hold-opposite-hand-release $tt-index 4 rsft
+    (timeout hold) (same-hand tap) (neutral-keys spc f13) (neutral hold)
+    (require-prior-idle $idle-index) (tap-repress-timeout $quick-tap))
+  sym-k (tap-hold-opposite-hand-release $tt-middy 5 rmet
+    (timeout hold) (same-hand tap) (neutral-keys spc f13) (neutral hold)
+    (require-prior-idle $idle-other) (tap-repress-timeout $quick-tap))
+  sym-l (tap-hold-opposite-hand-release $tt-ring 6 ralt
+    (timeout hold) (same-hand tap) (neutral-keys spc f13) (neutral hold)
+    (require-prior-idle $idle-other) (tap-repress-timeout $quick-tap))
+  sym-scln (tap-hold-opposite-hand-release $tt-pinky - rctl
+    (timeout hold) (same-hand tap) (neutral-keys spc f13) (neutral hold)
+    (require-prior-idle $idle-other) (tap-repress-timeout $quick-tap))
 )
+
 
 (defchordsv2
   (r t) S-9 $chord-time all-released (navigation symbol)

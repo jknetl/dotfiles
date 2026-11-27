@@ -24,53 +24,89 @@ Caps  A     S     D     F     G  |  H     J     K     L     ;     '
       Ctrl  Opt   Cmd   Shift    |        Shift Cmd   Opt   Ctrl
 ```
 
-Tap = letter. Hold = modifier. The modifiers are **bilateral**: holding `F` (left Shift) and pressing `J` (right Shift) works normally; the bilateral-key lists prevent same-hand accidental modifier activation.
+Tap = letter. Hold = modifier. The HRM behavior is modeled on the ZMK keymap in `zmk_mylayout_5.4.keymap` (Go60), so the laptop feels like the docked keyboard.
 
-## Why This Structure
+**Requires kanata >= 1.12.0** (`defhands`, `tap-hold-opposite-hand-release`, `require-prior-idle`). Check with `kanata --version`.
 
-### The doubling problem
+## How the HRMs resolve
 
-OS auto-repeat and kanata's tap-hold resolution can collide: if you're still physically releasing a home-row key when auto-repeat fires the next keypress, you get a doubled letter (`the` → `thee`). This is the most common HRM complaint.
+Each home-row key is `tap-hold-opposite-hand-release`, the equivalent of ZMK's `tap-preferred` hold-tap with `hold-trigger-key-positions` + `hold-trigger-on-release`:
 
-### Fix: fast-typing exclusion (`nomods` layer)
+| Situation | Result | ZMK equivalent |
+|---|---|---|
+| A key from the **opposite hand** is pressed *and released* while the HRM key is held | modifier | `hold-trigger-key-positions` + `hold-trigger-on-release` |
+| A key from the **same hand** is pressed | letter | positional hold-tap (same-hand keys not in the trigger list) |
+| A thumb key (`spc`, `f13`) is pressed and released | modifier | thumb positions in the trigger list |
+| Held past the per-finger tapping term with nothing else | modifier | `tap-preferred` timeout |
+| Pressed within `idle-*` ms after any other key | letter immediately | `require-prior-idle-ms` |
+| Tapped, then pressed again within `quick-tap` ms | letter again (key repeat works) | `quick-tap-ms` |
 
-While you're typing letters, kanata automatically switches to the `nomods` layer — an identical copy of `qwerty` with the eight HRM aliases replaced by plain letters. After `hrm-idle-ms` milliseconds of idle, it switches back to `qwerty` (with HRMs enabled). This is kanata's equivalent of ZMK's `require-prior-idle-ms` / QMK's Flow Tap.
+Hand assignment comes from the `defhands` block (whole keyboard, not just letters). Consequence, same as on ZMK: same-hand modifier chords (e.g. holding `A` + `F` on the left hand) are not possible; use one key from each hand.
 
-The mechanism: every HRM tap action includes `@tap`, which triggers the layer switch + idle return via `on-idle-fakekey`.
-
-`nomods` keeps `@spc-arr` and `@f13` live, so the symbol and navigation layers stay reachable mid-burst. Only the eight home-row modifiers are suppressed. (Replace them with plain `spc` / `f13` if you also get accidental layer activations from lingering on space.)
-
-**This mechanism breaks silently if the `nomods` layer is missing** — `@tap` then becomes `(layer-switch qwerty)` from `qwerty`, a no-op, and the config still passes `--check`. If accidental modifiers suddenly get worse, check that `deflayer nomods` exists and that `tap` switches to it.
-
-### Fix: `tap-hold-release-tap-keys-release`
-
-The HRM action used here resolves the hold/tap ambiguity by watching *which keys* were pressed and *how they were released*, not just timing. Signature:
-
-```
-(tap-hold-release-tap-keys-release $repress-time $hold-time $tap $hold
-                                  $tap-trigger-keys-on-press
-                                  $tap-trigger-keys-on-press-then-release)
-```
-
-- Same-hand non-HRM keys (`$*-hand-press`) pressed → immediate tap (bilateral exclusion)
-- Same-hand HRM keys (`$*-hand-release`): if released → tap; if held → hold (allows same-hand mod chords like Ctrl+Shift)
-- Other-hand keys → no early tap; resolved by `hold-time` alone. This is the case `nomods` covers.
+The old `nomods` helper layer and the `@tap` / `on-idle-fakekey` machinery were removed: `require-prior-idle` does the same job natively and per finger. The `nav-*` / `sym-*` aliases use the same mechanism.
 
 ## Timing Knobs
 
+Per-finger values are copied from the ZMK behaviors (`HRM_*_v1_TKZ`):
+
 | Variable | Current | What it controls |
 |---|---|---|
-| `repress-time` | 200ms | Max time for a tap (release within this → letter) |
-| `hold-time` | 200ms | Min time for a hold (held longer than this → modifier) |
+| `tt-index` | 190ms | Tapping term for `F` / `J` (hold after this with no other key) |
+| `tt-middy` / `tt-ring` | 210ms | Tapping term for `D` `K` / `S` `L` |
+| `tt-pinky` | 260ms | Tapping term for `A` / `;` |
+| `idle-index` | 100ms | Index keys: typed this soon after another key → always a letter |
+| `idle-other` | 150ms | Same for middle/ring/pinky |
+| `quick-tap` | 300ms | Re-press window after a tap → letter again / key repeat |
+| `repress-time`, `hold-time` | 200ms | Non-HRM tap-holds (Tab, Space, Caps, `'`, …) |
 | `quick-hold-time` | 100ms (Linux) / 120ms (macOS) | Hold time for `` ` `` → symbol layer |
-| `hrm-idle-ms` | 90ms | Idle window before re-enabling HRMs after a letter tap |
 | `chord-time` | 80ms | Max spread for a `defchordsv2` chord |
 
-**Tuning:**
-- Still getting doubled letters? Raise `hrm-idle-ms`: 90 → 150 → 200
-- Modifiers feel sluggish to engage during normal typing? Lower `hrm-idle-ms`
-- Accidental mod fires (modifier triggers when you meant a letter)? Raise `hold-time`
-- Taps feel unresponsive? Lower `repress-time`
+## Adjusting the HRMs
+
+### Workflow
+
+1. Edit the values in the `defvar` block at the top of **both** `kanata.kbd` and `kanata-macos.kbd` (keep them in sync, see `CLAUDE.md`).
+2. Validate: `kanata --cfg kanata.kbd --check` (and `kanata-macos.kbd`).
+3. Reload (see [Reload](#reload)) and type for a while. Change **one knob at a time**, by small steps (10-20ms for `tt-*`, 25-50ms for `idle-*`).
+
+### Symptom → knob
+
+| Symptom | Cause | Fix |
+|---|---|---|
+| Modifier fires while typing a word fast (e.g. `as` gives Alt+s) | HRM key pressed too soon after another key, or rolled over with an opposite-hand key | Raise `idle-other` (150 → 200) or `idle-index` (100 → 150) |
+| Same, but only for one finger | That finger's tapping term is too short | Raise that finger's `tt-*` |
+| Modifier doesn't fire when held on purpose | Tapping term too long, or `idle-*` too high so quick shortcuts count as typing | Lower that finger's `tt-*`, or lower `idle-*` |
+| Shortcut like `Ctrl+C` right after typing gives a letter instead | `idle-*` window still open | Lower `idle-*`, or pause briefly before the shortcut |
+| Holding a home-row key for key repeat gives a modifier | Re-press after a tap is outside `quick-tap` | Raise `quick-tap` |
+| Doubled letters (`the` → `thee`) | `quick-tap` too long, so a legitimate second tap is treated as a repeat | Lower `quick-tap` |
+| Tab / Space / Caps / `'` feel unresponsive or misfire | These are plain tap-holds, not HRMs | Tune `repress-time` / `hold-time` |
+| Same-hand chord (e.g. `A`+`F`) never gives both modifiers | By design, same-hand keys always resolve as a tap (same as ZMK) | Use one key from each hand, or set `(same-hand hold)` on the alias |
+
+### Which knob does what
+
+- **`tt-*` (tapping term):** how long a key must be held, with no other key involved, before it becomes a modifier. Longer is safer against false activation but slower to hold.
+- **`idle-*` (require-prior-idle):** if any key was pressed less than this many ms before, the HRM key is a letter immediately. This is the main defence against false activation during fast typing. Index fingers get a shorter window because they hold modifiers most often.
+- **`quick-tap`:** after a tap, pressing the same key again within this window is always a letter, which makes key repeat work.
+
+### Per-key and structural tweaks
+
+These are edited in the HRM `defalias` blocks (`a s d f j k l ;`, plus `nav-*` and `sym-*`), which all share the same option list:
+
+```
+(tap-hold-opposite-hand-release $tt-pinky a lalt
+  (timeout hold) (same-hand tap) (neutral-keys spc f13) (neutral hold)
+  (require-prior-idle $idle-other) (tap-repress-timeout $quick-tap))
+```
+
+| Option | Effect of changing it |
+|---|---|
+| `(timeout hold)` → `(timeout tap)` | Holding without pressing another key outputs the letter instead of the modifier. Only opposite-hand keys can then trigger the modifier. |
+| `(same-hand tap)` → `(same-hand hold)` / `ignore` | `hold` makes a same-hand key trigger the modifier (allows same-hand chords, more false activations). `ignore` waits for the timeout instead of deciding. |
+| `(neutral hold)` → `(neutral tap)` | `spc` / `f13` stop triggering the modifier, so `Space` after a home-row key is always a letter first. Useful if `a`+`Space` gives Alt+Space by accident. |
+| `tap-hold-opposite-hand-release` → `tap-hold-opposite-hand` | Decide on the opposite key's **press** instead of press+release: faster modifiers, more false activations on rolls. |
+| `defhands` | Add or move keys between hands. A key missing from both lists is treated as unknown and ignored. |
+
+Per-key values can also be overridden in the alias itself, e.g. `(require-prior-idle 200)` for a single key instead of a shared variable.
 
 Changes take effect after reloading kanata.
 
@@ -79,7 +115,6 @@ Changes take effect after reloading kanata.
 | Layer | How to reach | Purpose |
 |---|---|---|
 | `qwerty` | default | Normal typing with HRMs |
-| `nomods` | auto (while typing fast) | Same as qwerty but plain letters on home row |
 | `navigation` | hold Space, hold right Space (`f13`), hold right Cmd / right Alt, or hold Tab | Arrows on hjkl, F-keys on number row, `up` on W, reload (`lrld`) on R, caps-word on Caps |
 | `symbol` | hold `` ` `` | Numpad on right half, `Del`/`Bksp` on left, `=` on G, `-` on P, `` ` `` on Tab, `!@#$%` on QWERT, `^&*-` on ASDF |
 
