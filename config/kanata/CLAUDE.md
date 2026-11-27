@@ -25,3 +25,7 @@ Known intentional differences to preserve (don't "fix" these into matching):
 
 After editing, update `README.md` if the change affects layer behavior,
 bindings tables, or timing knobs documented there.
+
+The HRM behavior and timings mirror the ZMK keymap in `../zmk/go60/zmk_mylayout_5.4.keymap`
+(exported from the Go60 layout editor; reference only, not symlinked by `./install`).
+When changing HRM timings, compare against its `HRM_*_v1_TKZ` behaviors.

@@ -2,6 +2,8 @@
 
 Kanata is a software keyboard remapper. These configs implement **Home Row Mods (HRM)** — the home-row letter keys double as modifier keys when held.
 
+The HRM behavior is modeled on the ZMK keymap of the docked MoErgo Go60, kept in this repo at [`../zmk/go60/zmk_mylayout_5.4.keymap`](../zmk/go60/zmk_mylayout_5.4.keymap). It is the reference for the per-finger timings; if you retune the HRMs there, mirror the change here.
+
 Two config files:
 - `kanata.kbd` — Linux (bottom-left physical order: `lctl lmet lalt`)
 - `kanata-macos.kbd` — macOS (bottom-left physical order: `lctl lalt lmet`)
